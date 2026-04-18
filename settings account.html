@@ -170,21 +170,19 @@
                     </button>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<div class="relative group w-32 h-32">
-<div class="absolute inset-0 bg-primary-container rounded-full opacity-20 group-hover:opacity-30 transition-opacity"></div>
-<img alt="User Profile" class="w-full h-full rounded-full object-cover border-4 border-surface-container-lowest" data-alt="professional headshot of a mature security architect with short hair and calm, intelligent expression, cinematic studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5NqZFPgbSNN_YndlO4bTL9HK3UdJDnlJdgOeKVqEISYgBn3AioRoH61kun72BiBysQ8j7oC4i1baNK6Zfsg-lbT0lFLiF3ho25haIUxOqiPBADfics5Oq3aZaKfIJWDwQOv0LUc-0yodheYvTwyHAhJ2I5L-GcAH56SO2R-IiKyWrPWfCJ8sN_X_piS1FRjayqM4Q9G0obR-Dmta1V70GrOa0tTidFQo8dwJMegoDMYToIzqdkaCTw2p2wJS4tObUzZyau1pB2uA"/>
+<img id="profile-img" alt="User Profile" class="w-full h-full rounded-full object-cover border-4 border-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn-6WvG-aA3xR6RkUjMvM9yJ6D_7T3fIqZ7H3C-oZ1_1LhV39P0-Sg-vA"/>
 <button class="absolute bottom-0 right-0 bg-surface-container-lowest p-2 rounded-full shadow-md text-primary">
 <span class="material-symbols-outlined text-xl" data-icon="photo_camera">photo_camera</span>
 </button>
 </div>
 <div class="space-y-6">
 <div class="bg-surface-container-lowest rounded-DEFAULT p-4">
-<label class="block text-[0.6875rem] font-bold text-outline tracking-wider uppercase mb-1">Full Legal Name</label>
-<p class="text-on-surface font-medium">Dr. Julian Vane</p>
+<label class="block text-[0.6875rem] font-bold text-outline tracking-wider uppercase mb-1">Full Name</label>
+<p id="profile-name" class="text-on-surface font-medium">Guest User</p>
 </div>
 <div class="bg-surface-container-lowest rounded-DEFAULT p-4">
-<label class="block text-[0.6875rem] font-bold text-outline tracking-wider uppercase mb-1">Electronic Mail</label>
-<p class="text-on-surface font-medium">julian.vane@clinicalsentinel.io</p>
+<label class="block text-[0.6875rem] font-bold text-outline tracking-wider uppercase mb-1">Email Address</label>
+<p id="profile-email" class="text-on-surface font-medium">N/A</p>
 </div>
 </div>
 </div>
@@ -216,14 +214,8 @@
 </div>
 </div>
 <div class="border-t border-surface-container pt-4">
-<p class="text-sm font-bold text-on-surface mb-3">Active API Keys</p>
-<div class="bg-surface-container-low p-3 rounded-DEFAULT flex items-center justify-between mb-2">
-<span class="text-[10px] font-mono text-on-surface-variant">sk_live_....4x9f</span>
-<span class="material-symbols-outlined text-sm text-outline cursor-pointer" data-icon="content_copy">content_copy</span>
-</div>
-<button class="w-full py-2 bg-surface-container-high text-primary text-xs font-bold rounded-full hover:bg-surface-container-highest transition-colors">
-                                Generate New Key
-                            </button>
+<p class="text-sm font-bold text-on-surface mb-3">Workspace Identity</p>
+<p class="text-xs text-on-surface-variant leading-relaxed">Your account is secured via clinical-grade encryption protocol. No external API keys are active for this instance.</p>
 </div>
 </div>
 </div>
@@ -298,26 +290,16 @@
 <h2 class="text-xl font-bold tracking-tight text-on-surface">Recent Sessions</h2>
 <span id="link-logout-all" class="text-xs font-bold text-primary cursor-pointer hover:underline">Sign Out of All Sessions</span>
 </div>
-<div class="space-y-4">
+<div id="session-list" class="space-y-4">
 <div class="flex items-center justify-between py-2 border-b border-surface-container">
 <div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-outline" data-icon="laptop_mac">laptop_mac</span>
+<span class="material-symbols-outlined text-outline">laptop_mac</span>
 <div>
-<p class="text-sm font-medium text-on-surface">macOS • Chrome</p>
-<p class="text-[10px] text-on-surface-variant">London, UK • Current Session</p>
+<p class="text-sm font-medium text-on-surface">Current Browser</p>
+<p class="text-[10px] text-on-surface-variant">Active Session</p>
 </div>
 </div>
 <div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(0,61,155,0.4)]"></div>
-</div>
-<div class="flex items-center justify-between py-2 border-b border-surface-container">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-outline" data-icon="smartphone">smartphone</span>
-<div>
-<p class="text-sm font-medium text-on-surface">iOS • Sentinel App</p>
-<p class="text-[10px] text-on-surface-variant">Manchester, UK • 2 hours ago</p>
-</div>
-</div>
-<span class="material-symbols-outlined text-sm text-outline cursor-pointer" data-icon="close">close</span>
 </div>
 </div>
 </div>
@@ -380,11 +362,16 @@
                 <span class="material-symbols-outlined text-on-surface-variant">account_circle</span>
             </button>
         `;
+        document.getElementById('profile-name').textContent = "Sentinel Member";
+        document.getElementById('profile-email').textContent = "member@clinicalsentinel.io";
     } else {
         authArea.innerHTML = `
             <a href="login.html" class="text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors uppercase tracking-widest px-2">Log In</a>
             <a href="signup.html" class="bg-primary text-on-primary px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-primary-container transition-all shadow-md">Get Started</a>
         `;
+        document.getElementById('profile-name').textContent = "Guest User";
+        document.getElementById('profile-email').textContent = "Sign in to view email";
+        document.getElementById('profile-img').style.filter = "grayscale(100%) opacity(50%)";
     }
 </script>
 </body></html>

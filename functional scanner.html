@@ -137,6 +137,7 @@
 <h2 class="text-5xl font-extrabold tracking-tight text-on-surface mt-2">Scanner</h2>
 </div>
 <div class="flex space-x-4" id="header-auth-area">
+<div class="h-10 w-10 rounded-full bg-surface-container animate-pulse"></div>
 <button class="flex items-center space-x-2 bg-primary-container text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-primary-container/20 active:scale-95 transition-transform" id="btn-new-scan">
 <span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
 <span>New Scan</span>
@@ -226,7 +227,7 @@
 <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-8">Scan Statistics</h4>
 <div class="space-y-10">
 <div>
-<div class="text-6xl font-black text-primary tracking-tighter">100%</div>
+<div class="text-6xl font-black text-primary tracking-tighter">--%</div>
 <p class="text-xs font-bold text-slate-500 mt-2 uppercase tracking-wide">Threat Accuracy</p>
 </div>
 <div class="grid grid-cols-2 gap-4">
@@ -514,13 +515,30 @@
         const authArea = document.getElementById('header-auth-area');
         const isLoggedIn = localStorage.getItem('cs_logged_in');
 
-        if (!isLoggedIn) {
-            // Add Sign In button next to New Scan or replace part of it
-            const signInBtn = document.createElement('a');
-            signInBtn.href = 'login.html';
-            signInBtn.className = "flex items-center bg-white text-primary border border-primary/20 px-6 py-3 rounded-full font-bold text-sm shadow-sm hover:bg-slate-50 transition-all";
-            signInBtn.textContent = "Sign In";
-            authArea.prepend(signInBtn);
+        if (isLoggedIn) {
+            authArea.innerHTML = `
+                <div class="flex items-center gap-4">
+                    <button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-full transition-all active:scale-95 duration-200">
+                        <span class="material-symbols-outlined text-slate-500">notifications</span>
+                    </button>
+                    <div class="h-10 w-10 rounded-full overflow-hidden bg-surface-container">
+                        <img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn-6WvG-aA3xR6RkUjMvM9yJ6D_7T3fIqZ7H3C-oZ1_1LhV39P0-Sg-vA"/>
+                    </div>
+                </div>
+                <button class="flex items-center space-x-2 bg-primary-container text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-primary-container/20 active:scale-95 transition-transform" id="btn-new-scan">
+                    <span class="material-symbols-outlined text-[20px]">add</span>
+                    <span>New Scan</span>
+                </button>
+            `;
+        } else {
+            authArea.innerHTML = `
+                <a href="login.html" class="text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors uppercase tracking-widest px-2">Log In</a>
+                <a href="signup.html" class="bg-primary text-on-primary px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-primary-container transition-all shadow-md">Get Started</a>
+                <button class="flex items-center space-x-2 bg-slate-100 text-slate-400 px-6 py-3 rounded-full font-bold text-sm cursor-not-allowed opacity-50" id="btn-new-scan">
+                    <span class="material-symbols-outlined text-[20px]">add</span>
+                    <span>New Scan</span>
+                </button>
+            `;
         }
 
         document.getElementById('btn-new-scan').addEventListener('click', () => {
@@ -529,7 +547,6 @@
                 window.location.href = 'login.html';
                 return;
             }
-            // Original logic for New Scan (resetting the input area, etc.)
             inputHeaders.value = '';
             resetFileState();
         });
