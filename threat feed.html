@@ -17,7 +17,7 @@
                     "colors": {
                         "on-tertiary-fixed": "#380d00",
                         "error-container": "#ffdad6",
-                        "background": "#f7f9ff",
+                        "background": "#f0f4f9",
                         "outline-variant": "#c3c6d6",
                         "on-surface-variant": "#434654",
                         "inverse-surface": "#2d3135",
@@ -28,7 +28,7 @@
                         "surface-container-highest": "#e0e2e8",
                         "tertiary": "#7b2600",
                         "surface-container-lowest": "#ffffff",
-                        "surface": "#f7f9ff",
+                        "surface": "#f0f4f9",
                         "on-error": "#ffffff",
                         "on-primary": "#ffffff",
                         "secondary-container": "#b6c8fe",
@@ -49,10 +49,10 @@
                         "surface-tint": "#0c56d0",
                         "on-tertiary": "#ffffff",
                         "primary-fixed-dim": "#b2c5ff",
-                        "surface-container-low": "#f1f3f9",
+                        "surface-container-low": "#f8f9fc",
                         "primary-container": "#0052cc",
                         "on-secondary-container": "#415382",
-                        "surface-container": "#eceef4",
+                        "surface-container": "#f1f3f8",
                         "tertiary-fixed": "#ffdbcf",
                         "tertiary-container": "#a33500",
                         "surface-bright": "#f7f9ff",
@@ -157,16 +157,16 @@
 <h1 class="text-[3.5rem] font-black tracking-tight text-on-background leading-none mt-2">Threat Feed</h1>
 </div>
 <div class="flex gap-4">
-<div class="bg-surface-container-low px-6 py-4 rounded-lg flex flex-col items-end">
-<span class="text-[0.625rem] font-bold text-outline uppercase tracking-wider">Operational Status</span>
-<span class="text-xl font-bold text-primary">System Nominal</span>
+<div class="bg-white border border-slate-200/60 px-6 py-4 rounded-2xl flex flex-col items-end shadow-sm">
+<span class="text-[0.625rem] font-bold text-slate-400 uppercase tracking-wider">Operational Status</span>
+<span class="text-xl font-black text-primary">SYSTEM NOMINAL</span>
 </div>
 </div>
 </header>
 <!-- Bento Grid Content -->
 <div class="grid grid-cols-12 gap-6">
 <!-- Global Map Section (Bento Large) -->
-<section class="col-span-12 lg:col-span-8 bg-surface-container-low rounded-lg overflow-hidden relative group">
+<section class="col-span-12 lg:col-span-8 bg-white border border-slate-200/60 rounded-3xl overflow-hidden relative group shadow-sm">
 <div class="absolute inset-0 z-0">
 <img class="w-full h-full object-cover opacity-80 mix-blend-multiply transition-transform duration-700 group-hover:scale-105" data-alt="Abstract stylized world map with glowing blue network connections and highlighted threat nodes on a dark background" data-location="Global Intelligence Network" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcahVUpjMlaTwitkFhRK9zhPrtq6PU4dLJXyxuWJbO8WgJBd3_NMlxLPpDiwBdlg69eJuk1xTKuI_hsnkN538SC8IrG6lweE5YMxvpaOaSYYKxw7CS5DlwEA3q68ZraIzL71pbKQzYKGBgNLeqBKIR-DtPerQUYfpU0bTSPjQa9-v5b0B94918eLk-yHd634LoJOwkCmwo74vKXO5wJVWKL9_wAi8EIa3M-VhQdUs8nnP5wcnaQ6Vj325-ISUJrcvcXkIbJ_CgpuI"/>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
@@ -198,13 +198,13 @@
 <!-- Statistics Column (Bento Vertical) -->
 <section class="col-span-12 lg:col-span-4 space-y-6">
 <!-- Stat Card 1 -->
-<div class="bg-surface-container-lowest p-8 rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-outline-variant/10">
-<span class="text-[0.6875rem] font-bold text-outline uppercase tracking-widest">Today's Activity</span>
+<div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/60">
+<span class="text-[0.6875rem] font-bold text-slate-400 uppercase tracking-widest">Today's Activity</span>
 <div class="mt-4 flex items-baseline gap-2">
 <span class="text-4xl font-black text-on-background">0</span>
-<span class="text-sm text-on-surface-variant font-medium">Total Scans</span>
+<span class="text-sm text-slate-500 font-medium lowercase">total scans performed</span>
 </div>
-<div class="mt-6 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="mt-6 h-2 bg-slate-100 rounded-full overflow-hidden">
 <div class="h-full bg-primary w-[0%] rounded-full"></div>
 </div>
 <div class="mt-3 flex justify-between text-xs font-bold uppercase tracking-tighter">
@@ -212,12 +212,31 @@
 <span class="text-error">0% Flagged</span>
 </div>
 </div>
+
+<!-- Node Integrity Card [NEW] -->
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/60">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined text-sm font-bold">hub</span>
+</div>
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Node Health Grid</span>
+</div>
+<div class="grid grid-cols-6 gap-1">
+<div class="h-2 w-full bg-emerald-400 rounded-sm animate-pulse"></div>
+<div class="h-2 w-full bg-emerald-400 rounded-sm"></div>
+<div class="h-2 w-full bg-emerald-400 rounded-sm animate-pulse" style="animation-delay: 0.2s"></div>
+<div class="h-2 w-full bg-slate-200 rounded-sm"></div>
+<div class="h-2 w-full bg-emerald-400 rounded-sm"></div>
+<div class="h-2 w-full bg-emerald-400 rounded-sm animate-pulse" style="animation-delay: 0.5s"></div>
+</div>
+</div>
+
 <!-- Stat Card 2 -->
-<div class="bg-surface-container-lowest p-8 rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-outline-variant/10">
-<span class="text-[0.6875rem] font-bold text-outline uppercase tracking-widest">Threats Blocked</span>
+<div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/60">
+<span class="text-[0.6875rem] font-bold text-slate-400 uppercase tracking-widest">Threats Blocked</span>
 <div class="mt-4 flex items-baseline gap-2">
 <span class="text-4xl font-black text-on-surface">0</span>
-<span class="text-sm text-on-surface-variant font-medium">Anomalies</span>
+<span class="text-sm text-slate-500 font-medium">Anomalies</span>
 </div>
 <div class="mt-6 flex gap-1 items-end h-16">
 <div class="bg-error/10 w-full h-[40%] rounded-t-sm"></div>
@@ -228,7 +247,7 @@
 <div class="bg-error/40 w-full h-[85%] rounded-t-sm"></div>
 <div class="bg-error w-full h-[100%] rounded-t-sm"></div>
 </div>
-<p class="text-[0.625rem] text-center mt-3 text-outline uppercase font-bold tracking-widest">Hourly Threat Velocity</p>
+<p class="text-[0.625rem] text-center mt-3 text-slate-400 uppercase font-bold tracking-widest">Hourly Threat Velocity</p>
 </div>
 </section>
 <!-- Malware Signatures Feed (Long Editorial Style) -->

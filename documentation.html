@@ -21,19 +21,19 @@
                     "on-surface": "#181c20",
                     "secondary": "#4c5d8d",
                     "on-tertiary": "#ffffff",
-                    "surface": "#f7f9ff",
+                    "surface": "#f0f4f9",
                     "secondary-fixed": "#dae2ff",
                     "on-primary": "#ffffff",
                     "inverse-primary": "#b2c5ff",
                     "surface-container-high": "#e6e8ee",
                     "error-container": "#ffdad6",
-                    "surface-container-low": "#f1f3f9",
+                    "surface-container-low": "#f8f9fc",
                     "on-surface-variant": "#434654",
                     "on-error": "#ffffff",
                     "on-secondary-fixed": "#021945",
                     "inverse-surface": "#2d3135",
                     "surface-container-highest": "#e0e2e8",
-                    "surface-container": "#eceef4",
+                    "surface-container": "#f1f3f8",
                     "secondary-container": "#b6c8fe",
                     "on-tertiary-fixed-variant": "#812800",
                     "on-primary-fixed": "#001848",
@@ -56,7 +56,7 @@
                     "tertiary-fixed-dim": "#ffb59b",
                     "on-error-container": "#93000a",
                     "on-secondary": "#ffffff",
-                    "background": "#f7f9ff",
+                    "background": "#f0f4f9",
                     "outline": "#737685",
                     "secondary-fixed-dim": "#b4c5fb",
                     "primary-fixed-dim": "#b2c5ff",
@@ -158,27 +158,27 @@
 </section>
 <!-- Grid of Guides (Asymmetric / Bento Style) -->
 <div class="grid grid-cols-12 gap-8 mb-16">
-<!-- Large Card -->
-<div class="col-span-8 bg-surface-container-lowest p-10 rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.02)] border-b-2 border-primary/5">
-<div class="flex items-start justify-between mb-8">
-<div>
-<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="security">security</span>
-<h3 class="text-2xl font-bold text-on-surface">Security Protocol Explanations</h3>
-</div>
-<span class="bg-success text-success-container px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-green-100 text-green-700">Updated</span>
-</div>
-<p class="text-on-surface-variant leading-relaxed mb-8 max-w-xl">Deep dive into our proprietary scanning engine. Learn how we utilize heuristic analysis and machine learning to intercept zero-day threats before they reach the inbox.</p>
-<div class="grid grid-cols-2 gap-4">
-<div class="p-4 bg-surface-container rounded-xl hover:bg-surface-container-high cursor-pointer transition-colors">
-<h4 class="font-bold text-sm mb-1">MTA Security Layers</h4>
-<p class="text-xs text-on-surface-variant">Understanding SPF, DKIM, and DMARC enforcement.</p>
-</div>
-<div class="p-4 bg-surface-container rounded-xl hover:bg-surface-container-high cursor-pointer transition-colors">
-<h4 class="font-bold text-sm mb-1">Encrypted Payload Scan</h4>
-<p class="text-xs text-on-surface-variant">Protocol for analyzing password-protected ZIPs.</p>
-</div>
-</div>
-</div>
+    <!-- Large Card -->
+    <div class="col-span-8 bg-white p-10 rounded-3xl shadow-sm border border-slate-200/60">
+        <div class="flex items-start justify-between mb-8">
+            <div>
+                <span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="security">security</span>
+                <h3 class="text-2xl font-black text-on-surface tracking-tighter">Security Protocol Explanations</h3>
+            </div>
+            <span class="px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-600 border border-emerald-100/50">Updated</span>
+        </div>
+        <p class="text-slate-500 leading-relaxed mb-8 max-w-xl font-medium">Deep dive into our proprietary scanning engine. Learn how we utilize heuristic analysis and machine learning to intercept zero-day threats before they reach the inbox.</p>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:border-primary/20 hover:bg-white cursor-pointer transition-all group">
+                <h4 class="font-bold text-sm mb-1 group-hover:text-primary">MTA Security Layers</h4>
+                <p class="text-xs text-slate-400">Understanding SPF, DKIM, and DMARC enforcement.</p>
+            </div>
+            <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:border-primary/20 hover:bg-white cursor-pointer transition-all group">
+                <h4 class="font-bold text-sm mb-1 group-hover:text-primary">Encrypted Payload Scan</h4>
+                <p class="text-xs text-slate-400">Protocol for analyzing password-protected ZIPs.</p>
+            </div>
+        </div>
+    </div>
 <!-- Tall Card -->
 <div class="col-span-4 bg-surface-container-low p-8 rounded-lg flex flex-col">
 <div class="flex-1">
@@ -224,11 +224,11 @@
 </div>
 </div>
 <!-- Content Section (Typography Focused) -->
-<article class="prose prose-slate max-w-none bg-surface-container-lowest p-16 rounded-xl shadow-sm border border-outline-variant/10">
-<div class="mb-12 pb-12 border-b border-surface-container">
-<h2 class="text-4xl font-black text-on-surface tracking-tight mb-4">Security Protocol: Heuristic Analysis</h2>
-<p class="text-xl text-on-surface-variant font-light italic leading-relaxed">"The sentinel never sleeps, looking not for known patterns, but for the intent of malice."</p>
-</div>
+<article class="prose prose-slate max-w-none bg-white p-12 md:p-20 rounded-3xl shadow-sm border border-slate-200/60">
+    <div class="mb-12 pb-12 border-b border-slate-100">
+        <h2 class="text-4xl font-black text-on-surface tracking-tight mb-4">Security Protocol: Heuristic Analysis</h2>
+        <p class="text-xl text-slate-500 font-light italic leading-relaxed">"The sentinel never sleeps, looking not for known patterns, but for the intent of malice."</p>
+    </div>
 <div class="grid grid-cols-12 gap-12">
 <div class="col-span-8 space-y-8">
 <div>

@@ -17,7 +17,7 @@
             "colors": {
                     "on-tertiary-fixed": "#380d00",
                     "error-container": "#ffdad6",
-                    "background": "#f7f9ff",
+                    "background": "#f0f4f9",
                     "outline-variant": "#c3c6d6",
                     "on-surface-variant": "#434654",
                     "inverse-surface": "#2d3135",
@@ -28,7 +28,7 @@
                     "surface-container-highest": "#e0e2e8",
                     "tertiary": "#7b2600",
                     "surface-container-lowest": "#ffffff",
-                    "surface": "#f7f9ff",
+                    "surface": "#f0f4f9",
                     "on-error": "#ffffff",
                     "on-primary": "#ffffff",
                     "secondary-container": "#b6c8fe",
@@ -49,10 +49,10 @@
                     "surface-tint": "#0c56d0",
                     "on-tertiary": "#ffffff",
                     "primary-fixed-dim": "#b2c5ff",
-                    "surface-container-low": "#f1f3f9",
+                    "surface-container-low": "#f8f9fc",
                     "primary-container": "#0052cc",
                     "on-secondary-container": "#415382",
-                    "surface-container": "#eceef4",
+                    "surface-container": "#f1f3f8",
                     "tertiary-fixed": "#ffdbcf",
                     "tertiary-container": "#a33500",
                     "surface-bright": "#f7f9ff",
@@ -127,37 +127,38 @@
 </div>
 </header>
 <!-- Stats Bento Section -->
-<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-<div class="md:col-span-1 p-6 rounded-lg bg-surface-container-low editorial-shadow flex flex-col justify-between h-40">
-<span class="text-[0.6875rem] font-bold tracking-widest text-outline uppercase">Total Scans</span>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<div class="md:col-span-1 p-6 rounded-2xl bg-white border border-slate-200/60 shadow-sm flex flex-col justify-between h-40">
+<span class="text-[0.6875rem] font-bold tracking-widest text-slate-400 uppercase">Total Scans</span>
 <span class="text-4xl font-black text-primary" id="stat-total">0</span>
 </div>
-<div class="md:col-span-1 p-6 rounded-lg bg-surface-container-low editorial-shadow flex flex-col justify-between h-40">
+<div class="md:col-span-1 p-6 rounded-2xl bg-white border border-slate-200/60 shadow-sm flex flex-col justify-between h-40">
 <span class="text-[0.6875rem] font-bold tracking-widest text-error uppercase">Malicious Blocked</span>
 <span class="text-4xl font-black text-error" id="stat-blocked">0</span>
 </div>
-<div class="md:col-span-2 p-6 rounded-lg bg-primary-container text-on-primary-container editorial-shadow flex items-center justify-between overflow-hidden relative">
+<div class="md:col-span-2 p-6 rounded-2xl bg-primary-container text-on-primary-container shadow-lg shadow-primary/20 flex items-center justify-between overflow-hidden relative">
 <div class="relative z-10">
-<p class="text-xl font-bold leading-tight mb-1">Sentinel Status: Optimal</p>
-<p class="text-sm opacity-80">99.9% protection rate achieved in the last 24h cycle.</p>
+<p class="text-[10px] font-bold uppercase tracking-widest opacity-70 mb-2">Network Health</p>
+<p class="text-2xl font-black leading-tight mb-2">Optimal Protection Active</p>
+<p class="text-sm opacity-80 max-w-[280px]">Automated heuristic nodes are synchronized and monitoring all traffic vectors.</p>
 </div>
-<span class="material-symbols-outlined text-6xl opacity-20 absolute -right-4 -bottom-4" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+<span class="material-symbols-outlined text-[120px] opacity-10 absolute -right-8 -bottom-8" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
 </div>
 </div>
 <!-- Scan History List -->
-<div class="bg-surface-container-low rounded-lg overflow-hidden editorial-shadow">
+<div class="bg-white border border-slate-200/60 rounded-2xl overflow-hidden shadow-sm">
 <div class="min-w-full inline-block align-middle">
 <div class="overflow-hidden">
 <table class="min-w-full">
-<thead class="bg-surface-container">
+<thead class="bg-slate-50 border-b border-slate-100">
 <tr>
-<th class="px-6 py-4 text-left text-[0.6875rem] font-bold tracking-widest text-outline uppercase" scope="col">Timestamp</th>
-<th class="px-6 py-4 text-left text-[0.6875rem] font-bold tracking-widest text-outline uppercase" scope="col">Email Subject / Entity</th>
-<th class="px-6 py-4 text-left text-[0.6875rem] font-bold tracking-widest text-outline uppercase" scope="col">Threat Level</th>
-<th class="px-6 py-4 text-right text-[0.6875rem] font-bold tracking-widest text-outline uppercase" scope="col">Actions</th>
+<th class="px-8 py-5 text-left text-[0.6875rem] font-bold tracking-widest text-slate-400 uppercase" scope="col">Timestamp</th>
+<th class="px-8 py-5 text-left text-[0.6875rem] font-bold tracking-widest text-slate-400 uppercase" scope="col">Email Subject / Entity</th>
+<th class="px-8 py-5 text-left text-[0.6875rem] font-bold tracking-widest text-slate-400 uppercase" scope="col">Threat Level</th>
+<th class="px-8 py-5 text-right text-[0.6875rem] font-bold tracking-widest text-slate-400 uppercase" scope="col">Actions</th>
 </tr>
 </thead>
-<tbody class="divide-y divide-surface-container-high bg-surface-container-low" id="history-table-body">
+<tbody class="divide-y divide-slate-100 bg-white" id="history-table-body">
 <tr>
 <td class="px-6 py-20 text-center" colspan="4">
 <div class="flex flex-col items-center justify-center text-slate-400">

@@ -21,19 +21,19 @@
                         "on-surface": "#181c20",
                         "secondary": "#4c5d8d",
                         "on-tertiary": "#ffffff",
-                        "surface": "#f7f9ff",
+                        "surface": "#f0f4f9",
                         "secondary-fixed": "#dae2ff",
                         "on-primary": "#ffffff",
                         "inverse-primary": "#b2c5ff",
                         "surface-container-high": "#e6e8ee",
                         "error-container": "#ffdad6",
-                        "surface-container-low": "#f1f3f9",
+                        "surface-container-low": "#f8f9fc",
                         "on-surface-variant": "#434654",
                         "on-error": "#ffffff",
                         "on-secondary-fixed": "#021945",
                         "inverse-surface": "#2d3135",
                         "surface-container-highest": "#e0e2e8",
-                        "surface-container": "#eceef4",
+                        "surface-container": "#f1f3f8",
                         "secondary-container": "#b6c8fe",
                         "on-tertiary-fixed-variant": "#812800",
                         "on-primary-fixed": "#001848",
@@ -56,7 +56,11 @@
                         "tertiary-fixed-dim": "#ffb59b",
                         "on-error-container": "#93000a",
                         "on-secondary": "#ffffff",
-                        "background": "#f7f9ff",
+                        "background": "#f0f4f9",
+                        "surface": "#f0f4f9",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f8f9fc",
+                        "surface-container": "#f1f3f8",
                         "outline": "#737685",
                         "secondary-fixed-dim": "#b4c5fb",
                         "primary-fixed-dim": "#b2c5ff",
@@ -149,7 +153,7 @@
 <!-- Left Panel: Scanner Interface -->
 <section class="col-span-12 lg:col-span-8 space-y-6">
 <!-- Main Scan Interface Card -->
-<div class="bg-surface-container-lowest rounded-xl p-1 clinical-shadow overflow-hidden" id="scan-interface">
+<div class="bg-white border border-slate-200/60 rounded-2xl overflow-hidden shadow-sm" id="scan-interface">
 <div class="flex border-b border-surface-container-low">
 <button class="flex-1 py-5 text-sm font-bold text-primary border-b-2 border-primary transition-colors" id="tab-direct">Direct Input</button>
 <button class="flex-1 py-5 text-sm font-bold text-slate-400 hover:text-primary transition-colors" id="tab-file">File Upload</button>
@@ -220,35 +224,44 @@
 <div id="activity-list" class="space-y-4 hidden"></div>
 </div>
 </section>
-<!-- Right Panel: Threat Summary -->
 <aside class="col-span-12 lg:col-span-4 space-y-6">
-<div class="bg-surface-container-highest rounded-xl p-8 relative overflow-hidden h-full">
+<div class="bg-white border border-slate-200/60 rounded-xl p-8 relative overflow-hidden shadow-sm">
 <div class="relative z-10">
-<h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-8">Scan Statistics</h4>
+<h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-8">Structural Blueprint</h4>
+<div class="space-y-6">
+<div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-100">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Payload Entropy</span>
+<span class="text-xs font-bold text-on-surface" id="blueprint-entropy">--</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-100">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Header Chain</span>
+<span class="text-xs font-bold text-on-surface" id="blueprint-chain">--</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-100">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">MIME Structural Check</span>
+<span class="text-xs font-bold text-primary animate-pulse">PENDING...</span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="bg-primary-container text-white rounded-xl p-8 shadow-lg relative overflow-hidden shadow-primary/20">
+<div class="relative z-10">
+<h4 class="text-sm font-bold opacity-70 uppercase tracking-widest mb-8">Scan Statistics</h4>
 <div class="space-y-10">
 <div>
-<div class="text-6xl font-black text-primary tracking-tighter">--%</div>
-<p class="text-xs font-bold text-slate-500 mt-2 uppercase tracking-wide">Threat Accuracy</p>
+<div class="text-6xl font-black text-white tracking-tighter">--%</div>
+<p class="text-xs font-bold opacity-70 mt-2 uppercase tracking-wide">Threat Accuracy</p>
 </div>
 <div class="grid grid-cols-2 gap-4">
-<div class="bg-surface-container-lowest p-4 rounded-lg">
-<div class="text-2xl font-bold text-on-surface" id="stat-scanned">0</div>
-<p class="text-[10px] font-bold text-slate-400 uppercase">Scanned Today</p>
+<div class="bg-white/10 p-4 rounded-lg border border-white/5">
+<div class="text-2xl font-bold" id="stat-scanned">0</div>
+<p class="text-[10px] font-bold opacity-60 uppercase">Scanned Today</p>
 </div>
-<div class="bg-surface-container-lowest p-4 rounded-lg">
-<div class="text-2xl font-bold text-error" id="stat-blocked">0</div>
-<p class="text-[10px] font-bold text-slate-400 uppercase">Threats Blocked</p>
+<div class="bg-white/10 p-4 rounded-lg border border-white/5">
+<div class="text-2xl font-bold" id="stat-blocked">0</div>
+<p class="text-[10px] font-bold opacity-60 uppercase">Threats Blocked</p>
 </div>
-</div>
-<div class="pt-6 border-t border-slate-300">
-<h5 class="text-[11px] font-bold text-slate-400 uppercase mb-4">Latest Threat Origin</h5>
-<div class="flex items-center space-x-3">
-<div class="w-10 h-10 bg-error-container rounded-lg flex items-center justify-center">
-<span class="material-symbols-outlined text-error" data-icon="location_on">location_on</span>
-</div>
-<div>
-<p class="text-sm font-bold" id="stat-latest-threat">None Detected</p>
-<p class="text-[10px] text-slate-500 uppercase" id="stat-latest-threat-id">--</p>
 </div>
 </div>
 </div>
