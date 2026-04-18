@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#c4d2ff",
+                    "primary-fixed": "#dae2ff",
+                    "on-secondary-fixed-variant": "#344573",
+                    "on-surface": "#181c20",
+                    "secondary": "#4c5d8d",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f7f9ff",
+                    "secondary-fixed": "#dae2ff",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#b2c5ff",
+                    "surface-container-high": "#e6e8ee",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f1f3f9",
+                    "on-surface-variant": "#434654",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#021945",
+                    "inverse-surface": "#2d3135",
+                    "surface-container-highest": "#e0e2e8",
+                    "surface-container": "#eceef4",
+                    "secondary-container": "#b6c8fe",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "on-primary-fixed": "#001848",
+                    "surface-variant": "#e0e2e8",
+                    "surface-tint": "#0c56d0",
+                    "outline-variant": "#c3c6d6",
+                    "tertiary-fixed": "#ffdbcf",
+                    "primary-container": "#0052cc",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#003d9b",
+                    "inverse-on-surface": "#eff1f7",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#a33500",
+                    "surface-dim": "#d8dae0",
+                    "tertiary": "#7b2600",
+                    "on-tertiary-fixed": "#380d00",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "surface-bright": "#f7f9ff",
+                    "on-secondary-container": "#415382",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "background": "#f7f9ff",
+                    "outline": "#737685",
+                    "secondary-fixed-dim": "#b4c5fb",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "on-background": "#181c20",
+                    "on-tertiary-container": "#ffc6b2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 24px 48px -12px rgba(24, 28, 32, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] no-border bg-gradient-to-b from-white to-transparent">
+<div class="flex justify-between items-center w-full px-10 h-20">
+<div class="text-xl font-black tracking-tighter text-blue-800 dark:text-blue-300">Clinical Sentinel</div>
+<div class="hidden md:flex items-center space-x-8 font-['Inter'] text-sm tracking-wide">
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-all duration-300" href="dashboard.html">Scanner</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-all duration-300" href="scan history.html">History</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-all duration-300" href="security vault.html">Vault</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-all duration-300" href="settings account.html">Settings</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="material-symbols-outlined text-slate-500 hover:bg-blue-50/50 p-2 rounded-full transition-all">notifications</button>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold text-sm scale-95 active:scale-90 transition-transform">Upgrade Plan</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-6 md:px-10 max-w-7xl mx-auto">
+<header class="mb-20 text-left">
+<span class="label-sm text-[11px] font-bold tracking-[0.2em] uppercase text-primary mb-4 block">Concierge Support</span>
+<h1 class="text-6xl md:text-7xl font-extrabold tracking-tighter text-on-surface mb-6 leading-none">How can we <br/><span class="text-primary-container">secure your flow?</span></h1>
+<p class="text-lg text-on-surface-variant max-w-2xl leading-relaxed">Access clinical-grade technical assistance and documentation for the Clinical Sentinel ecosystem. Our systems are currently operating at peak efficiency.</p>
+</header>
+<section class="mb-24">
+<div class="bg-surface-container-low rounded-xl p-8 flex flex-col md:flex-row items-center justify-between gap-8 border border-outline-variant/10">
+<div class="flex items-center gap-6">
+<div class="relative flex items-center justify-center">
+<div class="absolute w-12 h-12 bg-green-500/20 animate-ping rounded-full"></div>
+<div class="w-4 h-4 bg-green-500 rounded-full relative z-10"></div>
+</div>
+<div>
+<h3 class="text-xl font-bold tracking-tight">System Status: Operational</h3>
+<p class="text-sm text-on-surface-variant">All clinical security nodes are running within 12ms latency parameters.</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full md:w-auto">
+<div class="bg-surface-container-lowest p-4 rounded-lg editorial-shadow">
+<p class="text-[10px] font-bold uppercase tracking-wider text-outline mb-1">Threat Feed</p>
+<p class="text-sm font-semibold text-green-600">Active</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg editorial-shadow">
+<p class="text-[10px] font-bold uppercase tracking-wider text-outline mb-1">Vault</p>
+<p class="text-sm font-semibold text-green-600">Active</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg editorial-shadow">
+<p class="text-[10px] font-bold uppercase tracking-wider text-outline mb-1">Scanner</p>
+<p class="text-sm font-semibold text-green-600">Active</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg editorial-shadow">
+<p class="text-[10px] font-bold uppercase tracking-wider text-outline mb-1">API</p>
+<p class="text-sm font-semibold text-green-600">Active</p>
+</div>
+</div>
+</div>
+</section>
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32">
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest p-10 md:p-14 rounded-lg editorial-shadow">
+<h2 class="text-3xl font-bold tracking-tight mb-2">Direct Sentinel Inquiry</h2>
+<p class="text-on-surface-variant mb-10">Submit a clinical diagnostic request to our engineering team.</p>
+<form class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="text-[11px] font-bold uppercase tracking-widest text-outline ml-1">Identity Name</label>
+<input class="w-full bg-surface-container-high border-b-2 border-transparent focus:border-primary focus:bg-surface-bright transition-all p-4 rounded-t-lg outline-none placeholder:text-outline-variant" placeholder="Dr. Julian Vane" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-[11px] font-bold uppercase tracking-widest text-outline ml-1">Secure Email</label>
+<input class="w-full bg-surface-container-high border-b-2 border-transparent focus:border-primary focus:bg-surface-bright transition-all p-4 rounded-t-lg outline-none placeholder:text-outline-variant" placeholder="vane@clinical.secure" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[11px] font-bold uppercase tracking-widest text-outline ml-1">Incident Category</label>
+<select class="w-full bg-surface-container-high border-b-2 border-transparent focus:border-primary focus:bg-surface-bright transition-all p-4 rounded-t-lg outline-none appearance-none">
+<option>Technical Integration</option>
+<option>Security False Positive</option>
+<option>Vault Access Issue</option>
+<option>Billing &amp; Enterprise</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[11px] font-bold uppercase tracking-widest text-outline ml-1">Diagnostic Details</label>
+<textarea class="w-full bg-surface-container-high border-b-2 border-transparent focus:border-primary focus:bg-surface-bright transition-all p-4 rounded-t-lg outline-none placeholder:text-outline-variant resize-none" placeholder="Describe the behavior of the sentinel scanner..." rows="5"></textarea>
+</div>
+<button class="w-full md:w-auto bg-primary text-on-primary px-10 py-4 rounded-full font-bold hover:bg-primary-container transition-colors shadow-lg shadow-primary/20" type="submit">Initialize Support Request</button>
+</form>
+</div>
+</div>
+<div class="lg:col-span-5 flex flex-col gap-8">
+<div class="bg-primary text-on-primary p-10 rounded-lg editorial-shadow flex flex-col justify-between h-full min-h-[320px]">
+<div>
+<h3 class="text-2xl font-bold mb-4">Enterprise Hotline</h3>
+<p class="text-primary-fixed opacity-80 leading-relaxed mb-6">Platinum Tier users have access to 24/7 priority diagnostic phone support.</p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined">call</span>
+<span class="text-xl font-mono tracking-tighter">1-800-SENTINEL</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="text-sm">Response Target: &lt; 15 Minutes</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 rounded-lg space-y-6">
+<h3 class="text-lg font-bold tracking-tight">Security Documentation</h3>
+<div class="space-y-4">
+<a class="flex items-center justify-between group p-4 bg-white rounded-xl transition-all hover:translate-x-2" href="documentation.html">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">description</span>
+<span class="font-medium">API Clinical Reference</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_forward</span>
+</a>
+<a class="flex items-center justify-between group p-4 bg-white rounded-xl transition-all hover:translate-x-2" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">security</span>
+<span class="font-medium">Hardening Guide v4.2</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-32">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div>
+<span class="label-sm text-[11px] font-bold tracking-[0.2em] uppercase text-primary mb-2 block">Intelligence Base</span>
+<h2 class="text-4xl font-black tracking-tighter">Frequently Resolved</h2>
+</div>
+<a class="text-primary font-bold flex items-center gap-2 group" href="#">
+                    Explore all 420+ articles
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">east</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="group bg-surface-container-lowest p-8 rounded-lg editorial-shadow border border-transparent hover:border-primary/10 transition-all cursor-pointer">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-primary">emergency_home</span>
+</div>
+<h4 class="text-lg font-bold mb-3">Emergency Lockout Protocol</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Steps to take if your biometric sentinel node fails to authorize primary login credentials.</p>
+</div>
+<div class="group bg-surface-container-lowest p-8 rounded-lg editorial-shadow border border-transparent hover:border-primary/10 transition-all cursor-pointer">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-primary">data_thresholding</span>
+</div>
+<h4 class="text-lg font-bold mb-3">Adjusting Sensitivity Latency</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">How to calibrate the scanner for high-volume clinical environments without increasing false positives.</p>
+</div>
+<div class="group bg-surface-container-lowest p-8 rounded-lg editorial-shadow border border-transparent hover:border-primary/10 transition-all cursor-pointer">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-primary">cloud_sync</span>
+</div>
+<h4 class="text-lg font-bold mb-3">Hybrid Cloud Vault Sync</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Configuring encrypted synchronization between on-premise servers and the Sentinel vault.</p>
+</div>
+<div class="group bg-surface-container-lowest p-8 rounded-lg editorial-shadow border border-transparent hover:border-primary/10 transition-all cursor-pointer">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-primary">history_edu</span>
+</div>
+<h4 class="text-lg font-bold mb-3">Audit Log Exporting</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Extracting regulatory-compliant logs for clinical safety inspections and IT compliance audits.</p>
+</div>
+<div class="group bg-surface-container-lowest p-8 rounded-lg editorial-shadow border border-transparent hover:border-primary/10 transition-all cursor-pointer">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-primary">person_add</span>
+</div>
+<h4 class="text-lg font-bold mb-3">Delegated Admin Access</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Setting up granular permissions for rotating medical staff and temporary clinical researchers.</p>
+</div>
+<div class="group bg-surface-container-lowest p-8 rounded-lg editorial-shadow border border-transparent hover:border-primary/10 transition-all cursor-pointer">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-primary">monitoring</span>
+</div>
+<h4 class="text-lg font-bold mb-3">Visualizing Threat Flux</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Understanding the real-time threat maps and heat indicators within the Clinical Sentinel dashboard.</p>
+</div>
+</div>
+</section>
+<section class="relative h-[400px] rounded-xl overflow-hidden mb-32 group">
+<img class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0" data-alt="abstract view of medical technology in clean clinical laboratory with blue soft lighting and futuristic glass elements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArCpWtx8H7z4-tUq3oKcypmjOLxbeW2XuEfiZredClbw8ihuPZLiOM_SKtqyZH8YRwCArMw9jaBJTBpv3y4RvvX2L8CK-bZCjVXrIfQ2K6NootrpEd_aHz4GUIbHS_ItophzUUaae1qKohPL9ySDmVCb_h6q6ZW7P9UkeVZ7jUgWnVUrJKiWas9wmRwYcswJc8_oXWH0k0MZG2MLxDaPY_29XkKqbuTckrx5OCD5YTSm0jopNAs6hC5UTTGpNW8YPxJehTCTHBD_E"/>
+<div class="absolute inset-0 bg-primary/40 backdrop-blur-sm flex flex-col items-center justify-center text-center p-10">
+<h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter mb-4">Still need precision?</h2>
+<p class="text-white/80 text-lg max-w-lg mb-8">Our expert security clinicians are available for one-on-one architecture reviews.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-white text-primary px-10 py-4 rounded-full font-bold shadow-xl">Book Specialist</button>
+<button class="border-2 border-white/40 text-white px-10 py-4 rounded-full font-bold hover:bg-white/10 transition-colors">Chat Now</button>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-surface-container-highest py-20 px-10">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+<div>
+<div class="text-2xl font-black tracking-tighter text-primary mb-4">Clinical Sentinel</div>
+<p class="text-sm text-on-surface-variant max-w-xs leading-relaxed">Defending clinical integrity through automated sentinel intelligence. Built for the high-stakes security requirements of modern medicine.</p>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-3 gap-12">
+<div class="space-y-4">
+<h5 class="text-[11px] font-black uppercase tracking-widest text-outline">Product</h5>
+<ul class="space-y-3 text-sm font-medium text-on-surface-variant">
+<li><a class="hover:text-primary" href="dashboard.html">Sentinel Scanner</a></li>
+<li><a class="hover:text-primary" href="security vault.html">Vault Secure</a></li>
+<li><a class="hover:text-primary" href="threat feed.html">Threat Feed</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="text-[11px] font-black uppercase tracking-widest text-outline">Resource</h5>
+<ul class="space-y-3 text-sm font-medium text-on-surface-variant">
+<li><a class="hover:text-primary" href="documentation.html">Documentation</a></li>
+<li><a class="hover:text-primary" href="#">Compliance API</a></li>
+<li><a class="hover:text-primary" href="#">Status Page</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="text-[11px] font-black uppercase tracking-widest text-outline">Legal</h5>
+<ul class="space-y-3 text-sm font-medium text-on-surface-variant">
+<li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary" href="#">SLA Terms</a></li>
+<li><a class="hover:text-primary" href="#">Data Protection</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-[11px] font-bold text-outline uppercase tracking-widest">© 2024 Clinical Sentinel Security Systems. All nodes synchronized.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-outline">language</span>
+<span class="material-symbols-outlined text-outline">security</span>
+<span class="material-symbols-outlined text-outline">cloud_done</span>
+</div>
+</div>
+</footer>
+</body></html>

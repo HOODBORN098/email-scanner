@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clinical Sentinel | Email Malware Scanner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#c4d2ff",
+                        "primary-fixed": "#dae2ff",
+                        "on-secondary-fixed-variant": "#344573",
+                        "on-surface": "#181c20",
+                        "secondary": "#4c5d8d",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f7f9ff",
+                        "secondary-fixed": "#dae2ff",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#b2c5ff",
+                        "surface-container-high": "#e6e8ee",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f1f3f9",
+                        "on-surface-variant": "#434654",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#021945",
+                        "inverse-surface": "#2d3135",
+                        "surface-container-highest": "#e0e2e8",
+                        "surface-container": "#eceef4",
+                        "secondary-container": "#b6c8fe",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "on-primary-fixed": "#001848",
+                        "surface-variant": "#e0e2e8",
+                        "surface-tint": "#0c56d0",
+                        "outline-variant": "#c3c6d6",
+                        "tertiary-fixed": "#ffdbcf",
+                        "primary-container": "#0052cc",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#003d9b",
+                        "inverse-on-surface": "#eff1f7",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#a33500",
+                        "surface-dim": "#d8dae0",
+                        "tertiary": "#7b2600",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "surface-bright": "#f7f9ff",
+                        "on-secondary-container": "#415382",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "background": "#f7f9ff",
+                        "outline": "#737685",
+                        "secondary-fixed-dim": "#b4c5fb",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-background": "#181c20",
+                        "on-tertiary-container": "#ffc6b2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .clinical-shadow { box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04); }
+        .glass-panel { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="bg-background text-on-surface flex min-h-screen">
+<!-- Sidebar Shell: Clinical Sentinel Identity -->
+<aside class="h-screen w-72 rounded-r-[40px] sticky left-0 top-0 bg-[#f1f3f9] flex flex-col py-8 space-y-2 z-40">
+<div class="px-8 mb-10">
+<h1 class="text-xl font-black tracking-tighter text-blue-800">Clinical Sentinel</h1>
+<p class="text-[11px] font-bold uppercase tracking-widest text-slate-400 mt-1">Enterprise Security</p>
+</div>
+<nav class="flex-1">
+<div class="bg-white text-blue-700 rounded-full shadow-sm mx-4 py-3 px-6 flex items-center space-x-3 transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="shield_with_heart">shield_with_heart</span>
+<span class="font-medium text-[13px]">Security Scan</span>
+</div>
+<div class="text-slate-500 hover:translate-x-1 transition-transform duration-200 mx-4 py-3 px-6 flex items-center space-x-3 cursor-pointer" onclick="window.location.href='threat feed.html'">
+<span class="material-symbols-outlined" data-icon="radar">radar</span>
+<span class="font-medium text-[13px]">Threat Feed</span>
+</div>
+<div class="text-slate-500 hover:translate-x-1 transition-transform duration-200 mx-4 py-3 px-6 flex items-center space-x-3 cursor-pointer" onclick="window.location.href='data reports.html'">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-medium text-[13px]">Data Reports</span>
+</div>
+<div class="text-slate-500 hover:translate-x-1 transition-transform duration-200 mx-4 py-3 px-6 flex items-center space-x-3 cursor-pointer" onclick="window.location.href='settings account.html'">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-medium text-[13px]">Account</span>
+</div>
+</nav>
+<div class="px-8 mt-auto pt-6 border-t border-slate-200/50">
+<button class="w-full bg-primary text-on-primary py-4 rounded-full font-bold text-sm tracking-tight active:scale-95 transition-transform">
+                Run Diagnostic
+            </button>
+<div class="mt-6 space-y-4">
+<div class="flex items-center space-x-3 text-slate-400 text-[12px] cursor-pointer" onclick="window.location.href='documentation.html'">
+<span class="material-symbols-outlined text-sm" data-icon="description">description</span>
+<span>Documentation</span>
+</div>
+<div class="flex items-center space-x-3 text-slate-400 text-[12px] cursor-pointer" onclick="window.location.href='support.html'">
+<span class="material-symbols-outlined text-sm" data-icon="contact_support">contact_support</span>
+<span>Support</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-10 pb-20 relative">
+<!-- Header -->
+<header class="flex justify-between items-end mb-12">
+<div>
+<span class="text-[11px] font-bold tracking-[0.2em] text-primary uppercase">Automated Intelligence</span>
+<h2 class="text-5xl font-extrabold tracking-tight text-on-surface mt-2">Scanner</h2>
+</div>
+<div class="flex space-x-4">
+<button class="flex items-center space-x-2 bg-primary-container text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-primary-container/20 active:scale-95 transition-transform" id="btn-new-scan">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+<span>New Scan</span>
+</button>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6 items-start">
+<!-- Left Panel: Scanner Interface -->
+<section class="col-span-12 lg:col-span-8 space-y-6">
+<!-- Main Scan Interface Card -->
+<div class="bg-surface-container-lowest rounded-xl p-1 clinical-shadow overflow-hidden" id="scan-interface">
+<div class="flex border-b border-surface-container-low">
+<button class="flex-1 py-5 text-sm font-bold text-primary border-b-2 border-primary transition-colors" id="tab-direct">Direct Input</button>
+<button class="flex-1 py-5 text-sm font-bold text-slate-400 hover:text-primary transition-colors" id="tab-file">File Upload</button>
+</div>
+<div class="p-8">
+<!-- Direct Input Area -->
+<div class="space-y-6" id="panel-direct">
+<div class="space-y-2">
+<label class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Header Analysis</label>
+<textarea class="w-full h-48 bg-surface-container-low rounded-lg p-6 border-none focus:ring-2 focus:ring-primary text-on-surface font-mono text-sm placeholder:text-slate-400" id="input-headers" placeholder="Paste full email headers here for forensic analysis..."></textarea>
+</div>
+<div class="flex justify-between items-center pt-4">
+<div class="flex space-x-2">
+<div class="flex items-center space-x-1 px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold text-slate-600">
+<span class="material-symbols-outlined text-sm" data-icon="info">info</span>
+<span>DMARC CHECK ENABLED</span>
+</div>
+<div class="flex items-center space-x-1 px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold text-slate-600">
+<span class="material-symbols-outlined text-sm" data-icon="verified">verified</span>
+<span>SPF VERIFICATION</span>
+</div>
+</div>
+<button class="bg-primary text-white px-10 py-4 rounded-full font-bold text-sm tracking-tight hover:shadow-xl hover:shadow-primary/20 active:scale-95 transition-all" id="btn-execute-direct">
+                                    Execute Forensic Scan
+                                </button>
+</div>
+</div>
+<!-- File Upload Area (Hidden by default) -->
+<div class="hidden space-y-6" id="panel-file">
+<div class="w-full h-48 border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center space-y-3 cursor-pointer hover:bg-surface-container-low transition-colors group" id="drop-zone">
+<span class="material-symbols-outlined text-4xl text-slate-300 group-hover:text-primary transition-colors" data-icon="upload_file">upload_file</span>
+<div class="text-center">
+<p class="font-bold text-on-surface">Drop .eml or .msg files here</p>
+<p class="text-xs text-slate-400 mt-1">Maximum file size: 25MB</p>
+</div>
+<input accept=".eml,.msg" class="hidden" id="file-input" type="file"/>
+</div>
+<div class="hidden flex items-center justify-between p-4 bg-surface-container-high rounded-lg" id="selected-file">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-primary" data-icon="description">description</span>
+<div>
+<p class="text-sm font-bold truncate max-w-[200px]" id="file-name">document.eml</p>
+<p class="text-[10px] text-slate-500 uppercase" id="file-size">1.2 MB</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-error transition-colors" id="btn-remove-file">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<div class="flex justify-end pt-4">
+<button class="bg-primary text-white px-10 py-4 rounded-full font-bold text-sm tracking-tight opacity-50 cursor-not-allowed transition-all" id="btn-execute-file">
+                                    Analyze Selected File
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Monitoring Feed -->
+<div class="bg-surface-container-low rounded-xl p-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-bold text-sm text-slate-500 uppercase tracking-[0.1em]">Recent Activity</h3>
+<span class="text-[10px] font-black text-blue-500 bg-blue-100 px-2 py-0.5 rounded">SYSTEM LIVE</span>
+</div>
+<div class="flex flex-col items-center justify-center py-12 text-slate-400" id="activity-empty-state">
+<span class="material-symbols-outlined text-4xl mb-4">monitoring</span>
+<p class="text-sm">No recent activity detected. Initiate a scan to begin monitoring.</p>
+</div>
+<div id="activity-list" class="space-y-4 hidden"></div>
+</div>
+</section>
+<!-- Right Panel: Threat Summary -->
+<aside class="col-span-12 lg:col-span-4 space-y-6">
+<div class="bg-surface-container-highest rounded-xl p-8 relative overflow-hidden h-full">
+<div class="relative z-10">
+<h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-8">Scan Statistics</h4>
+<div class="space-y-10">
+<div>
+<div class="text-6xl font-black text-primary tracking-tighter">100%</div>
+<p class="text-xs font-bold text-slate-500 mt-2 uppercase tracking-wide">Threat Accuracy</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-lg">
+<div class="text-2xl font-bold text-on-surface" id="stat-scanned">0</div>
+<p class="text-[10px] font-bold text-slate-400 uppercase">Scanned Today</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg">
+<div class="text-2xl font-bold text-error" id="stat-blocked">0</div>
+<p class="text-[10px] font-bold text-slate-400 uppercase">Threats Blocked</p>
+</div>
+</div>
+<div class="pt-6 border-t border-slate-300">
+<h5 class="text-[11px] font-bold text-slate-400 uppercase mb-4">Latest Threat Origin</h5>
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 bg-error-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-error" data-icon="location_on">location_on</span>
+</div>
+<div>
+<p class="text-sm font-bold" id="stat-latest-threat">None Detected</p>
+<p class="text-[10px] text-slate-500 uppercase" id="stat-latest-threat-id">--</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative pattern -->
+<div class="absolute -bottom-10 -right-10 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[200px]" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+</div>
+</aside>
+</div>
+<!-- Scanning Modal (Simulation Overlay) -->
+<div class="fixed inset-0 bg-on-surface/40 backdrop-blur-md z-[100] hidden items-center justify-center p-6" id="scan-modal">
+<div class="bg-surface-container-lowest w-full max-w-xl rounded-[2.5rem] p-12 text-center clinical-shadow">
+<div class="relative w-32 h-32 mx-auto mb-8">
+<div class="absolute inset-0 border-4 border-surface-container rounded-full"></div>
+<div class="absolute inset-0 border-4 border-t-primary border-transparent rounded-full animate-spin" id="scan-spinner"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="biotech" id="scan-icon">biotech</span>
+</div>
+</div>
+<h3 class="text-2xl font-black text-on-surface mb-2" id="modal-title">Analyzing Payload</h3>
+<p class="text-slate-500 text-sm max-w-xs mx-auto" id="modal-desc">Cross-referencing attachments with clinical threat database and sandbox environment...</p>
+<!-- Result Area (Initially Hidden) -->
+<div class="hidden mt-8 p-6 bg-surface-container rounded-xl text-left" id="result-area">
+<div class="flex items-start space-x-4">
+<div class="w-12 h-12 rounded-full flex items-center justify-center shrink-0" id="result-badge">
+<span class="material-symbols-outlined text-white" data-icon="check_circle" id="result-icon">check_circle</span>
+</div>
+<div>
+<p class="font-bold text-lg leading-tight mb-1" id="result-status">Clean: No Threats Detected</p>
+<p class="text-xs text-slate-500" id="result-summary">Heuristic score: 0.01. Zero matches found in known malware signatures. DMARC/SPF verification passed.</p>
+</div>
+</div>
+<button class="w-full mt-6 bg-on-surface text-white py-3 rounded-full font-bold text-sm hover:opacity-90 transition-opacity" id="btn-close-modal">
+                        Dismiss Results
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // DOM Elements
+        const btnNewScan = document.getElementById('btn-new-scan');
+        const tabDirect = document.getElementById('tab-direct');
+        const tabFile = document.getElementById('tab-file');
+        const panelDirect = document.getElementById('panel-direct');
+        const panelFile = document.getElementById('panel-file');
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const selectedFile = document.getElementById('selected-file');
+        const fileName = document.getElementById('file-name');
+        const fileSize = document.getElementById('file-size');
+        const btnRemoveFile = document.getElementById('btn-remove-file');
+        const btnExecuteDirect = document.getElementById('btn-execute-direct');
+        const btnExecuteFile = document.getElementById('btn-execute-file');
+        const inputHeaders = document.getElementById('input-headers');
+        
+        const scanModal = document.getElementById('scan-modal');
+        const scanSpinner = document.getElementById('scan-spinner');
+        const resultArea = document.getElementById('result-area');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+        const btnCloseModal = document.getElementById('btn-close-modal');
+        const resultBadge = document.getElementById('result-badge');
+        const resultIcon = document.getElementById('result-icon');
+        const resultStatus = document.getElementById('result-status');
+
+        // Tab Logic
+        tabDirect.addEventListener('click', () => {
+            tabDirect.classList.add('text-primary', 'border-primary');
+            tabDirect.classList.remove('text-slate-400');
+            tabFile.classList.add('text-slate-400');
+            tabFile.classList.remove('text-primary', 'border-primary');
+            panelDirect.classList.remove('hidden');
+            panelFile.classList.add('hidden');
+        });
+
+        tabFile.addEventListener('click', () => {
+            tabFile.classList.add('text-primary', 'border-primary');
+            tabFile.classList.remove('text-slate-400');
+            tabDirect.classList.add('text-slate-400');
+            tabDirect.classList.remove('text-primary', 'border-primary');
+            panelFile.classList.remove('hidden');
+            panelDirect.classList.add('hidden');
+        });
+
+        // New Scan Logic
+        btnNewScan.addEventListener('click', () => {
+            inputHeaders.value = '';
+            inputHeaders.focus();
+            resetFileState();
+            tabDirect.click();
+        });
+
+        // File Selection Logic
+        dropZone.addEventListener('click', () => fileInput.click());
+        
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) handleFileSelection(file);
+        });
+
+        function handleFileSelection(file) {
+            fileName.textContent = file.name;
+            fileSize.textContent = (file.size / 1024 / 1024).toFixed(2) + ' MB';
+            selectedFile.classList.remove('hidden');
+            dropZone.classList.add('hidden');
+            btnExecuteFile.classList.remove('opacity-50', 'cursor-not-allowed');
+            btnExecuteFile.classList.add('hover:shadow-xl', 'hover:shadow-primary/20');
+        }
+
+        btnRemoveFile.addEventListener('click', resetFileState);
+
+        function resetFileState() {
+            fileInput.value = '';
+            selectedFile.classList.add('hidden');
+            dropZone.classList.remove('hidden');
+            btnExecuteFile.classList.add('opacity-50', 'cursor-not-allowed');
+            btnExecuteFile.classList.remove('hover:shadow-xl', 'hover:shadow-primary/20');
+        }
+
+        // Execution Logic (Simulation)
+        btnExecuteDirect.addEventListener('click', () => {
+            if (inputHeaders.value.trim().length < 5) {
+                alert('Please provide valid email header data.');
+                return;
+            }
+            startScanSimulation();
+        });
+
+        btnExecuteFile.addEventListener('click', () => {
+            if (fileInput.files.length === 0) return;
+            startScanSimulation();
+        });
+
+        function startScanSimulation() {
+            scanModal.classList.remove('hidden');
+            scanModal.classList.add('flex');
+            scanSpinner.classList.remove('hidden');
+            resultArea.classList.add('hidden');
+            modalTitle.textContent = "Analyzing Payload";
+            modalDesc.textContent = "Cross-referencing attachments with clinical threat database and sandbox environment...";
+
+            // 1.5s Simulation
+            setTimeout(() => {
+                showResults();
+            }, 1500);
+        }
+
+        function showResults() {
+            scanSpinner.classList.add('hidden');
+            modalTitle.textContent = "Analysis Complete";
+            modalDesc.textContent = "Scan results generated using Sentinel Intelligence Core v4.2.";
+            resultArea.classList.remove('hidden');
+
+            const isMalicious = Math.random() < 0.2;
+            
+            // Save to localStorage
+            const scanRecord = {
+                id: Math.floor(Math.random() * 90000 + 10000) + "-" + String.fromCharCode(65+Math.random()*26) + String.fromCharCode(65+Math.random()*26),
+                timestamp: new Date().toISOString(),
+                isMalicious: isMalicious,
+                method: inputHeaders.value.trim().length > 0 ? "Header Analysis" : "File Scan"
+            };
+            
+            let scans = JSON.parse(localStorage.getItem('sentinelScans') || '[]');
+            scans.unshift(scanRecord);
+            localStorage.setItem('sentinelScans', JSON.stringify(scans));
+
+            updateScannerStats();
+
+            if (isMalicious) {
+                resultBadge.className = "w-12 h-12 rounded-full flex items-center justify-center shrink-0 bg-error";
+                resultIcon.textContent = "error";
+                resultStatus.textContent = "Malicious: Threat Blocked";
+                resultStatus.classList.add('text-error');
+                resultStatus.classList.remove('text-emerald-600');
+            } else {
+                resultBadge.className = "w-12 h-12 rounded-full flex items-center justify-center shrink-0 bg-emerald-500";
+                resultIcon.textContent = "check_circle";
+                resultStatus.textContent = "Clean: No Threats Detected";
+                resultStatus.classList.add('text-emerald-600');
+                resultStatus.classList.remove('text-error');
+            }
+        }
+
+        btnCloseModal.addEventListener('click', () => {
+            scanModal.classList.add('hidden');
+            scanModal.classList.remove('flex');
+            inputHeaders.value = '';
+            resetFileState();
+        });
+
+        // Simple forensic data generator for placeholder behavior
+        inputHeaders.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && e.ctrlKey) btnExecuteDirect.click();
+        });
+
+        function updateScannerStats() {
+            let scans = JSON.parse(localStorage.getItem('sentinelScans') || '[]');
+            
+            // Update Activity Feed
+            const activityEmpty = document.getElementById('activity-empty-state');
+            const activityList = document.getElementById('activity-list');
+            
+            if (scans.length === 0) {
+                activityEmpty.classList.remove('hidden');
+                activityList.classList.add('hidden');
+            } else {
+                activityEmpty.classList.add('hidden');
+                activityList.classList.remove('hidden');
+                
+                activityList.innerHTML = '';
+                // Show up to 5 recent scans
+                scans.slice(0, 5).forEach(scan => {
+                    const timeAgo = Math.round((new Date() - new Date(scan.timestamp)) / 60000);
+                    const timeStr = timeAgo === 0 ? 'Just now' : `${timeAgo}m ago`;
+                    
+                    const el = document.createElement('div');
+                    el.className = "flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg border border-surface-container";
+                    el.innerHTML = `
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center \${scan.isMalicious ? 'bg-error-container text-error' : 'bg-emerald-100 text-emerald-600'}">
+                                <span class="material-symbols-outlined">\${scan.isMalicious ? 'security_update_warning' : 'verified_user'}</span>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-on-surface">\${scan.isMalicious ? 'Threat Neutralized' : 'Scan Complete'}</p>
+                                <p class="text-xs text-slate-500">ID: \${scan.id} • \${scan.method}</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-bold text-slate-400">\${timeStr}</span>
+                    `;
+                    activityList.appendChild(el);
+                });
+            }
+
+            // Update Stats
+            document.getElementById('stat-scanned').textContent = scans.length;
+            const blocked = scans.filter(s => s.isMalicious).length;
+            document.getElementById('stat-blocked').textContent = blocked;
+            
+            const lastThreat = scans.find(s => s.isMalicious);
+            if (lastThreat) {
+                document.getElementById('stat-latest-threat').textContent = "Threat Intercepted";
+                document.getElementById('stat-latest-threat-id').textContent = `ID: \${lastThreat.id}`;
+            } else {
+                document.getElementById('stat-latest-threat').textContent = "None Detected";
+                document.getElementById('stat-latest-threat-id').textContent = "--";
+            }
+        }
+
+        // Initialize on load
+        updateScannerStats();
+    </script>
+</body></html>

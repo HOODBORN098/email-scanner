@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings | Clinical Sentinel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#380d00",
+                    "error-container": "#ffdad6",
+                    "background": "#f7f9ff",
+                    "outline-variant": "#c3c6d6",
+                    "on-surface-variant": "#434654",
+                    "inverse-surface": "#2d3135",
+                    "secondary-fixed-dim": "#b4c5fb",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e0e2e8",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#e0e2e8",
+                    "tertiary": "#7b2600",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f7f9ff",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#b6c8fe",
+                    "on-tertiary-container": "#ffc6b2",
+                    "outline": "#737685",
+                    "on-background": "#181c20",
+                    "primary": "#003d9b",
+                    "surface-dim": "#d8dae0",
+                    "primary-fixed": "#dae2ff",
+                    "on-surface": "#181c20",
+                    "on-primary-container": "#c4d2ff",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "secondary-fixed": "#dae2ff",
+                    "inverse-on-surface": "#eff1f7",
+                    "surface-container-high": "#e6e8ee",
+                    "on-secondary-fixed": "#021945",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#0c56d0",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "surface-container-low": "#f1f3f9",
+                    "primary-container": "#0052cc",
+                    "on-secondary-container": "#415382",
+                    "surface-container": "#eceef4",
+                    "tertiary-fixed": "#ffdbcf",
+                    "tertiary-container": "#a33500",
+                    "surface-bright": "#f7f9ff",
+                    "on-primary-fixed": "#001848",
+                    "secondary": "#4c5d8d",
+                    "on-primary-fixed-variant": "#0040a2",
+                    "inverse-primary": "#b2c5ff",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "on-secondary-fixed-variant": "#344573"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased overflow-x-hidden">
+<!-- TopNavBar Shell -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] h-16 flex justify-between items-center px-8 border-none">
+<div class="flex items-center gap-8">
+<span class="text-lg font-black tracking-tighter text-blue-800 dark:text-blue-100 uppercase">Clinical Sentinel</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors font-['Inter'] antialiased text-sm tracking-wide" href="dashboard.html">Scanner</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors font-['Inter'] antialiased text-sm tracking-wide" href="scan history.html">History</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors font-['Inter'] antialiased text-sm tracking-wide" href="security vault.html">Vault</a>
+<a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700 dark:border-blue-400 pb-1 font-['Inter'] antialiased text-sm tracking-wide" href="settings account.html">Settings</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-all duration-300 rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-all duration-300 rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</nav>
+<!-- SideNavBar Shell -->
+<aside class="hidden lg:flex h-screen w-72 fixed left-0 top-0 bg-slate-50 dark:bg-slate-950 pt-20 flex-col py-8 space-y-2 border-r-0">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="shield_with_heart" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+</div>
+<div>
+<p class="font-bold text-sm text-on-surface">Sentinel Active</p>
+<p class="text-[10px] uppercase tracking-widest text-outline">System Monitoring</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-4 text-slate-500 dark:text-slate-400 px-6 py-3 font-['Inter'] text-sm font-medium tracking-tight hover:bg-slate-100 dark:hover:bg-slate-900/50 hover:translate-x-1 transition-all" href="dashboard.html">
+<span class="material-symbols-outlined" data-icon="shield_with_heart">shield_with_heart</span> Security Scan
+            </a>
+<a class="flex items-center gap-4 text-slate-500 dark:text-slate-400 px-6 py-3 font-['Inter'] text-sm font-medium tracking-tight hover:bg-slate-100 dark:hover:bg-slate-900/50 hover:translate-x-1 transition-all" href="threat feed.html">
+<span class="material-symbols-outlined" data-icon="rss_feed">rss_feed</span> Threat Feed
+            </a>
+<a class="flex items-center gap-4 text-slate-500 dark:text-slate-400 px-6 py-3 font-['Inter'] text-sm font-medium tracking-tight hover:bg-slate-100 dark:hover:bg-slate-900/50 hover:translate-x-1 transition-all" href="data reports.html">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span> Data Reports
+            </a>
+<a class="flex items-center gap-4 bg-white dark:bg-slate-900 text-blue-700 dark:text-blue-300 rounded-r-full shadow-sm px-6 py-3 font-['Inter'] text-sm font-medium tracking-tight" href="settings account.html">
+<span class="material-symbols-outlined" data-icon="manage_accounts">manage_accounts</span> Account
+            </a>
+</nav>
+<div class="px-6 py-4">
+<button class="w-full py-3 bg-error text-on-error rounded-full text-xs font-bold uppercase tracking-widest hover:shadow-lg transition-all duration-500 ease-out">
+                Emergency Lockdown
+            </button>
+</div>
+<div class="px-6 pt-4 border-t border-surface-container mt-auto">
+<a class="flex items-center gap-4 text-slate-500 dark:text-slate-400 py-2 text-sm" href="documentation.html">
+<span class="material-symbols-outlined text-lg" data-icon="menu_book">menu_book</span> Documentation
+            </a>
+<a class="flex items-center gap-4 text-slate-500 dark:text-slate-400 py-2 text-sm" href="support.html">
+<span class="material-symbols-outlined text-lg" data-icon="contact_support">contact_support</span> Support
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="lg:ml-72 pt-24 px-8 pb-12 max-w-7xl mx-auto">
+<header class="mb-12">
+<span class="label-sm text-[0.6875rem] font-bold tracking-[0.1em] text-primary uppercase">Workspace Configuration</span>
+<h1 class="text-5xl font-black tracking-tight text-on-surface mt-2">Account Settings</h1>
+<p class="text-on-surface-variant mt-4 text-lg max-w-2xl leading-relaxed">Manage your profile, adjust security protocols, and review your Sentinel subscription status from a centralized command center.</p>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+<!-- Section: Profile Information (Large Card) -->
+<section class="md:col-span-8 bg-surface-container-low rounded-lg p-8">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl font-bold tracking-tight text-on-surface">Profile Information</h2>
+<button class="flex items-center gap-2 text-primary font-semibold text-sm hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+                        Edit Details
+                    </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="relative group w-32 h-32">
+<div class="absolute inset-0 bg-primary-container rounded-full opacity-20 group-hover:opacity-30 transition-opacity"></div>
+<img alt="User Profile" class="w-full h-full rounded-full object-cover border-4 border-surface-container-lowest" data-alt="professional headshot of a mature security architect with short hair and calm, intelligent expression, cinematic studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5NqZFPgbSNN_YndlO4bTL9HK3UdJDnlJdgOeKVqEISYgBn3AioRoH61kun72BiBysQ8j7oC4i1baNK6Zfsg-lbT0lFLiF3ho25haIUxOqiPBADfics5Oq3aZaKfIJWDwQOv0LUc-0yodheYvTwyHAhJ2I5L-GcAH56SO2R-IiKyWrPWfCJ8sN_X_piS1FRjayqM4Q9G0obR-Dmta1V70GrOa0tTidFQo8dwJMegoDMYToIzqdkaCTw2p2wJS4tObUzZyau1pB2uA"/>
+<button class="absolute bottom-0 right-0 bg-surface-container-lowest p-2 rounded-full shadow-md text-primary">
+<span class="material-symbols-outlined text-xl" data-icon="photo_camera">photo_camera</span>
+</button>
+</div>
+<div class="space-y-6">
+<div class="bg-surface-container-lowest rounded-DEFAULT p-4">
+<label class="block text-[0.6875rem] font-bold text-outline tracking-wider uppercase mb-1">Full Legal Name</label>
+<p class="text-on-surface font-medium">Dr. Julian Vane</p>
+</div>
+<div class="bg-surface-container-lowest rounded-DEFAULT p-4">
+<label class="block text-[0.6875rem] font-bold text-outline tracking-wider uppercase mb-1">Electronic Mail</label>
+<p class="text-on-surface font-medium">julian.vane@clinicalsentinel.io</p>
+</div>
+</div>
+</div>
+<div class="mt-8 space-y-4">
+<div class="flex items-center gap-4 p-4 bg-surface-container-high rounded-DEFAULT border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div>
+<p class="text-sm font-bold text-on-surface">Identity Verified</p>
+<p class="text-xs text-on-surface-variant">Validated via Sentinel Enterprise Protocol</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Security Preferences (Side Card) -->
+<section class="md:col-span-4 space-y-6">
+<div class="bg-surface-container-lowest rounded-lg p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="lock_reset">lock_reset</span>
+<h2 class="text-xl font-bold tracking-tight text-on-surface">Security</h2>
+</div>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-bold text-on-surface">Two-Factor Auth</p>
+<p class="text-xs text-on-surface-variant">Active via Authenticator</p>
+</div>
+<div class="w-10 h-5 bg-primary/20 rounded-full relative cursor-pointer">
+<div class="absolute right-0.5 top-0.5 w-4 h-4 bg-primary rounded-full"></div>
+</div>
+</div>
+<div class="border-t border-surface-container pt-4">
+<p class="text-sm font-bold text-on-surface mb-3">Active API Keys</p>
+<div class="bg-surface-container-low p-3 rounded-DEFAULT flex items-center justify-between mb-2">
+<span class="text-[10px] font-mono text-on-surface-variant">sk_live_....4x9f</span>
+<span class="material-symbols-outlined text-sm text-outline cursor-pointer" data-icon="content_copy">content_copy</span>
+</div>
+<button class="w-full py-2 bg-surface-container-high text-primary text-xs font-bold rounded-full hover:bg-surface-container-highest transition-colors">
+                                Generate New Key
+                            </button>
+</div>
+</div>
+</div>
+<!-- Section: Subscription Plan (Vertical Focus) -->
+<div class="bg-primary p-6 rounded-lg text-on-primary shadow-xl overflow-hidden relative">
+<!-- Subtle micro-tonal transition layer -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary-container/20 to-transparent"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="text-[10px] font-bold tracking-widest uppercase opacity-80">Current Plan</span>
+<h3 class="text-2xl font-black mt-1">Sentinel Pro</h3>
+</div>
+<div class="bg-on-primary/10 px-3 py-1 rounded-full backdrop-blur-sm">
+<span class="text-[10px] font-bold">ANNUAL</span>
+</div>
+</div>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-2 text-sm opacity-90">
+<span class="material-symbols-outlined text-lg" data-icon="check_circle">check_circle</span> 
+                                Real-time Malware Neutralization
+                            </li>
+<li class="flex items-center gap-2 text-sm opacity-90">
+<span class="material-symbols-outlined text-lg" data-icon="check_circle">check_circle</span> 
+                                Unlimited API Endpoints
+                            </li>
+<li class="flex items-center gap-2 text-sm opacity-90">
+<span class="material-symbols-outlined text-lg" data-icon="check_circle">check_circle</span> 
+                                Priority 24/7 Diagnostics
+                            </li>
+</ul>
+<button class="w-full py-4 bg-white text-primary font-bold rounded-full hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
+                            Upgrade to Enterprise
+                        </button>
+<p class="text-center text-[10px] mt-4 opacity-60 uppercase tracking-widest font-medium">Next billing: Dec 12, 2024</p>
+</div>
+</div>
+</section>
+<!-- Bottom Section: Notification Settings & Activity (Wide) -->
+<section class="md:col-span-12 grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+<div class="bg-surface-container-low rounded-lg p-8">
+<h2 class="text-xl font-bold tracking-tight text-on-surface mb-6">Alert Configurations</h2>
+<div class="space-y-4">
+<label class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-DEFAULT cursor-pointer hover:bg-surface-bright transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-error-container rounded-full flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined" data-icon="emergency_home">emergency_home</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Critical Breach Alerts</p>
+<p class="text-xs text-on-surface-variant">Instant push and email notifications</p>
+</div>
+</div>
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-DEFAULT cursor-pointer hover:bg-surface-bright transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Weekly Hygiene Reports</p>
+<p class="text-xs text-on-surface-variant">Summarized diagnostic overview</p>
+</div>
+</div>
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</label>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-8 shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-outline-variant/10">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-xl font-bold tracking-tight text-on-surface">Recent Sessions</h2>
+<span class="text-xs font-bold text-primary cursor-pointer hover:underline">Log out all devices</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between py-2 border-b border-surface-container">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="laptop_mac">laptop_mac</span>
+<div>
+<p class="text-sm font-medium text-on-surface">macOS • Chrome</p>
+<p class="text-[10px] text-on-surface-variant">London, UK • Current Session</p>
+</div>
+</div>
+<div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(0,61,155,0.4)]"></div>
+</div>
+<div class="flex items-center justify-between py-2 border-b border-surface-container">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="smartphone">smartphone</span>
+<div>
+<p class="text-sm font-medium text-on-surface">iOS • Sentinel App</p>
+<p class="text-[10px] text-on-surface-variant">Manchester, UK • 2 hours ago</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-outline cursor-pointer" data-icon="close">close</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<footer class="mt-20 pt-12 border-t border-surface-container flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-4">
+<span class="text-xl font-black tracking-tighter text-blue-800 opacity-30 uppercase">Clinical Sentinel</span>
+<p class="text-xs text-outline font-medium tracking-wide">V.2.4.0 (STABLE)</p>
+</div>
+<div class="flex gap-8">
+<a class="text-xs font-bold text-outline uppercase tracking-widest hover:text-primary transition-colors" href="#">Privacy Protocol</a>
+<a class="text-xs font-bold text-outline uppercase tracking-widest hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-xs font-bold text-outline uppercase tracking-widest hover:text-primary transition-colors" href="#">Compliance</a>
+</div>
+</footer>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-slate-50 dark:bg-slate-950 flex justify-around items-center px-4 z-50 border-t border-surface-container-high/50">
+<button class="flex flex-col items-center gap-1 text-outline" onclick="window.location.href='dashboard.html'">
+<span class="material-symbols-outlined" data-icon="shield_with_heart">shield_with_heart</span>
+<span class="text-[10px] font-bold">Scan</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-outline" onclick="window.location.href='threat feed.html'">
+<span class="material-symbols-outlined" data-icon="rss_feed">rss_feed</span>
+<span class="text-[10px] font-bold">Feed</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-outline" onclick="window.location.href='data reports.html'">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-[10px] font-bold">Data</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary" onclick="window.location.href='settings account.html'">
+<span class="material-symbols-outlined" data-icon="manage_accounts" style="font-variation-settings: 'FILL' 1;">manage_accounts</span>
+<span class="text-[10px] font-bold">Account</span>
+</button>
+</nav>
+</body></html>

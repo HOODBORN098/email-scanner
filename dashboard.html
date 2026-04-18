@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clinical Sentinel - Email Malware Scanner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries">document.addEventListener('DOMContentLoaded', () => {
+    const scanInput = document.getElementById('scan-input');
+    const executeBtn = document.getElementById('btn-execute-scan');
+    const loadBtn = document.getElementById('btn-load-sample');
+    const clearBtn = document.getElementById('btn-clear');
+    const statusContainer = document.getElementById('status-container');
+    const rawTab = document.getElementById('tab-raw-input');
+    const fileTab = document.getElementById('tab-file-upload');
+    const rawSection = document.getElementById('raw-input-section');
+    const fileSection = document.getElementById('file-upload-section');
+
+    const defaultStatus = `
+        <div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center mb-4 text-outline">
+<span class="material-symbols-outlined text-3xl">policy</span>
+</div>
+<h3 class="text-lg font-semibold text-on-surface mb-2">Awaiting Input</h3>
+<p class="text-sm text-on-surface-variant">System ready for raw payload analysis. Paste email source to begin diagnostic evaluation.</p>
+    `;
+
+    const loadingStatus = `
+        <div class="flex flex-col items-center justify-center space-y-4">
+<div class="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+<p class="text-primary font-medium">Analyzing Structural Metadata...</p>
+</div>
+    `;
+
+    const getResultStatus = (isMalicious, matches) => `
+        <div class="w-16 h-16 ${isMalicious ? 'bg-error-container text-error' : 'bg-green-100 text-green-700'} rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-3xl">${isMalicious ? 'warning' : 'check_circle'}</span>
+</div>
+<h3 class="text-lg font-semibold text-on-surface mb-2">Scan Result: ${isMalicious ? 'Threat Detected' : 'Clean'}</h3>
+<p class="text-sm text-on-surface-variant">${isMalicious ? `Found suspicious patterns: ${matches.join(', ')}` : 'No malicious payloads or structural anomalies identified in the provided headers.'}</p>
+        ${isMalicious ? '<button class="mt-4 text-xs text-error font-bold uppercase tracking-widest hover:underline">Generate Report</button>' : ''}
+    `;
+
+    // 1. Scan Logic
+    executeBtn.addEventListener('click', () => {
+        const content = scanInput.value.toLowerCase();
+        if (!content.trim()) {
+            alert('Please enter email content or upload a file first.');
+            return;
+        }
+
+        statusContainer.innerHTML = loadingStatus;
+
+        setTimeout(() => {
+            const keywords = ['virus', 'trojan', 'malware', 'exploit', 'phish', 'shellcode'];
+            const matches = keywords.filter(k => content.includes(k));
+            statusContainer.innerHTML = getResultStatus(matches.length > 0, matches);
+        }, 1500);
+    });
+
+    // 2. Clear Logic
+    clearBtn.addEventListener('click', () => {
+        scanInput.value = '';
+        statusContainer.innerHTML = defaultStatus;
+    });
+
+    // 3. Load Sample
+    loadBtn.addEventListener('click', () => {
+        scanInput.value = "Received: from malic-srv.net (unknown [192.168.1.50])\nSubject: URGENT: Account Breach Detected\nContent-Type: multipart/mixed;\n\nWARNING: This email contains a suspicious shellcode payload and a hidden trojan attachment.\nDo not execute the attached script.";
+        setTab('raw');
+    });
+
+    // 4. Tab Switching
+    const setTab = (active) => {
+        if (active === 'raw') {
+            rawTab.className = "text-primary font-semibold text-sm tracking-wide uppercase border-b-2 border-primary pb-4 -mb-[18px]";
+            fileTab.className = "text-on-surface-variant font-medium text-sm tracking-wide uppercase pb-4 -mb-[18px] hover:text-primary transition-colors";
+            rawSection.classList.remove('hidden');
+            rawSection.classList.add('block');
+            fileSection.classList.add('hidden');
+            fileSection.classList.remove('block');
+        } else {
+            fileTab.className = "text-primary font-semibold text-sm tracking-wide uppercase border-b-2 border-primary pb-4 -mb-[18px]";
+            rawTab.className = "text-on-surface-variant font-medium text-sm tracking-wide uppercase pb-4 -mb-[18px] hover:text-primary transition-colors";
+            fileSection.classList.remove('hidden');
+            fileSection.classList.add('block');
+            rawSection.classList.add('hidden');
+            rawSection.classList.remove('block');
+        }
+    };
+
+    rawTab.addEventListener('click', () => setTab('raw'));
+    fileTab.addEventListener('click', () => setTab('file'));
+});</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f7f9ff",
+                        "on-secondary-fixed": "#021945",
+                        "surface-dim": "#d8dae0",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "surface-container-highest": "#e0e2e8",
+                        "on-secondary-container": "#415382",
+                        "on-surface": "#181c20",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e6e8ee",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#b2c5ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#c4d2ff",
+                        "on-tertiary-container": "#ffc6b2",
+                        "primary-container": "#0052cc",
+                        "on-secondary-fixed-variant": "#344573",
+                        "secondary-fixed": "#dae2ff",
+                        "on-tertiary-fixed": "#380d00",
+                        "primary": "#003d9b",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c3c6d6",
+                        "on-background": "#181c20",
+                        "surface-variant": "#e0e2e8",
+                        "background": "#f7f9ff",
+                        "surface-container": "#eceef4",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "outline": "#737685",
+                        "inverse-on-surface": "#eff1f7",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#434654",
+                        "tertiary-fixed": "#ffdbcf",
+                        "secondary-container": "#b6c8fe",
+                        "surface-container-low": "#f1f3f9",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#001848",
+                        "surface": "#f7f9ff",
+                        "tertiary": "#7b2600",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#0c56d0",
+                        "secondary-fixed-dim": "#b4c5fb",
+                        "inverse-surface": "#2d3135",
+                        "tertiary-container": "#a33500",
+                        "primary-fixed": "#dae2ff",
+                        "secondary": "#4c5d8d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col antialiased">
+<!-- TopNavBar -->
+<nav class="bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-[1440px] mx-auto shadow-sm dark:shadow-none tonal-shift-bottom no-line">
+<div class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-50">
+                Clinical Sentinel
+            </div>
+<div class="hidden md:flex items-center space-x-6 font-sans antialiased tracking-tight">
+<a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700 dark:border-blue-400 pb-1" href="dashboard.html">Scanner</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="scan history.html">History</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="security vault.html">Vault</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="settings account.html">Settings</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="hidden md:flex items-center gap-2 bg-primary text-on-primary px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary-container transition-all active:scale-95 duration-200">
+                    Upgrade Plan
+                </button>
+<div class="flex items-center space-x-2 text-blue-700 dark:text-blue-400">
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-full transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-full transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<img alt="User profile" class="w-8 h-8 rounded-full border border-outline-variant/30" data-alt="professional headshot of a person looking forward against a clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8r0oKrJotoViwe-hOfHMU0ZtekntpGwtvl0trcQ5yE6TcR51HVIG_HHB6BKNXbFVa7kdVQ4aQhzu-CvS3tD84YmF_g9y9F9MBoHY5C64aO_swHIZqZQ9kYSMsMYcyBDMJNyxocFz5cElTP26QMDVkT_6FIsPwX0BA3a6L7DT_SMSSF8xwgWxgXp_R0E4RbYOMTsottUrj8ugN8nH9AJjDTDx5M84-klph0fLBh5nwjJXKkmk7P25ZtN3pZ-PrX_WXuQS3LqQGDfc"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area with SideNav and Canvas -->
+<div class="flex flex-1 max-w-[1440px] mx-auto w-full">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col py-10 px-4 h-full bg-slate-100 dark:bg-slate-900/50 h-screen w-72 rounded-r-[40px] sticky left-0 top-0 tonal layering - surface-container-low flat no shadows">
+<div class="mb-10 px-6">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">security</span>
+</div>
+<div>
+<h2 class="text-lg font-black text-blue-800 dark:text-blue-300">Sentinel AI</h2>
+<p class="text-[0.6875rem] text-slate-500 uppercase tracking-widest font-medium">V3.4 Active Monitoring</p>
+</div>
+</div>
+<button class="w-full mt-6 bg-primary text-on-primary rounded-full py-3 px-4 font-medium flex items-center justify-center gap-2 hover:bg-primary-container transition-all active:scale-95 duration-200 shadow-sm">
+<span class="material-symbols-outlined text-sm">add</span> New Scan
+                </button>
+</div>
+<nav class="flex-1 space-y-2 font-medium tracking-widest Inter text-[0.6875rem] uppercase">
+<a class="flex items-center gap-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 rounded-full py-3 px-6 shadow-sm active:scale-98 duration-200 hover:translate-x-1 transition-transform duration-300 hover:text-blue-600" href="dashboard.html">
+<span class="material-symbols-outlined" data-icon="shield_with_heart">shield_with_heart</span>
+                    Security Scan
+                </a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 py-3 px-6 active:scale-98 duration-200 hover:translate-x-1 transition-transform duration-300 hover:text-blue-600" href="threat feed.html">
+<span class="material-symbols-outlined" data-icon="biometric_setup">android_fingerprint</span>
+                    Threat Feed
+                </a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 py-3 px-6 active:scale-98 duration-200 hover:translate-x-1 transition-transform duration-300 hover:text-blue-600" href="data reports.html">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                    Data Reports
+                </a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 py-3 px-6 active:scale-98 duration-200 hover:translate-x-1 transition-transform duration-300 hover:text-blue-600" href="settings account.html">
+<span class="material-symbols-outlined" data-icon="manage_accounts">manage_accounts</span>
+                    Account
+                </a>
+</nav>
+<div class="mt-auto space-y-2 pt-8 font-medium tracking-widest Inter text-[0.6875rem] uppercase">
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 py-2 px-6 hover:text-blue-600 transition-colors" href="documentation.html">
+<span class="material-symbols-outlined text-sm" data-icon="menu_book">menu_book</span> Documentation
+                </a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 py-2 px-6 hover:text-blue-600 transition-colors" href="support.html">
+<span class="material-symbols-outlined text-sm" data-icon="support_agent">support_agent</span> Support
+                </a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 p-6 md:p-12 lg:p-16">
+<header class="mb-12">
+<h1 class="text-[3.5rem] font-bold text-on-surface leading-tight tracking-tight mb-2">Deep Inspection</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl">Analyze raw email headers, payloads, and structural metadata for advanced persistent threats.</p>
+</header>
+<!-- Scanner Card -->
+<div class="bg-surface-container-lowest rounded-[24px] p-8 md:p-10 relative overflow-hidden">
+<!-- Tonal shift definition rather than borders -->
+<div class="absolute inset-0 bg-surface-container-low opacity-20 pointer-events-none"></div>
+<!-- Tabs -->
+<div class="flex space-x-6 border-b border-surface-container-highest mb-8 pb-4 relative z-10">
+<button class="text-primary font-semibold text-sm tracking-wide uppercase border-b-2 border-primary pb-4 -mb-[18px]" id="tab-raw-input">Raw Input</button>
+<button class="text-on-surface-variant font-medium text-sm tracking-wide uppercase pb-4 -mb-[18px] hover:text-primary transition-colors" id="tab-file-upload">File Upload</button>
+</div>
+<div class="relative z-10 grid grid-cols-1 xl:grid-cols-3 gap-12">
+<!-- Input Area -->
+<div class="xl:col-span-2 space-y-6">
+<div class="block" id="raw-input-section">
+<div class="relative">
+<label class="block text-[0.6875rem] font-semibold text-on-surface-variant uppercase tracking-widest mb-3">Email Source Code</label>
+<div class="bg-surface-container-high rounded-xl p-4 transition-all focus-within:bg-surface-bright focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-50">
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-on-surface font-mono text-sm resize-none h-64 placeholder:text-outline/50" id="scan-input" placeholder="Paste raw email headers and body here..."></textarea>
+</div>
+</div>
+</div>
+<div class="hidden" id="file-upload-section">
+<div class="relative">
+<label class="block text-[0.6875rem] font-semibold text-on-surface-variant uppercase tracking-widest mb-3">Upload Email File (.eml, .msg)</label>
+<div class="bg-surface-container-high rounded-xl p-12 border-2 border-dashed border-outline-variant/30 flex flex-col items-center justify-center hover:bg-surface-bright transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-outline mb-4 group-hover:text-primary transition-colors">upload_file</span>
+<p class="text-sm text-on-surface-variant font-medium">Drag and drop files here or <span class="text-primary">browse</span></p>
+<input accept=".eml,.msg,.txt" class="hidden" id="file-input" type="file"/>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-4">
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-medium hover:bg-primary-container hover:-translate-y-0.5 transition-all shadow-[0_4px_14px_0_rgba(0,61,155,0.2)] flex items-center gap-2" id="btn-execute-scan">
+<span class="material-symbols-outlined text-[20px]" data-icon="search">search</span>
+                                Execute Scan
+                            </button>
+
+<button class="text-error px-4 py-3 rounded-full font-medium hover:bg-error-container/50 transition-all flex items-center gap-2 ml-auto" id="btn-clear">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
+                                Clear
+                            </button>
+</div>
+</div>
+<!-- Status Area (Awaiting Scan) -->
+<div class="bg-surface-bright rounded-2xl p-6 flex flex-col items-center justify-center text-center border border-outline-variant/15 min-h-[300px]" id="status-container">
+<div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center mb-4 text-outline">
+<span class="material-symbols-outlined text-3xl" data-icon="policy">policy</span>
+</div>
+<h3 class="text-lg font-semibold text-on-surface mb-2">Awaiting Input</h3>
+<p class="text-sm text-on-surface-variant">System ready for raw payload analysis. Paste email source to begin diagnostic evaluation.</p>
+</div>
+</div>
+</div>
+<!-- Contextual Information -->
+<div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-low rounded-2xl p-6">
+<span class="material-symbols-outlined text-secondary mb-3" data-icon="hub">hub</span>
+<h4 class="font-semibold text-on-surface mb-2">Heuristic Engine</h4>
+<p class="text-sm text-on-surface-variant">Analyzes structural anomalies and header routing discrepancies.</p>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-6">
+<span class="material-symbols-outlined text-secondary mb-3" data-icon="link_off">link_off</span>
+<h4 class="font-semibold text-on-surface mb-2">URL Detonation</h4>
+<p class="text-sm text-on-surface-variant">Safely evaluates embedded links against known threat feeds.</p>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-6">
+<span class="material-symbols-outlined text-secondary mb-3" data-icon="attach_file">attach_file</span>
+<h4 class="font-semibold text-on-surface mb-2">Attachment Sandboxing</h4>
+<p class="text-sm text-on-surface-variant">Executes payloads in an isolated environment to monitor behavior.</p>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 mt-20 border-t border-slate-200/50 dark:border-slate-800/50">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center text-[11px] font-medium uppercase tracking-[0.1em] Inter">
+<div class="text-slate-400 dark:text-slate-600 mb-6 md:mb-0">
+                © 2024 Clinical Sentinel Security. Editorial Authority in Mail Protection.
+            </div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-slate-400 dark:text-slate-600 hover:text-blue-600 dark:hover:text-blue-400 underline underline-offset-4 transition-all duration-300" href="#">Privacy Policy</a>
+<a class="text-slate-400 dark:text-slate-600 hover:text-blue-600 dark:hover:text-blue-400 underline underline-offset-4 transition-all duration-300" href="#">Terms of Service</a>
+<a class="text-slate-400 dark:text-slate-600 hover:text-blue-600 dark:hover:text-blue-400 underline underline-offset-4 transition-all duration-300" href="#">Security Disclosure</a>
+<a class="text-slate-400 dark:text-slate-600 hover:text-blue-600 dark:hover:text-blue-400 underline underline-offset-4 transition-all duration-300" href="#">API Status</a>
+</div>
+</div>
+</footer>
+<script>document.addEventListener('DOMContentLoaded', () => {
+    const scanInput = document.getElementById('scan-input');
+    const executeBtn = document.getElementById('btn-execute-scan');
+
+    const clearBtn = document.getElementById('btn-clear');
+    const statusContainer = document.getElementById('status-container');
+    const rawTab = document.getElementById('tab-raw-input');
+    const fileTab = document.getElementById('tab-file-upload');
+    const rawSection = document.getElementById('raw-input-section');
+    const fileSection = document.getElementById('file-upload-section');
+
+    const defaultStatus = `
+        <div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center mb-4 text-outline">
+<span class="material-symbols-outlined text-3xl">policy</span>
+</div>
+<h3 class="text-lg font-semibold text-on-surface mb-2">Awaiting Input</h3>
+<p class="text-sm text-on-surface-variant">System ready for raw payload analysis. Paste email source to begin diagnostic evaluation.</p>
+    `;
+
+    const loadingStatus = `
+        <div class="flex flex-col items-center justify-center space-y-4">
+<div class="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+<p class="text-primary font-medium">Analyzing Structural Metadata...</p>
+</div>
+    `;
+
+    const getResultStatus = (isMalicious, matches) => `
+        <div class="w-16 h-16 ${isMalicious ? 'bg-error-container text-error' : 'bg-green-100 text-green-700'} rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-3xl">${isMalicious ? 'warning' : 'check_circle'}</span>
+</div>
+<h3 class="text-lg font-semibold text-on-surface mb-2">Scan Result: ${isMalicious ? 'Threat Detected' : 'Clean'}</h3>
+<p class="text-sm text-on-surface-variant">${isMalicious ? `Found suspicious patterns: ${matches.join(', ')}` : 'No malicious payloads or structural anomalies identified in the provided headers.'}</p>
+        ${isMalicious ? '<button class="mt-4 text-xs text-error font-bold uppercase tracking-widest hover:underline">Generate Report</button>' : ''}
+    `;
+
+    // 1. Scan Logic
+    executeBtn.addEventListener('click', () => {
+        const content = scanInput.value.toLowerCase();
+        if (!content.trim()) {
+            alert('Please enter email content or upload a file first.');
+            return;
+        }
+
+        statusContainer.innerHTML = loadingStatus;
+
+        setTimeout(() => {
+            const keywords = ['virus', 'trojan', 'malware', 'exploit', 'phish', 'shellcode'];
+            const matches = keywords.filter(k => content.includes(k));
+            const isMalicious = matches.length > 0;
+            statusContainer.innerHTML = getResultStatus(isMalicious, matches);
+            
+            // Save to localStorage
+            const scanRecord = {
+                id: Math.floor(Math.random() * 90000 + 10000) + "-" + String.fromCharCode(65+Math.random()*26) + String.fromCharCode(65+Math.random()*26),
+                timestamp: new Date().toISOString(),
+                isMalicious: isMalicious,
+                method: "Header Analysis"
+            };
+            
+            let scans = JSON.parse(localStorage.getItem('sentinelScans') || '[]');
+            scans.unshift(scanRecord);
+            localStorage.setItem('sentinelScans', JSON.stringify(scans));
+        }, 1500);
+    });
+
+    // 2. Clear Logic
+    clearBtn.addEventListener('click', () => {
+        scanInput.value = '';
+        statusContainer.innerHTML = defaultStatus;
+    });
+
+
+
+    // 4. Tab Switching
+    const setTab = (active) => {
+        if (active === 'raw') {
+            rawTab.className = "text-primary font-semibold text-sm tracking-wide uppercase border-b-2 border-primary pb-4 -mb-[18px]";
+            fileTab.className = "text-on-surface-variant font-medium text-sm tracking-wide uppercase pb-4 -mb-[18px] hover:text-primary transition-colors";
+            rawSection.classList.remove('hidden');
+            rawSection.classList.add('block');
+            fileSection.classList.add('hidden');
+            fileSection.classList.remove('block');
+        } else {
+            fileTab.className = "text-primary font-semibold text-sm tracking-wide uppercase border-b-2 border-primary pb-4 -mb-[18px]";
+            rawTab.className = "text-on-surface-variant font-medium text-sm tracking-wide uppercase pb-4 -mb-[18px] hover:text-primary transition-colors";
+            fileSection.classList.remove('hidden');
+            fileSection.classList.add('block');
+            rawSection.classList.add('hidden');
+            rawSection.classList.remove('block');
+        }
+    };
+
+    rawTab.addEventListener('click', () => setTab('raw'));
+    fileTab.addEventListener('click', () => setTab('file'));
+});</script></body></html>
