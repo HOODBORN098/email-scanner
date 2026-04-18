@@ -4,11 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Clinical Sentinel Documentation</title>
-<script>
-    if (!localStorage.getItem('cs_logged_in')) {
-        window.location.href = 'login.html';
-    }
-</script>
+<title>Clinical Sentinel Documentation</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -139,7 +135,7 @@
 <input class="w-full pl-12 pr-4 py-3 bg-surface-container-low border-none rounded-full text-sm focus:ring-2 focus:ring-primary focus:bg-surface-bright transition-all" placeholder="Search technical guides, APIs, or protocols..." type="text"/>
 </div>
 </div>
-<div class="flex items-center gap-6 ml-8">
+<div id="nav-auth-area" class="flex items-center gap-6 ml-8">
 <div class="flex items-center gap-4">
 <span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors" data-icon="notifications">notifications</span>
 </div>
@@ -319,4 +315,28 @@
 </div>
 </footer>
 </main>
+    <script>
+        // --- Dynamic Auth UI ---
+        const authArea = document.getElementById('nav-auth-area');
+        const isLoggedIn = localStorage.getItem('cs_logged_in');
+
+        if (isLoggedIn) {
+            authArea.innerHTML = `
+                <div class="flex items-center gap-4">
+                    <span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors">notifications</span>
+                </div>
+                <button class="bg-primary-container text-white px-6 py-2.5 rounded-full text-xs font-bold shadow-md hover:scale-95 transition-transform">
+                    Upgrade Plan
+                </button>
+                <div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest">
+                    <img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn-6WvG-aA3xR6RkUjMvM9yJ6D_7T3fIqZ7H3C-oZ1_1LhV39P0-Sg-vA"/>
+                </div>
+            `;
+        } else {
+            authArea.innerHTML = `
+                <a href="login.html" class="text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors uppercase tracking-widest px-2">Log In</a>
+                <a href="signup.html" class="bg-primary text-on-primary px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-primary-container transition-all shadow-md">Get Started</a>
+            `;
+        }
+    </script>
 </body></html>

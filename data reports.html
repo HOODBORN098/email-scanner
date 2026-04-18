@@ -4,11 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Reports | Clinical Sentinel</title>
-<script>
-    if (!localStorage.getItem('cs_logged_in')) {
-        window.location.href = 'login.html';
-    }
-</script>
+<title>Reports | Clinical Sentinel</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -140,7 +136,7 @@
 <span class="text-[11px] font-bold tracking-[0.2em] text-primary uppercase">Analytical Engine</span>
 <h2 class="text-5xl font-extrabold tracking-tight text-on-surface mt-2">Security Integrity</h2>
 </div>
-<div class="flex gap-3">
+<div class="flex gap-3" id="header-auth-area">
 <div class="bg-surface-container-low px-6 py-3 rounded-full flex items-center gap-4">
 <div class="flex flex-col">
 <span class="text-[10px] text-outline font-bold uppercase tracking-wider">System Status</span>
@@ -247,4 +243,17 @@
 <div class="h-20"></div>
 </main>
 
+    <script>
+        // --- Dynamic Auth UI ---
+        const authArea = document.getElementById('header-auth-area');
+        const isLoggedIn = localStorage.getItem('cs_logged_in');
+
+        if (!isLoggedIn) {
+            const signInBtn = document.createElement('a');
+            signInBtn.href = 'login.html';
+            signInBtn.className = "flex items-center bg-white text-primary border border-primary/20 px-6 py-3 rounded-full font-bold text-sm shadow-sm hover:bg-slate-50 transition-all";
+            signInBtn.textContent = "Sign In";
+            authArea.prepend(signInBtn);
+        }
+    </script>
 </body></html>

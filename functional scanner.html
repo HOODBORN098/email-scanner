@@ -4,11 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Clinical Sentinel | Email Malware Scanner</title>
-<script>
-    if (!localStorage.getItem('cs_logged_in')) {
-        window.location.href = 'login.html';
-    }
-</script>
+<title>Clinical Sentinel | Email Malware Scanner</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -140,7 +136,7 @@
 <span class="text-[11px] font-bold tracking-[0.2em] text-primary uppercase">Automated Intelligence</span>
 <h2 class="text-5xl font-extrabold tracking-tight text-on-surface mt-2">Scanner</h2>
 </div>
-<div class="flex space-x-4">
+<div class="flex space-x-4" id="header-auth-area">
 <button class="flex items-center space-x-2 bg-primary-container text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-primary-container/20 active:scale-95 transition-transform" id="btn-new-scan">
 <span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
 <span>New Scan</span>
@@ -390,6 +386,11 @@
         });
 
         function startScanSimulation() {
+            if (!localStorage.getItem('cs_logged_in')) {
+                alert('Authentication Required: Please sign in to perform security scans.');
+                window.location.href = 'login.html';
+                return;
+            }
             scanModal.classList.remove('hidden');
             scanModal.classList.add('flex');
             scanSpinner.classList.remove('hidden');
@@ -508,4 +509,30 @@
         // Initialize on load
         updateScannerStats();
     </script>
-</body></html>
+    <script>
+        // --- Dynamic Auth UI ---
+        const authArea = document.getElementById('header-auth-area');
+        const isLoggedIn = localStorage.getItem('cs_logged_in');
+
+        if (!isLoggedIn) {
+            // Add Sign In button next to New Scan or replace part of it
+            const signInBtn = document.createElement('a');
+            signInBtn.href = 'login.html';
+            signInBtn.className = "flex items-center bg-white text-primary border border-primary/20 px-6 py-3 rounded-full font-bold text-sm shadow-sm hover:bg-slate-50 transition-all";
+            signInBtn.textContent = "Sign In";
+            authArea.prepend(signInBtn);
+        }
+
+        document.getElementById('btn-new-scan').addEventListener('click', () => {
+            if (!localStorage.getItem('cs_logged_in')) {
+                alert('Authentication Required: Please sign in to perform security scans.');
+                window.location.href = 'login.html';
+                return;
+            }
+            // Original logic for New Scan (resetting the input area, etc.)
+            inputHeaders.value = '';
+            resetFileState();
+        });
+    </script>
+</body>
+</html>

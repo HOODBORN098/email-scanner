@@ -4,11 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Source Code | Clinical Sentinel</title>
-<script>
-    if (!localStorage.getItem('cs_logged_in')) {
-        window.location.href = 'login.html';
-    }
-</script>
+<title>Source Code | Clinical Sentinel</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -101,7 +97,7 @@
 <a class="text-slate-500 hover:text-blue-600 font-['Inter'] text-sm tracking-wide transition-all duration-300" href="#">Settings</a>
 </nav>
 </div>
-<div class="flex items-center gap-6">
+<div id="nav-auth-area" class="flex items-center gap-6">
 <button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold text-sm tracking-wide scale-95 active:scale-90 transition-transform">
                 Upgrade Plan
             </button>
@@ -270,4 +266,26 @@
 </div>
 </footer>
 </main>
+    <script>
+        // --- Dynamic Auth UI ---
+        const authArea = document.getElementById('nav-auth-area');
+        const isLoggedIn = localStorage.getItem('cs_logged_in');
+
+        if (isLoggedIn) {
+            authArea.innerHTML = `
+                <button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold text-sm tracking-wide scale-95 active:scale-90 transition-transform">
+                    Upgrade Plan
+                </button>
+                <span class="material-symbols-outlined text-slate-500 cursor-pointer">notifications</span>
+                <div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container">
+                    <img alt="User profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIFPsNc_ELvrQbqmQ6Vfz1XHjPpHsj5ytwQH31oMMv9NyRDyY2PtNF-T3THvtExkPrDO9JNLuN56ifadqri54HbA8vz88UGMBoqWzJISfxn5Tql0ljF62WrmWVd9amvKRnQDeaWGJNK-o1mzoSZW0T7j0BZzbU7CCG5imX3U22uG0cDwbGj3vKG-CCOahmOmkYMROUe1rmu_p7qO5bsDCalr0pDCtvU7CH0A2jFSNem4vC2UWCnOIW7NfEkzGQeDbZmPMT_E_LHzg"/>
+                </div>
+            `;
+        } else {
+            authArea.innerHTML = `
+                <a href="login.html" class="text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors uppercase tracking-widest px-2">Log In</a>
+                <a href="signup.html" class="bg-primary text-on-primary px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-primary-container transition-all shadow-md">Get Started</a>
+            `;
+        }
+    </script>
 </body></html>

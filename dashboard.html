@@ -4,11 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Clinical Sentinel - Email Malware Scanner</title>
-<script>
-    if (!localStorage.getItem('cs_logged_in')) {
-        window.location.href = 'login.html';
-    }
-</script>
+<title>Clinical Sentinel - Email Malware Scanner</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries">document.addEventListener('DOMContentLoaded', () => {
     const scanInput = document.getElementById('scan-input');
     const executeBtn = document.getElementById('btn-execute-scan');
@@ -188,7 +184,7 @@
 <button class="hidden md:flex items-center gap-2 bg-primary text-on-primary px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary-container transition-all active:scale-95 duration-200">
                     Upgrade Plan
                 </button>
-<div class="flex items-center space-x-2 text-blue-700 dark:text-blue-400">
+<div id="nav-auth-area" class="flex items-center space-x-2 text-blue-700 dark:text-blue-400">
 <button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-full transition-all active:scale-95 duration-200">
 <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
 </button>
@@ -374,6 +370,11 @@
 
     // 1. Scan Logic
     executeBtn.addEventListener('click', () => {
+        if (!localStorage.getItem('cs_logged_in')) {
+            alert('Authentication Required: Please sign in to perform security scans.');
+            window.location.href = 'login.html';
+            return;
+        }
         const content = scanInput.value.toLowerCase();
         if (!content.trim()) {
             alert('Please enter email content or upload a file first.');
@@ -431,4 +432,25 @@
 
     rawTab.addEventListener('click', () => setTab('raw'));
     fileTab.addEventListener('click', () => setTab('file'));
+
+    // --- Dynamic Auth UI ---
+    const authArea = document.getElementById('nav-auth-area');
+    const isLoggedIn = localStorage.getItem('cs_logged_in');
+
+    if (isLoggedIn) {
+        authArea.innerHTML = `
+            <button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-full transition-all active:scale-95 duration-200">
+                <span class="material-symbols-outlined">notifications</span>
+            </button>
+            <button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-full transition-all active:scale-95 duration-200">
+                <span class="material-symbols-outlined">help_outline</span>
+            </button>
+            <img alt="User profile" class="w-8 h-8 rounded-full border border-outline-variant/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8r0oKrJotoViwe-hOfHMU0ZtekntpGwtvl0trcQ5yE6TcR51HVIG_HHB6BKNXbFVa7kdVQ4aQhzu-CvS3tD84YmF_g9y9F9MBoHY5C64aO_swHIZqZQ9kYSMsMYcyBDMJNyxocFz5cElTP26QMDVkT_6FIsPwX0BA3a6L7DT_SMSSF8xwgWxgXp_R0E4RbYOMTsottUrj8ugN8nH9AJjDTDx5M84-klph0fLBh5nwjJXKkmk7P25ZtN3pZ-PrX_WXuQS3LqQGDfc"/>
+        `;
+    } else {
+        authArea.innerHTML = `
+            <a href="login.html" class="text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors uppercase tracking-widest px-2">Log In</a>
+            <a href="signup.html" class="bg-primary text-on-primary px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-primary-container transition-all shadow-md">Get Started</a>
+        `;
+    }
 });</script></body></html>

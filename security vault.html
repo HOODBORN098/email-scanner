@@ -4,11 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Vault | Clinical Sentinel</title>
-<script>
-    if (!localStorage.getItem('cs_logged_in')) {
-        window.location.href = 'login.html';
-    }
-</script>
+<title>Vault | Clinical Sentinel</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -101,7 +97,7 @@
 <a class="text-blue-700 font-semibold border-b-2 border-blue-700 pb-1" href="security vault.html">Vault</a>
 <a class="text-slate-500 hover:text-blue-600 transition-colors" href="settings account.html">Settings</a>
 </div>
-<div class="flex items-center gap-4">
+<div id="nav-auth-area" class="flex items-center gap-4">
 <button class="p-2 hover:bg-blue-50/50 rounded-full transition-all duration-300">
 <span class="material-symbols-outlined text-slate-500" data-icon="notifications">notifications</span>
 </button>
@@ -191,4 +187,25 @@
 <a class="hover:text-primary transition-colors" href="support.html">Support API</a>
 </div>
 </footer>
+    <script>
+        // --- Dynamic Auth UI ---
+        const authArea = document.getElementById('nav-auth-area');
+        const isLoggedIn = localStorage.getItem('cs_logged_in');
+
+        if (isLoggedIn) {
+            authArea.innerHTML = `
+                <button class="p-2 hover:bg-blue-50/50 rounded-full transition-all duration-300">
+                    <span class="material-symbols-outlined text-slate-500">notifications</span>
+                </button>
+                <button class="p-2 hover:bg-blue-50/50 rounded-full transition-all duration-300">
+                    <span class="material-symbols-outlined text-slate-500">account_circle</span>
+                </button>
+            `;
+        } else {
+            authArea.innerHTML = `
+                <a href="login.html" class="text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors uppercase tracking-widest px-2">Log In</a>
+                <a href="signup.html" class="bg-primary text-on-primary px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-primary-container transition-all shadow-md">Get Started</a>
+            `;
+        }
+    </script>
 </body></html>
