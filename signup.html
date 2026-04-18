@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Clinical Sentinel</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        background: "#f7f9ff",
+                        "on-background": "#181c20",
+                        surface: "#f7f9ff",
+                        "on-surface": "#181c20",
+                        "surface-variant": "#e0e2e8",
+                        "on-surface-variant": "#434654",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f1f3f9",
+                        "surface-container": "#eceef4",
+                        "surface-container-high": "#e6e8ee",
+                        primary: "#003d9b",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#0052cc",
+                        "on-primary-container": "#c4d2ff",
+                        error: "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        outline: "#737685",
+                        "outline-variant": "#c3c6d6",
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen grid lg:grid-cols-2">
+
+    <!-- Right Signup Form Panel -->
+    <div class="w-full min-h-screen flex items-center justify-center p-6 bg-surface order-2 lg:order-1 relative">
+        <div class="w-full max-w-md my-10 relative z-10">
+            <!-- Mobile Header -->
+            <div class="lg:hidden flex items-center gap-3 mb-10">
+                <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+                </div>
+                <div>
+                    <h2 class="text-sm font-black uppercase tracking-tighter text-primary">Clinical Sentinel</h2>
+                </div>
+            </div>
+
+            <div class="mb-10">
+                <h2 class="text-3xl font-black tracking-tight text-on-surface mb-2">Create Account</h2>
+                <p class="text-on-surface-variant text-sm font-medium">Get started with your personal security dashboard.</p>
+            </div>
+
+            <form action="dashboard.html" method="get" class="space-y-5">
+                <!-- Name Field -->
+                <div>
+                    <label for="name" class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Full Name</label>
+                    <div class="relative group">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-4">
+                            <span class="material-symbols-outlined text-outline group-focus-within:text-primary transition-colors text-xl">person</span>
+                        </span>
+                        <input type="text" id="name" required placeholder="Jane Doe" class="w-full bg-surface-container-lowest border-2 border-transparent focus:border-primary focus:bg-surface-bright transition-all py-3.5 pl-12 pr-4 rounded-xl text-sm font-medium text-on-surface outline-none placeholder:text-outline-variant shadow-sm hover:shadow-md">
+                    </div>
+                </div>
+
+                <!-- Email Field -->
+                <div>
+                    <label for="email" class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Email Address</label>
+                    <div class="relative group">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-4">
+                            <span class="material-symbols-outlined text-outline group-focus-within:text-primary transition-colors text-xl">alternate_email</span>
+                        </span>
+                        <input type="email" id="email" required autocomplete="email" placeholder="jane@clinical.secure" class="w-full bg-surface-container-lowest border-2 border-transparent focus:border-primary focus:bg-surface-bright transition-all py-3.5 pl-12 pr-4 rounded-xl text-sm font-medium text-on-surface outline-none placeholder:text-outline-variant shadow-sm hover:shadow-md">
+                    </div>
+                </div>
+
+                <!-- Company Field -->
+                <div>
+                    <label for="company" class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Username</label>
+                    <div class="relative group">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-4">
+                            <span class="material-symbols-outlined text-outline group-focus-within:text-primary transition-colors text-xl">domain</span>
+                        </span>
+                        <input type="text" id="company" required placeholder="Acme Healthcare Corp" class="w-full bg-surface-container-lowest border-2 border-transparent focus:border-primary focus:bg-surface-bright transition-all py-3.5 pl-12 pr-4 rounded-xl text-sm font-medium text-on-surface outline-none placeholder:text-outline-variant shadow-sm hover:shadow-md">
+                    </div>
+                </div>
+
+                <!-- Password Field -->
+                <div>
+                    <label for="password" class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Password</label>
+                    <div class="relative group">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-4">
+                            <span class="material-symbols-outlined text-outline group-focus-within:text-primary transition-colors text-xl">lock_reset</span>
+                        </span>
+                        <input type="password" id="password" required autocomplete="new-password" placeholder="Min. 12 characters" class="w-full bg-surface-container-lowest border-2 border-transparent focus:border-primary focus:bg-surface-bright transition-all py-3.5 pl-12 pr-12 rounded-xl text-sm font-bold text-on-surface outline-none placeholder:text-outline-variant shadow-sm hover:shadow-md tracking-[0.1em]">
+                        <button type="button" tabindex="-1" class="absolute inset-y-0 right-0 flex items-center pr-4 text-outline hover:text-primary transition-colors" onclick="document.getElementById('password').type = document.getElementById('password').type === 'password' ? 'text' : 'password'">
+                            <span class="material-symbols-outlined text-xl">visibility</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pt-2">
+                    <label class="flex items-start gap-3 cursor-pointer group">
+                        <div class="relative flex items-center mt-1">
+                            <input type="checkbox" required class="w-5 h-5 rounded border-outline-variant/60 text-primary focus:ring-primary focus:ring-offset-background transition-all peer">
+                        </div>
+                        <span class="text-xs text-on-surface-variant leading-relaxed">
+                            I agree to the 
+                            <a href="#" class="text-primary font-bold hover:underline">Terms of Service</a> and 
+                            <a href="#" class="text-primary font-bold hover:underline">Privacy Policy</a> regarding my personal data.
+                        </span>
+                    </label>
+                </div>
+
+                <div class="pt-4">
+                    <button type="submit" class="w-full bg-primary text-white py-4 rounded-xl font-bold tracking-wide hover:bg-primary-container shadow-[0_4px_14px_0_rgba(0,61,155,0.2)] hover:shadow-[0_6px_20px_0_rgba(0,61,155,0.3)] hover:-translate-y-0.5 transition-all active:scale-[0.98]">
+                        Create Free Account
+                    </button>
+                </div>
+            </form>
+
+            <p class="text-center mt-8 text-sm font-medium text-on-surface-variant">
+                Already have an account? <a href="login.html" class="text-primary font-bold hover:underline">Log in</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Left Visual Panel (Flipoed to right for Signup) -->
+    <div class="hidden lg:flex flex-col justify-between bg-primary relative overflow-hidden p-12 lg:p-20 text-white order-1 lg:order-2">
+        <!-- Abstract Decoration -->
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary-container rounded-full blur-3xl opacity-50 mix-blend-screen pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-full h-[50vh] bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+        
+        <div class="relative z-10 flex justify-end">
+            <div class="flex items-center gap-3">
+                <div class="text-right">
+                    <h2 class="text-xl font-black uppercase tracking-tighter">Clinical Sentinel</h2>
+                    <p class="text-[10px] text-white/70 uppercase tracking-widest font-bold">Heuristic Defense</p>
+                </div>
+                <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-primary shadow-xl">
+                    <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">security</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative z-10 max-w-lg ml-auto mt-20 text-right">
+            <div class="w-full flex justify-end mb-6">
+                <span class="inline-block py-1 px-3 bg-white/10 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-widest border border-white/20">
+                    Personal Security
+                </span>
+            </div>
+            <h1 class="text-5xl lg:text-6xl font-black tracking-tighter leading-tight text-white mb-6">
+                Your Digital <br/>
+                <span class="text-primary-container">Bodyguard.</span>
+            </h1>
+            <p class="text-lg text-white/80 leading-relaxed font-medium">
+                Powerful email security for everyone. Scan attachments, check links, and stay safe from everyday phishing and malware.
+            </p>
+        </div>
+
+        <div class="relative z-10 flex items-center justify-end gap-6 text-sm font-bold opacity-70 mt-auto pt-16">
+            <div class="flex items-center gap-6">
+                <span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">public</span> Global Network</span>
+                <span class="w-1 h-1 rounded-full bg-white/30"></span>
+                <span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">encrypted</span> E2E Encryption</span>
+            </div>
+        </div>
+        
+        <!-- Background Image overlay -->
+        <div class="absolute inset-0 z-0 mix-blend-overlay opacity-30 pointer-events-none">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Server Infrastructure Abstract" class="w-full h-full object-cover grayscale" />
+        </div>
+    </div>
+
+</body>
+</html>
