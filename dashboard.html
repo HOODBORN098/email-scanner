@@ -4,6 +4,11 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Clinical Sentinel - Email Malware Scanner</title>
+<script>
+    if (!localStorage.getItem('cs_logged_in')) {
+        window.location.href = 'login.html';
+    }
+</script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries">document.addEventListener('DOMContentLoaded', () => {
     const scanInput = document.getElementById('scan-input');
     const executeBtn = document.getElementById('btn-execute-scan');

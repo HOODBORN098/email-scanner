@@ -71,7 +71,7 @@
                 <p class="text-on-surface-variant text-sm font-medium">Get started with your personal security dashboard.</p>
             </div>
 
-            <form action="dashboard.html" method="get" class="space-y-5">
+            <form id="signup-form" class="space-y-5">
                 <!-- Name Field -->
                 <div>
                     <label for="name" class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Full Name</label>
@@ -192,5 +192,13 @@
         </div>
     </div>
 
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // In a real app, we'd save the user data here
+            localStorage.setItem('cs_logged_in', 'true');
+            window.location.href = 'dashboard.html';
+        });
+    </script>
 </body>
 </html>

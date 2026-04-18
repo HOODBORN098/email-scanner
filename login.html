@@ -133,7 +133,7 @@
                 <div class="flex-grow border-t border-outline-variant/30"></div>
             </div>
 
-            <form action="dashboard.html" method="get" class="space-y-6">
+            <form id="login-form" class="space-y-6">
                 <!-- Email Field -->
                 <div>
                     <label for="email" class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Email Address</label>
@@ -172,5 +172,13 @@
             </p>
         </div>
     </div>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // In a real app, we'd validate credentials here
+            localStorage.setItem('cs_logged_in', 'true');
+            window.location.href = 'dashboard.html';
+        });
+    </script>
 </body>
 </html>
