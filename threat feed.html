@@ -87,68 +87,108 @@
     </style>
 </head>
 <body class="bg-background text-on-background antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
-<!-- TopNavBar -->
-<header class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl flex justify-between items-center px-8 h-16 w-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-none">
-<div class="flex items-center gap-8">
-<span class="text-lg font-black tracking-tighter text-blue-800 dark:text-blue-100 uppercase">Clinical Sentinel</span>
-<nav class="hidden md:flex gap-6 font-['Inter'] antialiased text-sm tracking-wide">
-<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors" href="dashboard.html">Scanner</a>
-<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors" href="scan history.html">History</a>
-<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors" href="security vault.html">Vault</a>
-<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 transition-colors" href="settings account.html">Settings</a>
-</nav>
-</div>
-<div id="nav-auth-area" class="flex items-center gap-4">
-<div class="h-8 w-8 rounded-full bg-slate-200 animate-pulse"></div>
-</div>
+
+<!-- ===== MOBILE TOP HEADER ===== -->
+<header class="lg:hidden fixed top-0 left-0 right-0 z-50 h-16 bg-white/95 backdrop-blur-xl border-b border-slate-100 flex items-center justify-between px-6 shadow-sm">
+    <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm">
+            <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+        </div>
+        <span class="text-sm font-black tracking-tighter text-primary uppercase">Clinical Sentinel</span>
+    </div>
+    <div id="mobile-auth-area" class="flex items-center gap-2">
+        <div class="h-8 w-8 rounded-full bg-slate-100 animate-pulse"></div>
+    </div>
 </header>
-<!-- SideNavBar -->
-<aside class="h-screen w-72 fixed left-0 top-0 bg-slate-50 dark:bg-slate-950 flex flex-col py-8 space-y-2 z-40 mt-16 font-['Inter'] text-sm font-medium tracking-tight">
-<div class="px-6 mb-8">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
-<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
-</div>
-<div>
-<p class="text-on-background font-bold leading-tight">Sentinel Active</p>
-<p class="text-slate-400 text-xs uppercase tracking-widest">Global Status</p>
-</div>
-</div>
-</div>
-<nav class="flex-1">
-<a class="flex items-center gap-4 text-slate-500 px-6 py-3 hover:bg-slate-100 hover:translate-x-1 transition-all" href="dashboard.html">
-<span class="material-symbols-outlined">scan</span>
-<span>Security Scan</span>
-</a>
-<a class="flex items-center gap-4 text-slate-500 px-6 py-3 hover:bg-slate-100 hover:translate-x-1 transition-all" href="threat feed.html">
-<span class="material-symbols-outlined">radar</span>
-<span>Threat Feed</span>
-</a>
-<a class="flex items-center gap-4 text-slate-500 px-6 py-3 hover:bg-slate-100 hover:translate-x-1 transition-all" href="data reports.html">
-<span class="material-symbols-outlined">analytics</span>
-<span>Data Reports</span>
-</a>
-<a class="flex items-center gap-4 text-slate-500 px-6 py-3 hover:bg-slate-100 hover:translate-x-1 transition-all" href="settings account.html">
-<span class="material-symbols-outlined">manage_accounts</span>
-<span>Account</span>
-</a>
-</nav>
-<div class="px-6 space-y-4">
-<button class="w-full py-3 px-4 bg-error text-on-error rounded-full text-xs font-bold uppercase tracking-widest hover:shadow-lg transition-all duration-500 ease-out active:scale-95">
-                Emergency Lockdown
-            </button>
-<div class="pt-4 space-y-1">
-<a class="flex items-center gap-3 text-slate-400 hover:text-primary transition-colors py-2 text-xs" href="documentation.html">
-<span class="material-symbols-outlined text-base">menu_book</span> Documentation
-                </a>
-<a class="flex items-center gap-3 text-slate-400 hover:text-primary transition-colors py-2 text-xs" href="support.html">
-<span class="material-symbols-outlined text-base">contact_support</span> Support
-                </a>
-</div>
-</div>
+
+<!-- ===== DESKTOP SIDEBAR ===== -->
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-64 bg-slate-50 dark:bg-slate-950 border-r border-slate-200/50 dark:border-slate-800/50 z-40 py-8 transition-colors">
+    <div class="px-6 mb-8">
+        <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm shadow-primary/20">
+                <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+            </div>
+            <div>
+                <h1 class="text-[11px] font-black uppercase tracking-[0.2em] text-primary leading-tight">Clinical Sentinel</h1>
+                <p class="text-[9px] font-bold uppercase tracking-widest text-slate-400 leading-tight">Enterprise Security</p>
+            </div>
+        </div>
+    </div>
+    <div class="px-4 mb-6">
+        <button onclick="window.location.href='functional scanner.html'" class="w-full bg-primary text-white py-3 px-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all active:scale-95">
+            <span class="material-symbols-outlined text-[18px]">add</span> New Scan
+        </button>
+    </div>
+    <nav class="flex-1 px-3 space-y-1" id="desktop-nav">
+        <a href="dashboard.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
+            <span class="material-symbols-outlined text-xl">shield_with_heart</span> Security Scan
+        </a>
+        <a href="functional scanner.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
+            <span class="material-symbols-outlined text-xl">manage_search</span> Full Scanner
+        </a>
+        <a href="threat feed.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
+            <span class="material-symbols-outlined text-xl">radar</span> Threat Feed
+        </a>
+        <a href="scan history.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
+            <span class="material-symbols-outlined text-xl">history</span> Scan History
+        </a>
+        <a href="security vault.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
+            <span class="material-symbols-outlined text-xl">lock</span> Security Vault
+        </a>
+        <a href="data reports.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
+            <span class="material-symbols-outlined text-xl">analytics</span> Data Reports
+        </a>
+        <a href="settings account.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
+            <span class="material-symbols-outlined text-xl">manage_accounts</span> Account
+        </a>
+    </nav>
+    <div class="px-3 border-t border-slate-200/50 dark:border-slate-800/50 pt-4 space-y-1">
+        <a href="documentation.html" class="nav-link flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
+            <span class="material-symbols-outlined text-base">menu_book</span> Documentation
+        </a>
+        <a href="support.html" class="nav-link flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
+            <span class="material-symbols-outlined text-base">contact_support</span> Support
+        </a>
+        <div id="nav-auth-area" class="px-4 pt-3 flex items-center gap-3">
+            <div class="h-8 w-8 rounded-full bg-slate-200 animate-pulse"></div>
+        </div>
+    </div>
 </aside>
+
+<!-- ===== MOBILE BOTTOM NAV ===== -->
+<nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-slate-100 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] pb-safe">
+    <div class="flex items-stretch h-16" id="mobile-bottom-nav">
+        <a href="dashboard.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-[22px]">shield_with_heart</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider">Scan</span>
+        </a>
+        <a href="threat feed.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-[22px]">radar</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider">Feed</span>
+        </a>
+        <a href="scan history.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-[22px]">history</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider">History</span>
+        </a>
+        <a href="security vault.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-[22px]">lock</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider">Vault</span>
+        </a>
+        <a href="settings account.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-[22px]">manage_accounts</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider">Account</span>
+        </a>
+    </div>
+</nav>
+
+
+
+
+
 <!-- Main Content -->
-<main class="ml-72 pt-16 min-h-screen">
+<!-- ===== MAIN CONTENT WRAPPER ===== -->
+<div class="lg:pl-64 pt-24 lg:pt-12 pb-24 lg:pb-8 flex flex-col min-h-screen max-w-[100vw] overflow-x-hidden">
+<main class="min-h-screen relative w-full">
 <div class="p-8 space-y-8">
 <!-- Header Section -->
 <header class="flex justify-between items-end">
@@ -288,25 +328,47 @@
 <button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_moderator</span>
 </button>
-    <script>
-        // --- Dynamic Auth UI ---
-        const authArea = document.getElementById('nav-auth-area');
-        const isLoggedIn = localStorage.getItem('cs_logged_in');
+    
 
-        if (isLoggedIn) {
-            authArea.innerHTML = `
-                <button class="p-2 text-slate-500 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-all duration-300 rounded-full">
-                    <span class="material-symbols-outlined">notifications</span>
-                </button>
-                <button class="p-2 text-slate-500 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-all duration-300 rounded-full">
-                    <span class="material-symbols-outlined">account_circle</span>
-                </button>
-            `;
-        } else {
-            authArea.innerHTML = `
-                <a href="login.html" class="text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors uppercase tracking-widest px-2">Log In</a>
-                <a href="signup.html" class="bg-primary text-on-primary px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-primary-container transition-all shadow-md">Get Started</a>
-            `;
-        }
-    </script>
+
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Active Nav Logic
+        const currentPath = window.location.pathname.split('/').pop() || 'dashboard.html';
+        const navLinks = document.querySelectorAll('.nav-link');
+        const exactMatch = Array.from(navLinks).find(link => link.getAttribute('href') === currentPath);
+        
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPath || (!exactMatch && currentPath === '' && link.getAttribute('href') === 'dashboard.html')) {
+                if (link.closest('#desktop-nav')) {
+                    link.classList.remove('text-slate-500', 'hover:bg-slate-100', 'dark:hover:bg-slate-900');
+                    link.classList.add('font-bold', 'text-primary', 'bg-blue-50', 'dark:bg-blue-900/20');
+                    const icon = link.querySelector('.material-symbols-outlined');
+                    if (icon) icon.style.fontVariationSettings = "'FILL' 1";
+                } else if (link.closest('#mobile-bottom-nav')) {
+                    link.classList.remove('text-slate-400');
+                    link.classList.add('text-primary');
+                    const icon = link.querySelector('.material-symbols-outlined');
+                    if (icon) icon.style.fontVariationSettings = "'FILL' 1";
+                } else {
+                     link.classList.remove('text-slate-400', 'text-slate-500');
+                     link.classList.add('text-primary', 'font-bold', 'bg-blue-50');
+                }
+            }
+        });
+
+        // Unified Auth Logic
+        const isLoggedIn = localStorage.getItem('cs_logged_in');
+        const loggedInHTML = `<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold shadow-sm shadow-primary/30">U</div>`;
+        const loggedOutHTML = `<a href="login.html" class="text-[10px] font-bold bg-primary text-white px-3 py-1.5 rounded-full uppercase tracking-widest">Log In</a>`;
+
+        const sidebarAuth = document.getElementById('nav-auth-area');
+        const mobileAuth = document.getElementById('mobile-auth-area');
+        
+        if (sidebarAuth) sidebarAuth.innerHTML = isLoggedIn ? loggedInHTML : loggedOutHTML;
+        if (mobileAuth) mobileAuth.innerHTML = isLoggedIn ? loggedInHTML : loggedOutHTML;
+    });
+</script>
+
 </body></html>
