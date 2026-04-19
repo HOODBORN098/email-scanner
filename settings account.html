@@ -233,14 +233,14 @@ Workspace Configuration
 <div class="flex items-center justify-between mb-8">
 <h2 class="text-2xl font-bold tracking-tight text-on-surface">Profile Information</h2>
 <button class="flex items-center gap-2 text-primary font-semibold text-sm hover:opacity-80 transition-opacity">
-edit
-                        Edit Details
-                    </button>
+    <span class="material-symbols-outlined">edit</span>
+    Edit Details
+</button>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <img id="profile-img" alt="User Profile" class="w-full h-full rounded-full object-cover border-4 border-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn-6WvG-aA3xR6RkUjMvM9yJ6D_7T3fIqZ7H3C-oZ1_1LhV39P0-Sg-vA"/>
 <button class="absolute bottom-0 right-0 bg-surface-container-lowest p-2 rounded-full shadow-md text-primary">
-photo_camera
+    <span class="material-symbols-outlined">photo_camera</span>
 </button>
 </div>
 <div class="space-y-6">
@@ -268,8 +268,8 @@ photo_camera
 <section class="md:col-span-4 space-y-6">
 <div class="bg-surface-container-lowest rounded-lg p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-outline-variant/10">
 <div class="flex items-center gap-3 mb-6">
-lock_reset
-<h2 class="text-xl font-bold tracking-tight text-on-surface">Security</h2>
+    <span class="material-symbols-outlined">lock_reset</span>
+    <h2 class="text-xl font-bold tracking-tight text-on-surface">Security</h2>
 </div>
 <div class="space-y-6">
 <div class="flex items-center justify-between">
@@ -294,8 +294,8 @@ lock_reset
 <div class="relative z-10">
 <div class="flex justify-between items-start mb-6">
 <div>
-Current Plan
-<h3 class="text-2xl font-black mt-1">Sentinel Pro</h3>
+    <span class="text-[10px] font-bold text-on-primary/60 uppercase tracking-widest">Current Plan</span>
+    <h3 class="text-2xl font-black mt-1">Sentinel Pro</h3>
 </div>
 <div class="bg-on-primary/10 px-3 py-1 rounded-full backdrop-blur-sm">
 ANNUAL
@@ -303,17 +303,17 @@ ANNUAL
 </div>
 <ul class="space-y-3 mb-8">
 <li class="flex items-center gap-2 text-sm opacity-90">
-check_circle 
-                                Real-time Malware Neutralization
-                            </li>
+    <span class="material-symbols-outlined text-[18px]">check_circle</span> 
+    Real-time Malware Neutralization
+</li>
 <li class="flex items-center gap-2 text-sm opacity-90">
-check_circle 
-                                Unlimited API Endpoints
-                            </li>
+    <span class="material-symbols-outlined text-[18px]">check_circle</span> 
+    Unlimited API Endpoints
+</li>
 <li class="flex items-center gap-2 text-sm opacity-90">
-check_circle 
-                                Priority 24/7 Diagnostics
-                            </li>
+    <span class="material-symbols-outlined text-[18px]">check_circle</span> 
+    Priority 24/7 Diagnostics
+</li>
 </ul>
 <button class="w-full py-4 bg-slate-50 text-primary font-bold rounded-full hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
                             Upgrade to Enterprise
@@ -330,7 +330,7 @@ check_circle
 <label class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-DEFAULT cursor-pointer hover:bg-surface-bright transition-colors group">
 <div class="flex items-center gap-4">
 <div class="w-10 h-10 bg-error-container rounded-full flex items-center justify-center text-on-error-container">
-emergency_home
+    <span class="material-symbols-outlined">emergency_home</span>
 </div>
 <div>
 <p class="text-sm font-bold text-on-surface">Critical Breach Alerts</p>
@@ -356,18 +356,17 @@ analytics
 <div class="bg-surface-container-lowest rounded-lg p-8 shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-outline-variant/10">
 <div class="flex justify-between items-center mb-6">
 <h2 class="text-xl font-bold tracking-tight text-on-surface">Recent Sessions</h2>
-Sign Out of All Sessions
-</div>
+<button class="text-xs font-bold text-primary hover:underline uppercase tracking-widest">Sign Out of All Sessions</button>
 <div id="session-list" class="space-y-4">
 <div class="flex items-center justify-between py-2 border-b border-surface-container">
-<div class="flex items-center gap-3">
-laptop_mac
-<div>
-<p class="text-sm font-medium text-on-surface">Current Browser</p>
-<p class="text-[10px] text-on-surface-variant">Active Session</p>
-</div>
-</div>
-<div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(0,61,155,0.4)]"></div>
+    <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-slate-400">laptop_mac</span>
+        <div>
+            <p class="text-sm font-medium text-on-surface">Current Browser</p>
+            <p class="text-[10px] text-on-surface-variant">Active Session</p>
+        </div>
+    </div>
+    <div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(0,61,155,0.4)]"></div>
 </div>
 </div>
 </div>
@@ -375,8 +374,11 @@ laptop_mac
 </div>
 <footer class="mt-20 pt-12 border-t border-surface-container flex flex-col md:flex-row justify-between items-center gap-8">
 <div class="flex items-center gap-4">
-Clinical Sentinel
-<p class="text-xs text-outline font-medium tracking-wide">V.2.4.0 (STABLE)</p>
+    <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+        <span class="font-black text-sm uppercase tracking-tighter text-primary">Clinical Sentinel</span>
+    </div>
+    <p class="text-xs text-outline font-medium tracking-wide">V.2.4.0 (STABLE)</p>
 </div>
 <div class="flex gap-8">
 <a class="text-xs font-bold text-outline uppercase tracking-widest hover:text-primary transition-colors" href="#">Privacy Protocol</a>
@@ -408,7 +410,7 @@ Clinical Sentinel
                 <span class="material-symbols-outlined">notifications</span>
             </button>
             <button class="p-2 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-all duration-300 rounded-full">
-                account_circle
+                <span class="material-symbols-outlined">account_circle</span>
             </button>
         `;
         document.getElementById('profile-name').textContent = "Sentinel Member";

@@ -111,7 +111,7 @@
                     <label for="company" class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Username</label>
                     <div class="relative group">
                         <span class="absolute inset-y-0 left-0 flex items-center pl-4">
-                            domain
+                            <span class="material-symbols-outlined text-outline">domain</span>
                         </span>
                         <input type="text" id="company" required placeholder="Acme Healthcare Corp" class="w-full bg-surface-container-lowest border-2 border-transparent focus:border-primary focus:bg-surface-bright transition-all py-3.5 pl-12 pr-4 rounded-xl text-sm font-medium text-on-surface outline-none placeholder:text-outline-variant shadow-md hover:shadow-md">
                     </div>
@@ -122,7 +122,7 @@
                     <label for="password" class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Password</label>
                     <div class="relative group">
                         <span class="absolute inset-y-0 left-0 flex items-center pl-4">
-                            lock_reset
+                            <span class="material-symbols-outlined text-outline">lock_reset</span>
                         </span>
                         <input type="password" id="password" required autocomplete="new-password" placeholder="Min. 12 characters" class="w-full bg-surface-container-lowest border-2 border-transparent focus:border-primary focus:bg-surface-bright transition-all py-3.5 pl-12 pr-12 rounded-xl text-sm font-bold text-on-surface outline-none placeholder:text-outline-variant shadow-md hover:shadow-md tracking-[0.1em]">
                         <button type="button" tabindex="-1" class="absolute inset-y-0 right-0 flex items-center pr-4 text-outline hover:text-primary transition-colors" onclick="document.getElementById('password').type = document.getElementById('password').type === 'password' ? 'text' : 'password'">
@@ -190,9 +190,15 @@
 
         <div class="relative z-10 flex items-center justify-end gap-6 text-sm font-bold opacity-70 mt-auto pt-16">
             <div class="flex items-center gap-6">
-                <span class="material-symbols-outlined text-lg">public Global Network</span>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-lg">public</span>
+                    <span>Global Network</span>
+                </div>
                 
-                <span class="material-symbols-outlined text-lg">encrypted E2E Encryption</span>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-lg">encrypted</span>
+                    <span>E2E Encryption</span>
+                </div>
             </div>
         </div>
         

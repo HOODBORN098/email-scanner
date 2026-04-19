@@ -210,13 +210,13 @@
 </div>
 <div class="flex gap-3">
 <button class="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface font-medium hover:bg-surface-container-highest transition-all flex items-center gap-2">
-filter_list
-                    Filter Records
-                </button>
+    <span class="material-symbols-outlined text-sm">filter_list</span>
+    Filter Records
+</button>
 <button class="px-6 py-2.5 rounded-full bg-primary text-on-primary font-medium hover:opacity-90 active:scale-[0.98] transition-all shadow-lg flex items-center gap-2">
-download_for_offline
-                    Export PDF
-                </button>
+    <span class="material-symbols-outlined text-sm">download_for_offline</span>
+    Export PDF
+</button>
 </div>
 </header>
 <!-- Stats Bento Section -->
@@ -255,8 +255,8 @@ Malicious Blocked
 <tr>
 <td class="px-6 py-20 text-center" colspan="4">
 <div class="flex flex-col items-center justify-center text-slate-400">
-<span class="material-symbols-outlined">history_toggle_off</span>
-<p class="text-sm">No diagnostic records located in the Sentinel archive.</p>
+    <span class="material-symbols-outlined text-4xl mb-4">history_toggle_off</span>
+    <p class="text-sm">No diagnostic records located in the Sentinel archive.</p>
 </div>
 </td>
 </tr>
@@ -269,7 +269,7 @@ Malicious Blocked
 <p class="text-xs font-medium text-on-surface-variant">Showing 0 - 0 of 0 diagnostic results</p>
 <div class="flex items-center gap-2">
 <button class="p-2 rounded-full hover:bg-slate-50 disabled:opacity-30" disabled="">
-chevron_left
+    <span class="material-symbols-outlined">chevron_left</span>
 </button>
 <div class="flex items-center gap-1">
 <button class="w-8 h-8 rounded-full bg-primary text-on-primary text-xs font-bold">1</button>
@@ -339,7 +339,7 @@ Security Infrastructure Tier 1
                 tr.innerHTML = `
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-500">\${date.toLocaleString()}</td>
                     <td class="px-6 py-4 whitespace-nowrap flex items-center gap-3">
-                        \${icon}
+                        <span class="material-symbols-outlined text-primary">\${icon}</span>
                         <div>
                             <p class="text-sm font-bold text-on-surface">\${scan.id}</p>
                             <p class="text-xs text-outline uppercase">\${scan.method}</p>
