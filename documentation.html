@@ -85,28 +85,48 @@
         }
     </style>
 </head>
-<body class="bg-background text-on-surface flex min-h-screen">
+<body class="bg-slate-100 text-on-surface flex min-h-screen">
 
 <!-- ===== MOBILE TOP HEADER ===== -->
-<header class="lg:hidden fixed top-0 left-0 right-0 z-50 h-16 bg-white/95 backdrop-blur-xl border-b border-slate-100 flex items-center justify-between px-6 shadow-sm">
+<header class="lg:hidden fixed top-0 left-0 right-0 z-50 h-16 bg-slate-50/95 backdrop-blur-xl border-b border-slate-300 flex items-center justify-between px-6 shadow-md">
     <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm">
-            <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+        <div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-white shadow-md">
+            <span class="material-symbols-outlined"><span class="material-symbols-outlined">shield_with_heart</span></span>
         </div>
-        <span class="text-sm font-black tracking-tighter text-primary uppercase">Clinical Sentinel</span>
+        Clinical Sentinel
     </div>
-    <div id="mobile-auth-area" class="flex items-center gap-2">
-        <div class="h-8 w-8 rounded-full bg-slate-100 animate-pulse"></div>
-    </div>
+    
+
+<div class="flex items-center p-0.5 bg-slate-200/50 dark:bg-slate-800 rounded-full border border-slate-300 ml-auto">
+    <button onclick="updateLanguage('en')" data-lang="en" class="lang-toggle-btn px-3 py-1 rounded-full text-[10px] font-black tracking-widest transition-all">EN</button>
+    <button onclick="updateLanguage('es')" data-lang="es" class="lang-toggle-btn px-3 py-1 rounded-full text-[10px] font-black tracking-widest transition-all">ES</button>
+</div>
+
+    <div id="mobile-auth-area" class="flex items-center gap-2"></div>
 </header>
 
 <!-- ===== DESKTOP SIDEBAR ===== -->
-<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-64 bg-slate-50 dark:bg-slate-950 border-r border-slate-200/50 dark:border-slate-800/50 z-40 py-8 transition-colors">
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-64 bg-slate-50 dark:bg-slate-950 border-r border-slate-300 dark:border-slate-800/50 z-40 py-8 transition-colors">
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="px-6 mb-8">
         <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm shadow-primary/20">
-                <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+            <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-md shadow-primary/20">
+                <span class="material-symbols-outlined"><span class="material-symbols-outlined">shield_with_heart</span></span>
             </div>
+
+
+
             <div>
                 <h1 class="text-[11px] font-black uppercase tracking-[0.2em] text-primary leading-tight">Clinical Sentinel</h1>
                 <p class="text-[9px] font-bold uppercase tracking-widest text-slate-400 leading-tight">Enterprise Security</p>
@@ -115,38 +135,48 @@
     </div>
     <div class="px-4 mb-6">
         <button onclick="window.location.href='functional scanner.html'" class="w-full bg-primary text-white py-3 px-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all active:scale-95">
-            <span class="material-symbols-outlined text-[18px]">add</span> New Scan
+            <span class="material-symbols-outlined text-[20px]">add</span>
+            <span data-i18n="nav_new_scan">New Scan</span>
         </button>
     </div>
     <nav class="flex-1 px-3 space-y-1" id="desktop-nav">
         <a href="dashboard.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">shield_with_heart</span> Security Scan
+            <span class="material-symbols-outlined"><span class="material-symbols-outlined">shield_with_heart</span></span>
+            <span data-i18n="nav_security_scan">Security Scan</span>
         </a>
         <a href="functional scanner.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">manage_search</span> Full Scanner
+            <span class="material-symbols-outlined">manage_search</span>
+            <span data-i18n="nav_full_scanner">Full Scanner</span>
         </a>
         <a href="threat feed.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">radar</span> Threat Feed
+            <span class="material-symbols-outlined">radar</span>
+            <span data-i18n="nav_threat_feed">Threat Feed</span>
         </a>
         <a href="scan history.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">history</span> Scan History
+            <span class="material-symbols-outlined">history</span>
+            <span data-i18n="nav_scan_history">Scan History</span>
         </a>
         <a href="security vault.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">lock</span> Security Vault
+            <span class="material-symbols-outlined"><span class="material-symbols-outlined">lock</span></span>
+            <span data-i18n="nav_security_vault">Security Vault</span>
         </a>
         <a href="data reports.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">analytics</span> Data Reports
+            <span class="material-symbols-outlined">analytics</span>
+            <span data-i18n="nav_data_reports">Data Reports</span>
         </a>
         <a href="settings account.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">manage_accounts</span> Account
+            <span class="material-symbols-outlined">manage_accounts</span>
+            <span data-i18n="nav_account">Account</span>
         </a>
     </nav>
-    <div class="px-3 border-t border-slate-200/50 dark:border-slate-800/50 pt-4 space-y-1">
+    <div class="px-3 border-t border-slate-300 dark:border-slate-800/50 pt-4 space-y-1">
         <a href="documentation.html" class="nav-link flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-base">menu_book</span> Documentation
+            <span class="material-symbols-outlined text-[18px]">menu_book</span>
+            <span data-i18n="nav_documentation">Documentation</span>
         </a>
         <a href="support.html" class="nav-link flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-base">contact_support</span> Support
+            <span class="material-symbols-outlined text-[18px]">contact_support</span>
+            <span data-i18n="nav_support">Support</span>
         </a>
         <div id="nav-auth-area" class="px-4 pt-3 flex items-center gap-3">
             <div class="h-8 w-8 rounded-full bg-slate-200 animate-pulse"></div>
@@ -155,27 +185,27 @@
 </aside>
 
 <!-- ===== MOBILE BOTTOM NAV ===== -->
-<nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-slate-100 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] pb-safe">
+<nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-50/95 backdrop-blur-xl border-t border-slate-300 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] pb-safe">
     <div class="flex items-stretch h-16" id="mobile-bottom-nav">
         <a href="dashboard.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-[22px]">shield_with_heart</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Scan</span>
+            <span class="material-symbols-outlined text-[22px]"><span class="material-symbols-outlined">shield_with_heart</span></span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_security_scan">Scan</span>
         </a>
         <a href="threat feed.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
             <span class="material-symbols-outlined text-[22px]">radar</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Feed</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_threat_feed">Feed</span>
         </a>
         <a href="scan history.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
             <span class="material-symbols-outlined text-[22px]">history</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">History</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_scan_history">History</span>
         </a>
         <a href="security vault.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-[22px]">lock</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Vault</span>
+            <span class="material-symbols-outlined text-[22px]"><span class="material-symbols-outlined">lock</span></span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_security_vault">Vault</span>
         </a>
         <a href="settings account.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
             <span class="material-symbols-outlined text-[22px]">manage_accounts</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Account</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_account">Account</span>
         </a>
     </div>
 </nav>
@@ -192,36 +222,36 @@
 <!-- Hero / Featured Section (Editorial Approach) -->
 <section class="mb-16 relative overflow-hidden rounded-xl p-12 bg-primary text-white">
 <div class="absolute top-0 right-0 w-1/3 h-full opacity-20 pointer-events-none">
-<span class="material-symbols-outlined text-[300px] absolute -right-20 -top-20" data-icon="book_2">book_2</span>
+<span class="material-symbols-outlined">book_2</span>
 </div>
 <div class="relative z-10 max-w-2xl">
-<p class="text-xs font-bold tracking-[0.2em] uppercase text-primary-fixed mb-4">Knowledge Base</p>
-<h2 class="text-5xl font-black tracking-tight mb-6">Master the Clinical Sentinel.</h2>
+<p class="text-xs font-bold tracking-[0.2em] uppercase text-primary-fixed mb-4"><span data-i18n="doc_kb">Knowledge Base</span></p>
+<h2 class="text-5xl font-black tracking-tight mb-6"><span data-i18n="doc_hero_title">Master the Clinical Sentinel.</span></h2>
 <p class="text-lg text-primary-fixed/80 leading-relaxed mb-8">Comprehensive technical references for implementing enterprise-grade email security, automated scanning protocols, and API integrations.</p>
 <div class="flex gap-4">
-<button class="bg-white text-primary px-8 py-3 rounded-full font-bold text-sm shadow-xl">Get Started</button>
-<button class="bg-transparent border border-white/30 text-white px-8 py-3 rounded-full font-bold text-sm hover:bg-white/10">API Specs</button>
+<button class="bg-slate-50 text-primary px-8 py-3 rounded-full font-bold text-sm shadow-xl"><span data-i18n="doc_get_started">Get Started</span></button>
+<button class="bg-transparent border border-white/30 text-white px-8 py-3 rounded-full font-bold text-sm hover:bg-slate-50/10">API Specs</button>
 </div>
 </div>
 </section>
 <!-- Grid of Guides (Asymmetric / Bento Style) -->
 <div class="grid grid-cols-12 gap-8 mb-16">
     <!-- Large Card -->
-    <div class="col-span-8 bg-white p-10 rounded-3xl shadow-sm border border-slate-200/60">
+    <div class="col-span-8 bg-slate-50 p-10 rounded-3xl shadow-md border border-slate-300">
         <div class="flex items-start justify-between mb-8">
             <div>
-                <span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="security">security</span>
+                <span class="material-symbols-outlined">security</span>
                 <h3 class="text-2xl font-black text-on-surface tracking-tighter">Security Protocol Explanations</h3>
             </div>
-            <span class="px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-600 border border-emerald-100/50">Updated</span>
+            Updated
         </div>
         <p class="text-slate-500 leading-relaxed mb-8 max-w-xl font-medium">Deep dive into our proprietary scanning engine. Learn how we utilize heuristic analysis and machine learning to intercept zero-day threats before they reach the inbox.</p>
         <div class="grid grid-cols-2 gap-4">
-            <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:border-primary/20 hover:bg-white cursor-pointer transition-all group">
+            <div class="p-5 bg-slate-50 rounded-2xl border border-slate-300 hover:border-primary/20 hover:bg-slate-50 cursor-pointer transition-all group">
                 <h4 class="font-bold text-sm mb-1 group-hover:text-primary">MTA Security Layers</h4>
                 <p class="text-xs text-slate-400">Understanding SPF, DKIM, and DMARC enforcement.</p>
             </div>
-            <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:border-primary/20 hover:bg-white cursor-pointer transition-all group">
+            <div class="p-5 bg-slate-50 rounded-2xl border border-slate-300 hover:border-primary/20 hover:bg-slate-50 cursor-pointer transition-all group">
                 <h4 class="font-bold text-sm mb-1 group-hover:text-primary">Encrypted Payload Scan</h4>
                 <p class="text-xs text-slate-400">Protocol for analyzing password-protected ZIPs.</p>
             </div>
@@ -230,18 +260,18 @@
 <!-- Tall Card -->
 <div class="col-span-4 bg-surface-container-low p-8 rounded-lg flex flex-col">
 <div class="flex-1">
-<span class="material-symbols-outlined text-tertiary text-4xl mb-4" data-icon="api">api</span>
+api
 <h3 class="text-xl font-bold text-on-surface mb-4">REST API Reference</h3>
 <p class="text-sm text-on-surface-variant leading-relaxed mb-6">Fully documented endpoints for custom integration with your SIEM and SOAR platforms.</p>
 <ul class="space-y-3">
 <li class="flex items-center gap-2 text-xs font-semibold text-primary">
-<span class="material-symbols-outlined text-sm" data-icon="code">code</span> Authentication
+code Authentication
                             </li>
 <li class="flex items-center gap-2 text-xs font-semibold text-primary">
-<span class="material-symbols-outlined text-sm" data-icon="code">code</span> Webhook Events
+code Webhook Events
                             </li>
 <li class="flex items-center gap-2 text-xs font-semibold text-primary">
-<span class="material-symbols-outlined text-sm" data-icon="code">code</span> Quarantine Mgmt
+code Quarantine Mgmt
                             </li>
 </ul>
 </div>
@@ -249,11 +279,11 @@
 </div>
 <!-- Featured Card -->
 <div class="col-span-4 bg-surface-container-highest p-8 rounded-lg">
-<span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="menu_book">menu_book</span>
+menu_book
 <h3 class="text-xl font-bold text-on-surface mb-2">Quick Start Guide</h3>
 <p class="text-sm text-on-surface-variant mb-6">Configure your first MX record and activate the scanner in under 5 minutes.</p>
 <a class="text-xs font-bold text-primary flex items-center gap-1 group" href="#">
-                        Read Guide <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+                        Read Guide arrow_forward
 </a>
 </div>
 <!-- System Health Card -->
@@ -265,15 +295,15 @@
 <h3 class="text-xl font-bold text-on-surface mb-2">System Architecture</h3>
 <p class="text-sm text-on-surface-variant leading-relaxed mb-6">Explore the high-availability infrastructure that powers Clinical Sentinel's 99.9% uptime and sub-second latency.</p>
 <div class="flex gap-2">
-<span class="px-3 py-1 bg-surface-container text-on-surface-variant text-[10px] font-bold rounded-full">Cloud Native</span>
-<span class="px-3 py-1 bg-surface-container text-on-surface-variant text-[10px] font-bold rounded-full">Distributed Edge</span>
+Cloud Native
+Distributed Edge
 </div>
 </div>
 </div>
 </div>
 <!-- Content Section (Typography Focused) -->
-<article class="prose prose-slate max-w-none bg-white p-12 md:p-20 rounded-3xl shadow-sm border border-slate-200/60">
-    <div class="mb-12 pb-12 border-b border-slate-100">
+<article class="prose prose-slate max-w-none bg-slate-50 p-12 md:p-20 rounded-3xl shadow-md border border-slate-300">
+    <div class="mb-12 pb-12 border-b border-slate-300">
         <h2 class="text-4xl font-black text-on-surface tracking-tight mb-4">Security Protocol: Heuristic Analysis</h2>
         <p class="text-xl text-slate-500 font-light italic leading-relaxed">"The sentinel never sleeps, looking not for known patterns, but for the intent of malice."</p>
     </div>
@@ -281,25 +311,17 @@
 <div class="col-span-8 space-y-8">
 <div>
 <h3 class="text-xl font-bold text-on-surface mb-4 flex items-center gap-3">
-<span class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-white text-sm">01</span>
-                                Signal Decryption
-                            </h3>
-<p class="text-on-surface-variant leading-relaxed">
-                                Our engine decrypts incoming signals at the edge layer. This ensures that even obfuscated scripts or polymorphic payloads are rendered visible for behavioral analysis before they touch the primary internal network.
-                            </p>
+01Signal Decryption</h3>
+<p class="text-on-surface-variant leading-relaxed">Our engine decrypts incoming signals at the edge layer. This ensures that even obfuscated scripts or polymorphic payloads are rendered visible for behavioral analysis before they touch the primary internal network.</p>
 </div>
 <div>
 <h3 class="text-xl font-bold text-on-surface mb-4 flex items-center gap-3">
-<span class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-white text-sm">02</span>
-                                Behavioral Sandboxing
-                            </h3>
-<p class="text-on-surface-variant leading-relaxed">
-                                Each suspicious attachment is executed in a volatile, isolated micro-VM. Clinical Sentinel monitors system-level changes, registry modifications, and outbound network attempts to classify the payload's intent.
-                            </p>
+02Behavioral Sandboxing</h3>
+<p class="text-on-surface-variant leading-relaxed">Each suspicious attachment is executed in a volatile, isolated micro-VM. Clinical Sentinel monitors system-level changes, registry modifications, and outbound network attempts to classify the payload's intent.</p>
 </div>
 <div class="p-6 bg-error-container/20 rounded-xl border border-error-container/30">
 <h4 class="text-error font-bold text-sm mb-2 flex items-center gap-2">
-<span class="material-symbols-outlined text-sm" data-icon="warning">warning</span>
+warning
                                 Critical Alert Configuration
                             </h4>
 <p class="text-xs text-on-error-container">Failure to properly configure the 'Auto-Isolation' flag can lead to delayed responses during massive phishing campaigns. Ensure your API keys have the 'WRITE_QUARANTINE' scope enabled.</p>
@@ -330,7 +352,7 @@
 <!-- Bottom CTA -->
 <section class="mt-20 flex flex-col items-center text-center max-w-2xl mx-auto">
 <div class="w-16 h-16 bg-primary-container/10 text-primary rounded-full flex items-center justify-center mb-6">
-<span class="material-symbols-outlined text-3xl" data-icon="help_outline">help_outline</span>
+help_outline
 </div>
 <h3 class="text-2xl font-bold text-on-surface mb-4">Can't find what you're looking for?</h3>
 <p class="text-on-surface-variant mb-8">Our enterprise support team is available 24/7 for technical assistance, implementation reviews, and emergency threat response.</p>
@@ -344,13 +366,13 @@
 <footer class="mt-auto px-10 py-8 bg-surface-container-low text-on-surface-variant border-t border-outline-variant/10">
 <div class="max-w-6xl mx-auto flex justify-between items-center">
 <div class="flex items-center gap-6">
-<span class="text-xs font-bold">Clinical Sentinel © 2024</span>
+Clinical Sentinel © 2024
 <a class="text-xs hover:text-primary" href="#">Privacy Policy</a>
 <a class="text-xs hover:text-primary" href="#">Status</a>
 </div>
 <div class="flex gap-4">
-<span class="material-symbols-outlined text-xl" data-icon="language">language</span>
-<span class="text-xs font-medium">English (US)</span>
+language
+English (US)
 </div>
 </div>
 </footer>
@@ -387,7 +409,7 @@
 
         // Unified Auth Logic
         const isLoggedIn = localStorage.getItem('cs_logged_in');
-        const loggedInHTML = `<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold shadow-sm shadow-primary/30">U</div>`;
+        const loggedInHTML = `<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold shadow-md shadow-primary/30">U</div>`;
         const loggedOutHTML = `<a href="login.html" class="text-[10px] font-bold bg-primary text-white px-3 py-1.5 rounded-full uppercase tracking-widest">Log In</a>`;
 
         const sidebarAuth = document.getElementById('nav-auth-area');
@@ -397,5 +419,12 @@
         if (mobileAuth) mobileAuth.innerHTML = isLoggedIn ? loggedInHTML : loggedOutHTML;
     });
 </script>
+
+<script src="i18n.js"></script>
+
+<div class="hidden lg:flex fixed top-6 right-8 z-[100] items-center p-1 bg-slate-50/80 backdrop-blur-md rounded-full border border-slate-300 shadow-xl">
+    <button onclick="updateLanguage('en')" data-lang="en" class="lang-toggle-btn px-4 py-1.5 rounded-full text-[11px] font-black tracking-widest transition-all">EN</button>
+    <button onclick="updateLanguage('es')" data-lang="es" class="lang-toggle-btn px-4 py-1.5 rounded-full text-[11px] font-black tracking-widest transition-all">ES</button>
+</div>
 
 </body></html>

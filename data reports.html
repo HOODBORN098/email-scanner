@@ -85,28 +85,48 @@
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-background text-on-surface antialiased flex min-h-screen">
+<body class="bg-slate-100 text-on-surface antialiased flex min-h-screen">
 
 <!-- ===== MOBILE TOP HEADER ===== -->
-<header class="lg:hidden fixed top-0 left-0 right-0 z-50 h-16 bg-white/95 backdrop-blur-xl border-b border-slate-100 flex items-center justify-between px-6 shadow-sm">
+<header class="lg:hidden fixed top-0 left-0 right-0 z-50 h-16 bg-slate-50/95 backdrop-blur-xl border-b border-slate-300 flex items-center justify-between px-6 shadow-md">
     <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm">
-            <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+        <div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-white shadow-md">
+            <span class="material-symbols-outlined"><span class="material-symbols-outlined">shield_with_heart</span></span>
         </div>
-        <span class="text-sm font-black tracking-tighter text-primary uppercase">Clinical Sentinel</span>
+        Clinical Sentinel
     </div>
-    <div id="mobile-auth-area" class="flex items-center gap-2">
-        <div class="h-8 w-8 rounded-full bg-slate-100 animate-pulse"></div>
-    </div>
+    
+
+<div class="flex items-center p-0.5 bg-slate-200/50 dark:bg-slate-800 rounded-full border border-slate-300 ml-auto">
+    <button onclick="updateLanguage('en')" data-lang="en" class="lang-toggle-btn px-3 py-1 rounded-full text-[10px] font-black tracking-widest transition-all">EN</button>
+    <button onclick="updateLanguage('es')" data-lang="es" class="lang-toggle-btn px-3 py-1 rounded-full text-[10px] font-black tracking-widest transition-all">ES</button>
+</div>
+
+    <div id="mobile-auth-area" class="flex items-center gap-2"></div>
 </header>
 
 <!-- ===== DESKTOP SIDEBAR ===== -->
-<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-64 bg-slate-50 dark:bg-slate-950 border-r border-slate-200/50 dark:border-slate-800/50 z-40 py-8 transition-colors">
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-64 bg-slate-50 dark:bg-slate-950 border-r border-slate-300 dark:border-slate-800/50 z-40 py-8 transition-colors">
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="px-6 mb-8">
         <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm shadow-primary/20">
-                <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+            <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-md shadow-primary/20">
+                <span class="material-symbols-outlined"><span class="material-symbols-outlined">shield_with_heart</span></span>
             </div>
+
+
+
             <div>
                 <h1 class="text-[11px] font-black uppercase tracking-[0.2em] text-primary leading-tight">Clinical Sentinel</h1>
                 <p class="text-[9px] font-bold uppercase tracking-widest text-slate-400 leading-tight">Enterprise Security</p>
@@ -115,38 +135,48 @@
     </div>
     <div class="px-4 mb-6">
         <button onclick="window.location.href='functional scanner.html'" class="w-full bg-primary text-white py-3 px-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all active:scale-95">
-            <span class="material-symbols-outlined text-[18px]">add</span> New Scan
+            <span class="material-symbols-outlined text-[20px]">add</span>
+            <span data-i18n="nav_new_scan">New Scan</span>
         </button>
     </div>
     <nav class="flex-1 px-3 space-y-1" id="desktop-nav">
         <a href="dashboard.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">shield_with_heart</span> Security Scan
+            <span class="material-symbols-outlined"><span class="material-symbols-outlined">shield_with_heart</span></span>
+            <span data-i18n="nav_security_scan">Security Scan</span>
         </a>
         <a href="functional scanner.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">manage_search</span> Full Scanner
+            <span class="material-symbols-outlined">manage_search</span>
+            <span data-i18n="nav_full_scanner">Full Scanner</span>
         </a>
         <a href="threat feed.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">radar</span> Threat Feed
+            <span class="material-symbols-outlined">radar</span>
+            <span data-i18n="nav_threat_feed">Threat Feed</span>
         </a>
         <a href="scan history.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">history</span> Scan History
+            <span class="material-symbols-outlined">history</span>
+            <span data-i18n="nav_scan_history">Scan History</span>
         </a>
         <a href="security vault.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">lock</span> Security Vault
+            <span class="material-symbols-outlined"><span class="material-symbols-outlined">lock</span></span>
+            <span data-i18n="nav_security_vault">Security Vault</span>
         </a>
         <a href="data reports.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">analytics</span> Data Reports
+            <span class="material-symbols-outlined">analytics</span>
+            <span data-i18n="nav_data_reports">Data Reports</span>
         </a>
         <a href="settings account.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">manage_accounts</span> Account
+            <span class="material-symbols-outlined">manage_accounts</span>
+            <span data-i18n="nav_account">Account</span>
         </a>
     </nav>
-    <div class="px-3 border-t border-slate-200/50 dark:border-slate-800/50 pt-4 space-y-1">
+    <div class="px-3 border-t border-slate-300 dark:border-slate-800/50 pt-4 space-y-1">
         <a href="documentation.html" class="nav-link flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-base">menu_book</span> Documentation
+            <span class="material-symbols-outlined text-[18px]">menu_book</span>
+            <span data-i18n="nav_documentation">Documentation</span>
         </a>
         <a href="support.html" class="nav-link flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-base">contact_support</span> Support
+            <span class="material-symbols-outlined text-[18px]">contact_support</span>
+            <span data-i18n="nav_support">Support</span>
         </a>
         <div id="nav-auth-area" class="px-4 pt-3 flex items-center gap-3">
             <div class="h-8 w-8 rounded-full bg-slate-200 animate-pulse"></div>
@@ -155,27 +185,27 @@
 </aside>
 
 <!-- ===== MOBILE BOTTOM NAV ===== -->
-<nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-slate-100 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] pb-safe">
+<nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-50/95 backdrop-blur-xl border-t border-slate-300 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] pb-safe">
     <div class="flex items-stretch h-16" id="mobile-bottom-nav">
         <a href="dashboard.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-[22px]">shield_with_heart</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Scan</span>
+            <span class="material-symbols-outlined text-[22px]"><span class="material-symbols-outlined">shield_with_heart</span></span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_security_scan">Scan</span>
         </a>
         <a href="threat feed.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
             <span class="material-symbols-outlined text-[22px]">radar</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Feed</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_threat_feed">Feed</span>
         </a>
         <a href="scan history.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
             <span class="material-symbols-outlined text-[22px]">history</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">History</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_scan_history">History</span>
         </a>
         <a href="security vault.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-[22px]">lock</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Vault</span>
+            <span class="material-symbols-outlined text-[22px]"><span class="material-symbols-outlined">lock</span></span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_security_vault">Vault</span>
         </a>
         <a href="settings account.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
             <span class="material-symbols-outlined text-[22px]">manage_accounts</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Account</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_account">Account</span>
         </a>
     </div>
 </nav>
@@ -189,14 +219,14 @@
 <!-- Header Section -->
 <header class="flex justify-between items-end mb-12">
 <div>
-<span class="text-[11px] font-bold tracking-[0.2em] text-primary uppercase">Analytical Engine</span>
+Analytical Engine
 <h2 class="text-5xl font-extrabold tracking-tight text-on-surface mt-2">Security Integrity</h2>
 </div>
 <div class="flex gap-3" id="header-auth-area">
 <div class="bg-surface-container-low px-6 py-3 rounded-full flex items-center gap-4">
 <div class="flex flex-col">
-<span class="text-[10px] text-outline font-bold uppercase tracking-wider">System Status</span>
-<span class="text-sm font-bold text-on-surface">99.9% Operational</span>
+System Status
+99.9% Operational
 </div>
 <div class="h-2 w-2 rounded-full bg-primary animate-pulse"></div>
 </div>
@@ -205,13 +235,13 @@
 <!-- Bento Grid Layout -->
 <div class="grid grid-cols-12 gap-8">
 <!-- Hero Metric: Large Asymmetric Card -->
-<div class="col-span-8 bg-white border border-slate-200/60 rounded-3xl p-10 relative overflow-hidden shadow-sm">
+<div class="col-span-8 bg-slate-50 border border-slate-300 rounded-3xl p-10 relative overflow-hidden shadow-md">
 <div class="relative z-10">
 <h3 class="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-8">Threat Vectors Over Time</h3>
 <div class="flex items-baseline gap-4 mb-2">
-<span class="text-7xl font-black text-primary tracking-tighter">0</span>
+0
 <span class="text-[10px] font-bold text-slate-500 flex items-center bg-slate-100 px-3 py-1 rounded-full">
-<span class="material-symbols-outlined text-[14px] mr-1" data-icon="trending_flat">trending_flat</span>
+trending_flat
                             STABLE
                         </span>
 </div>
@@ -238,35 +268,35 @@
 <!-- Secondary Metric: Performance -->
 <div class="col-span-4 bg-primary-container text-on-primary-container rounded-xl p-8 flex flex-col justify-between">
 <div>
-<span class="material-symbols-outlined text-4xl mb-4" data-icon="speed">speed</span>
+speed
 <h3 class="text-lg font-bold">Latency Index</h3>
 </div>
 <div>
 <div class="text-5xl font-black mb-2">14ms</div>
 <p class="text-sm opacity-80 leading-relaxed">Average response time for cloud-based signature verification.</p>
 </div>
-<div class="mt-6 h-1 w-full bg-white/20 rounded-full overflow-hidden">
-<div class="h-full bg-white w-3/4"></div>
+<div class="mt-6 h-1 w-full bg-slate-50/20 rounded-full overflow-hidden">
+<div class="h-full bg-slate-50 w-3/4"></div>
 </div>
 </div>
 <!-- Threat Type Distribution -->
-<div class="col-span-4 bg-white border border-slate-200/60 rounded-3xl p-8 shadow-sm">
+<div class="col-span-4 bg-slate-50 border border-slate-300 rounded-3xl p-8 shadow-md">
 <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Threat Distribution</h3>
 <div class="space-y-6 text-slate-400">
 <p class="text-sm text-center italic">Awaiting threat data for distribution analysis.</p>
 </div>
-<div class="mt-8 pt-8 border-t border-slate-100 flex justify-center">
+<div class="mt-8 pt-8 border-t border-slate-300 flex justify-center">
 <div class="w-32 h-32 rounded-full border-[12px] border-slate-50 transition-all duration-300"></div>
 </div>
 </div>
 <!-- Recent Scan Logs Table-Style List -->
-<div class="col-span-8 bg-white border border-slate-200/60 rounded-3xl p-8 shadow-sm">
+<div class="col-span-8 bg-slate-50 border border-slate-300 rounded-3xl p-8 shadow-md">
 <div class="flex justify-between items-center mb-8">
 <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Recent Activity Log</h3>
 <button class="text-primary text-xs font-bold hover:underline">Export CSV</button>
 </div>
 <div class="flex flex-col items-center justify-center py-12 text-slate-300">
-<span class="material-symbols-outlined text-4xl mb-4 opacity-50">analytics</span>
+analytics
 <p class="text-sm font-medium">No recent activity logs available. Trigger a diagnostic to populate data.</p>
 </div>
 </div>
@@ -275,21 +305,21 @@
 <div class="bg-surface-container-highest/30 p-8 rounded-xl flex items-center gap-6">
 <img alt="Data Chart" class="w-16 h-16 rounded-lg object-cover" data-alt="clean minimal digital line chart with soft blue glow on a dark high-tech background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqYFHD2CcoHG9XQO3ZORKuw3GPVqpxKPKuITAPnONEStRcrbhyrfR1pFvlvubS5NLB20RIAXw_aASZ6cADgIpfQZMvbAtK2BQeI3-4G4-IXisUTTMMnsShjogqNWqUlLoUQSB1tmlz90A-JzqixPEgAUoBPZbcZDVINk5uybvGPcrDPnBbIW_pNJc4ROSx78BXaPpzHj_0K-2cYfuNfE12kCBq8PsnGaFz5jUH_MTrIde6UYfOp8EYZOIdwo0Ixq-3TRVypl2Xn6E"/>
 <div>
-<span class="text-[10px] font-bold text-outline uppercase tracking-tighter">Node Uptime</span>
+Node Uptime
 <div class="text-2xl font-black">99.998%</div>
 </div>
 </div>
 <div class="bg-surface-container-highest/30 p-8 rounded-xl flex items-center gap-6">
 <img alt="Server Hardware" class="w-16 h-16 rounded-lg object-cover" data-alt="extreme close up of server rack blinking blue lights in a clean clinical data center environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7Kk3Z7ups-ciOPB2c1Ds0NzOTx8NzGtmJlFIr-k3Hm0BSo2HKNfZW2V2AxaUgk8G54rLN8XTrq1lxfw4_Q5Osoh21CgyjsdeZBxFQdGDjK5_myyummI_y8SQ0yKhNu1GlrAv_Sy3S0hUoSGhh_LIJJxCUDLH67WzpSPawv4iM3vfP4bb69K_XQ3f7eMw6IAxF9wyX1aFlqzYrf3sPVZHJUUodNhfZ6uuBb9oRh7A_nhDU592W_uYXvERdGXj0wbalw3xnEbX7eGI"/>
 <div>
-<span class="text-[10px] font-bold text-outline uppercase tracking-tighter">CPU Load</span>
+CPU Load
 <div class="text-2xl font-black text-primary">24.2%</div>
 </div>
 </div>
 <div class="bg-surface-container-highest/30 p-8 rounded-xl flex items-center gap-6">
 <img alt="Global Network" class="w-16 h-16 rounded-lg object-cover" data-alt="abstract digital global network map with glowing connection nodes and blue geometric patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKamw6KybzNJ3NyoqnL5ZHpTt--X6su6APCX9TSnroaU2W40KI86otYdGZJJ2M7kZ8OJepWViSi2w21NDvgbEBQsVdfWvwqBsq-858ymBtJTSOIIyH_VjKAN_eWCn5Vc97xhjh85aRNsMa0Ta18gQHRUzD3-22meq1eAoWviO9BfgqWYBMk1b8NIKFjcFwjKzUFbpd4tGnwrYiUAjGwVkog_PCo6Ng6obnPkvOLy3UnfBBixURd8R6WGjkezzUS3C0vpVkLIwUImI"/>
 <div>
-<span class="text-[10px] font-bold text-outline uppercase tracking-tighter">Memory Auth</span>
+Memory Auth
 <div class="text-2xl font-black">2.4 GB</div>
 </div>
 </div>
@@ -331,7 +361,7 @@
 
         // Unified Auth Logic
         const isLoggedIn = localStorage.getItem('cs_logged_in');
-        const loggedInHTML = `<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold shadow-sm shadow-primary/30">U</div>`;
+        const loggedInHTML = `<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold shadow-md shadow-primary/30">U</div>`;
         const loggedOutHTML = `<a href="login.html" class="text-[10px] font-bold bg-primary text-white px-3 py-1.5 rounded-full uppercase tracking-widest">Log In</a>`;
 
         const sidebarAuth = document.getElementById('nav-auth-area');
@@ -341,5 +371,12 @@
         if (mobileAuth) mobileAuth.innerHTML = isLoggedIn ? loggedInHTML : loggedOutHTML;
     });
 </script>
+
+<script src="i18n.js"></script>
+
+<div class="hidden lg:flex fixed top-6 right-8 z-[100] items-center p-1 bg-slate-50/80 backdrop-blur-md rounded-full border border-slate-300 shadow-xl">
+    <button onclick="updateLanguage('en')" data-lang="en" class="lang-toggle-btn px-4 py-1.5 rounded-full text-[11px] font-black tracking-widest transition-all">EN</button>
+    <button onclick="updateLanguage('es')" data-lang="es" class="lang-toggle-btn px-4 py-1.5 rounded-full text-[11px] font-black tracking-widest transition-all">ES</button>
+</div>
 
 </body></html>

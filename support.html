@@ -88,28 +88,48 @@
         }
     </style>
 </head>
-<body class="bg-background text-on-surface">
+<body class="bg-slate-100 text-on-surface">
 
 <!-- ===== MOBILE TOP HEADER ===== -->
-<header class="lg:hidden fixed top-0 left-0 right-0 z-50 h-16 bg-white/95 backdrop-blur-xl border-b border-slate-100 flex items-center justify-between px-6 shadow-sm">
+<header class="lg:hidden fixed top-0 left-0 right-0 z-50 h-16 bg-slate-50/95 backdrop-blur-xl border-b border-slate-300 flex items-center justify-between px-6 shadow-md">
     <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm">
-            <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+        <div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-white shadow-md">
+            <span class="material-symbols-outlined"><span class="material-symbols-outlined">shield_with_heart</span></span>
         </div>
-        <span class="text-sm font-black tracking-tighter text-primary uppercase">Clinical Sentinel</span>
+        Clinical Sentinel
     </div>
-    <div id="mobile-auth-area" class="flex items-center gap-2">
-        <div class="h-8 w-8 rounded-full bg-slate-100 animate-pulse"></div>
-    </div>
+    
+
+<div class="flex items-center p-0.5 bg-slate-200/50 dark:bg-slate-800 rounded-full border border-slate-300 ml-auto">
+    <button onclick="updateLanguage('en')" data-lang="en" class="lang-toggle-btn px-3 py-1 rounded-full text-[10px] font-black tracking-widest transition-all">EN</button>
+    <button onclick="updateLanguage('es')" data-lang="es" class="lang-toggle-btn px-3 py-1 rounded-full text-[10px] font-black tracking-widest transition-all">ES</button>
+</div>
+
+    <div id="mobile-auth-area" class="flex items-center gap-2"></div>
 </header>
 
 <!-- ===== DESKTOP SIDEBAR ===== -->
-<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-64 bg-slate-50 dark:bg-slate-950 border-r border-slate-200/50 dark:border-slate-800/50 z-40 py-8 transition-colors">
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-64 bg-slate-50 dark:bg-slate-950 border-r border-slate-300 dark:border-slate-800/50 z-40 py-8 transition-colors">
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="px-6 mb-8">
         <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm shadow-primary/20">
-                <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+            <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-md shadow-primary/20">
+                <span class="material-symbols-outlined"><span class="material-symbols-outlined">shield_with_heart</span></span>
             </div>
+
+
+
             <div>
                 <h1 class="text-[11px] font-black uppercase tracking-[0.2em] text-primary leading-tight">Clinical Sentinel</h1>
                 <p class="text-[9px] font-bold uppercase tracking-widest text-slate-400 leading-tight">Enterprise Security</p>
@@ -118,38 +138,48 @@
     </div>
     <div class="px-4 mb-6">
         <button onclick="window.location.href='functional scanner.html'" class="w-full bg-primary text-white py-3 px-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all active:scale-95">
-            <span class="material-symbols-outlined text-[18px]">add</span> New Scan
+            <span class="material-symbols-outlined text-[20px]">add</span>
+            <span data-i18n="nav_new_scan">New Scan</span>
         </button>
     </div>
     <nav class="flex-1 px-3 space-y-1" id="desktop-nav">
         <a href="dashboard.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">shield_with_heart</span> Security Scan
+            <span class="material-symbols-outlined"><span class="material-symbols-outlined">shield_with_heart</span></span>
+            <span data-i18n="nav_security_scan">Security Scan</span>
         </a>
         <a href="functional scanner.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">manage_search</span> Full Scanner
+            <span class="material-symbols-outlined">manage_search</span>
+            <span data-i18n="nav_full_scanner">Full Scanner</span>
         </a>
         <a href="threat feed.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">radar</span> Threat Feed
+            <span class="material-symbols-outlined">radar</span>
+            <span data-i18n="nav_threat_feed">Threat Feed</span>
         </a>
         <a href="scan history.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">history</span> Scan History
+            <span class="material-symbols-outlined">history</span>
+            <span data-i18n="nav_scan_history">Scan History</span>
         </a>
         <a href="security vault.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">lock</span> Security Vault
+            <span class="material-symbols-outlined"><span class="material-symbols-outlined">lock</span></span>
+            <span data-i18n="nav_security_vault">Security Vault</span>
         </a>
         <a href="data reports.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">analytics</span> Data Reports
+            <span class="material-symbols-outlined">analytics</span>
+            <span data-i18n="nav_data_reports">Data Reports</span>
         </a>
         <a href="settings account.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">manage_accounts</span> Account
+            <span class="material-symbols-outlined">manage_accounts</span>
+            <span data-i18n="nav_account">Account</span>
         </a>
     </nav>
-    <div class="px-3 border-t border-slate-200/50 dark:border-slate-800/50 pt-4 space-y-1">
+    <div class="px-3 border-t border-slate-300 dark:border-slate-800/50 pt-4 space-y-1">
         <a href="documentation.html" class="nav-link flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-base">menu_book</span> Documentation
+            <span class="material-symbols-outlined text-[18px]">menu_book</span>
+            <span data-i18n="nav_documentation">Documentation</span>
         </a>
         <a href="support.html" class="nav-link flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-base">contact_support</span> Support
+            <span class="material-symbols-outlined text-[18px]">contact_support</span>
+            <span data-i18n="nav_support">Support</span>
         </a>
         <div id="nav-auth-area" class="px-4 pt-3 flex items-center gap-3">
             <div class="h-8 w-8 rounded-full bg-slate-200 animate-pulse"></div>
@@ -158,27 +188,27 @@
 </aside>
 
 <!-- ===== MOBILE BOTTOM NAV ===== -->
-<nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-slate-100 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] pb-safe">
+<nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-50/95 backdrop-blur-xl border-t border-slate-300 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] pb-safe">
     <div class="flex items-stretch h-16" id="mobile-bottom-nav">
         <a href="dashboard.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-[22px]">shield_with_heart</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Scan</span>
+            <span class="material-symbols-outlined text-[22px]"><span class="material-symbols-outlined">shield_with_heart</span></span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_security_scan">Scan</span>
         </a>
         <a href="threat feed.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
             <span class="material-symbols-outlined text-[22px]">radar</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Feed</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_threat_feed">Feed</span>
         </a>
         <a href="scan history.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
             <span class="material-symbols-outlined text-[22px]">history</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">History</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_scan_history">History</span>
         </a>
         <a href="security vault.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-[22px]">lock</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Vault</span>
+            <span class="material-symbols-outlined text-[22px]"><span class="material-symbols-outlined">lock</span></span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_security_vault">Vault</span>
         </a>
         <a href="settings account.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
             <span class="material-symbols-outlined text-[22px]">manage_accounts</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Account</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_account">Account</span>
         </a>
     </div>
 </nav>
@@ -188,9 +218,7 @@
 <!-- ===== MAIN CONTENT WRAPPER ===== -->
 <div class="lg:pl-64 pt-24 lg:pt-12 pb-24 lg:pb-8 flex flex-col min-h-screen max-w-[100vw] overflow-x-hidden">
 <main class="px-6 md:px-10 max-w-7xl mx-auto relative">
-<header class="mb-20 text-left">
-<span class="label-sm text-[11px] font-bold tracking-[0.2em] uppercase text-primary mb-4 block">Concierge Support</span>
-<h1 class="text-6xl md:text-7xl font-extrabold tracking-tighter text-on-surface mb-6 leading-none">How can we <br/><span class="text-primary-container">secure your flow?</span></h1>
+<header class="mb-20 text-left"><span data-i18n="sup_concierge">Concierge Support</span><h1 class="text-6xl md:text-7xl font-extrabold tracking-tighter text-on-surface mb-6 leading-none">How can we <br/>secure your flow?</h1>
 <p class="text-lg text-on-surface-variant max-w-2xl leading-relaxed">Access clinical-grade technical assistance and documentation for the Clinical Sentinel ecosystem. Our systems are currently operating at peak efficiency.</p>
 </header>
 <section class="mb-24">
@@ -207,7 +235,7 @@
 </div>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full md:w-auto">
 <div class="bg-surface-container-lowest p-4 rounded-lg editorial-shadow">
-<p class="text-[10px] font-bold uppercase tracking-wider text-outline mb-1">Threat Feed</p>
+<p class="text-[10px] font-bold uppercase tracking-wider text-outline mb-1"  ><span data-i18n="nav_threat_feed"><span data-i18n="nav_threat_feed">Threat Feed</span></span></p>
 <p class="text-sm font-semibold text-green-600">Active</p>
 </div>
 <div class="bg-surface-container-lowest p-4 rounded-lg editorial-shadow">
@@ -215,7 +243,7 @@
 <p class="text-sm font-semibold text-green-600">Active</p>
 </div>
 <div class="bg-surface-container-lowest p-4 rounded-lg editorial-shadow">
-<p class="text-[10px] font-bold uppercase tracking-wider text-outline mb-1">Scanner</p>
+<p class="text-[10px] font-bold uppercase tracking-wider text-outline mb-1"><span data-i18n="scan_title">Scanner</span></p>
 <p class="text-sm font-semibold text-green-600">Active</p>
 </div>
 <div class="bg-surface-container-lowest p-4 rounded-lg editorial-shadow">
@@ -227,23 +255,23 @@
 </section>
     <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32">
         <div class="lg:col-span-7">
-            <div class="bg-white border border-slate-200/60 p-10 md:p-14 rounded-3xl shadow-sm">
+            <div class="bg-slate-50 border border-slate-300 p-10 md:p-14 rounded-3xl shadow-md">
                 <h2 class="text-3xl font-black tracking-tighter mb-2">Direct Sentinel Inquiry</h2>
                 <p class="text-on-surface-variant mb-10 font-medium">Submit a clinical diagnostic request to our engineering team.</p>
                 <form class="space-y-8">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div class="space-y-2">
-                            <label class="text-[11px] font-bold uppercase tracking-widest text-slate-400 ml-1">Identity Name</label>
-                            <input class="w-full bg-slate-50 border-b-2 border-transparent focus:border-primary focus:bg-white transition-all p-4 rounded-t-xl outline-none placeholder:text-slate-300" placeholder="Your Name" type="text"/>
+                            <label class="text-[11px] font-bold uppercase tracking-widest text-slate-400 ml-1"><span data-i18n="sup_label_name">Identity Name</span></label>
+                            <input class="w-full bg-slate-50 border-b-2 border-transparent focus:border-primary focus:bg-slate-50 transition-all p-4 rounded-t-xl outline-none placeholder:text-slate-300" placeholder="Your Name" type="text"/>
                         </div>
                         <div class="space-y-2">
-                            <label class="text-[11px] font-bold uppercase tracking-widest text-slate-400 ml-1">Secure Email</label>
-                            <input class="w-full bg-slate-50 border-b-2 border-transparent focus:border-primary focus:bg-white transition-all p-4 rounded-t-xl outline-none placeholder:text-slate-300" placeholder="vane@clinical.secure" type="email"/>
+                            <label class="text-[11px] font-bold uppercase tracking-widest text-slate-400 ml-1"><span data-i18n="sup_label_email">Secure Email</span></label>
+                            <input class="w-full bg-slate-50 border-b-2 border-transparent focus:border-primary focus:bg-slate-50 transition-all p-4 rounded-t-xl outline-none placeholder:text-slate-300" placeholder="vane@clinical.secure" type="email"/>
                         </div>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-bold uppercase tracking-widest text-slate-400 ml-1">Incident Category</label>
-                        <select class="w-full bg-slate-50 border-b-2 border-transparent focus:border-primary focus:bg-white transition-all p-4 rounded-t-xl outline-none appearance-none">
+                        <select class="w-full bg-slate-50 border-b-2 border-transparent focus:border-primary focus:bg-slate-50 transition-all p-4 rounded-t-xl outline-none appearance-none">
                             <option>Technical Integration</option>
                             <option>Security False Positive</option>
                             <option>Vault Access Issue</option>
@@ -252,46 +280,46 @@
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-bold uppercase tracking-widest text-slate-400 ml-1">Diagnostic Details</label>
-                        <textarea class="w-full bg-slate-50 border-b-2 border-transparent focus:border-primary focus:bg-white transition-all p-4 rounded-t-xl outline-none placeholder:text-slate-300 resize-none" placeholder="Describe the behavior of the sentinel scanner..." rows="5"></textarea>
+                        <textarea class="w-full bg-slate-50 border-b-2 border-transparent focus:border-primary focus:bg-slate-50 transition-all p-4 rounded-t-xl outline-none placeholder:text-slate-300 resize-none" placeholder="Describe the behavior of the sentinel scanner..." rows="5"></textarea>
                     </div>
-                    <button class="w-full md:w-auto bg-primary text-on-primary px-10 py-4 rounded-full font-black tracking-tight hover:bg-primary-container transition-all shadow-lg shadow-primary/20 active:scale-95" type="submit">Initialize Support Request</button>
+                    <button class="w-full md:w-auto bg-primary text-on-primary px-10 py-4 rounded-full font-black tracking-tight hover:bg-primary-container transition-all shadow-lg shadow-primary/20 active:scale-95" type="submit"><span data-i18n="sup_btn_init">Initialize Support Request</span></button>
                 </form>
             </div>
         </div>
         <div class="lg:col-span-5 flex flex-col gap-8">
             <div class="bg-primary text-white p-10 rounded-3xl shadow-xl shadow-primary/20 flex flex-col justify-between h-full min-h-[320px] relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                <div class="absolute top-0 right-0 w-32 h-32 bg-slate-50/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
                 <div class="relative z-10">
                     <h3 class="text-2xl font-black tracking-tight mb-4">Enterprise Hotline</h3>
 <p class="text-primary-fixed opacity-80 leading-relaxed mb-6">Platinum Tier users have access to 24/7 priority diagnostic phone support.</p>
 </div>
 <div class="space-y-4">
 <div class="flex items-center gap-4">
-<span class="material-symbols-outlined">call</span>
-<span class="text-xl font-mono tracking-tighter">1-800-SENTINEL</span>
+call
+1-800-SENTINEL
 </div>
 <div class="flex items-center gap-4">
-<span class="material-symbols-outlined">verified_user</span>
-<span class="text-sm">Response Target: &lt; 15 Minutes</span>
+verified_user
+Response Target: &lt; 15 Minutes
 </div>
 </div>
 </div>
 <div class="bg-surface-container-low p-8 rounded-lg space-y-6">
 <h3 class="text-lg font-bold tracking-tight">Security Documentation</h3>
 <div class="space-y-4">
-<a class="flex items-center justify-between group p-4 bg-white rounded-xl transition-all hover:translate-x-2" href="documentation.html">
+<a class="flex items-center justify-between group p-4 bg-slate-50 rounded-xl transition-all hover:translate-x-2" href="documentation.html">
 <div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary">description</span>
-<span class="font-medium">API Clinical Reference</span>
+description
+API Clinical Reference
 </div>
-<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_forward</span>
+<span class="material-symbols-outlined">arrow_forward</span>
 </a>
-<a class="flex items-center justify-between group p-4 bg-white rounded-xl transition-all hover:translate-x-2" href="#">
+<a class="flex items-center justify-between group p-4 bg-slate-50 rounded-xl transition-all hover:translate-x-2" href="#">
 <div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary">security</span>
-<span class="font-medium">Hardening Guide v4.2</span>
+security
+Hardening Guide v4.2
 </div>
-<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">arrow_forward</span>
+<span class="material-symbols-outlined">arrow_forward</span>
 </a>
 </div>
 </div>
@@ -300,53 +328,53 @@
 <section class="mb-32">
 <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
 <div>
-<span class="label-sm text-[11px] font-bold tracking-[0.2em] uppercase text-primary mb-2 block">Intelligence Base</span>
+Intelligence Base
 <h2 class="text-4xl font-black tracking-tighter">Frequently Resolved</h2>
 </div>
 <a class="text-primary font-bold flex items-center gap-2 group" href="#">
                     Explore all 420+ articles
-                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">east</span>
+                    east
 </a>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 <div class="group bg-surface-container-lowest p-8 rounded-lg editorial-shadow border border-transparent hover:border-primary/10 transition-all cursor-pointer">
 <div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors">
-<span class="material-symbols-outlined text-primary">emergency_home</span>
+emergency_home
 </div>
 <h4 class="text-lg font-bold mb-3">Emergency Lockout Protocol</h4>
 <p class="text-sm text-on-surface-variant leading-relaxed">Steps to take if your biometric sentinel node fails to authorize primary login credentials.</p>
 </div>
 <div class="group bg-surface-container-lowest p-8 rounded-lg editorial-shadow border border-transparent hover:border-primary/10 transition-all cursor-pointer">
 <div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors">
-<span class="material-symbols-outlined text-primary">data_thresholding</span>
+data_thresholding
 </div>
 <h4 class="text-lg font-bold mb-3">Adjusting Sensitivity Latency</h4>
 <p class="text-sm text-on-surface-variant leading-relaxed">How to calibrate the scanner for high-volume clinical environments without increasing false positives.</p>
 </div>
 <div class="group bg-surface-container-lowest p-8 rounded-lg editorial-shadow border border-transparent hover:border-primary/10 transition-all cursor-pointer">
 <div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors">
-<span class="material-symbols-outlined text-primary">cloud_sync</span>
+cloud_sync
 </div>
 <h4 class="text-lg font-bold mb-3">Hybrid Cloud Vault Sync</h4>
 <p class="text-sm text-on-surface-variant leading-relaxed">Configuring encrypted synchronization between on-premise servers and the Sentinel vault.</p>
 </div>
 <div class="group bg-surface-container-lowest p-8 rounded-lg editorial-shadow border border-transparent hover:border-primary/10 transition-all cursor-pointer">
 <div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors">
-<span class="material-symbols-outlined text-primary">history_edu</span>
+history_edu
 </div>
 <h4 class="text-lg font-bold mb-3">Audit Log Exporting</h4>
 <p class="text-sm text-on-surface-variant leading-relaxed">Extracting regulatory-compliant logs for clinical safety inspections and IT compliance audits.</p>
 </div>
 <div class="group bg-surface-container-lowest p-8 rounded-lg editorial-shadow border border-transparent hover:border-primary/10 transition-all cursor-pointer">
 <div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors">
-<span class="material-symbols-outlined text-primary">person_add</span>
+person_add
 </div>
 <h4 class="text-lg font-bold mb-3">Delegated Admin Access</h4>
 <p class="text-sm text-on-surface-variant leading-relaxed">Setting up granular permissions for rotating medical staff and temporary clinical researchers.</p>
 </div>
 <div class="group bg-surface-container-lowest p-8 rounded-lg editorial-shadow border border-transparent hover:border-primary/10 transition-all cursor-pointer">
 <div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors">
-<span class="material-symbols-outlined text-primary">monitoring</span>
+<span class="material-symbols-outlined">monitoring</span>
 </div>
 <h4 class="text-lg font-bold mb-3">Visualizing Threat Flux</h4>
 <p class="text-sm text-on-surface-variant leading-relaxed">Understanding the real-time threat maps and heat indicators within the Clinical Sentinel dashboard.</p>
@@ -359,8 +387,8 @@
 <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter mb-4">Still need precision?</h2>
 <p class="text-white/80 text-lg max-w-lg mb-8">Our expert security clinicians are available for one-on-one architecture reviews.</p>
 <div class="flex flex-col sm:flex-row gap-4">
-<button class="bg-white text-primary px-10 py-4 rounded-full font-bold shadow-xl">Book Specialist</button>
-<button class="border-2 border-white/40 text-white px-10 py-4 rounded-full font-bold hover:bg-white/10 transition-colors">Chat Now</button>
+<button class="bg-slate-50 text-primary px-10 py-4 rounded-full font-bold shadow-xl">Book Specialist</button>
+<button class="border-2 border-white/40 text-white px-10 py-4 rounded-full font-bold hover:bg-slate-50/10 transition-colors">Chat Now</button>
 </div>
 </div>
 </section>
@@ -377,13 +405,13 @@
 <ul class="space-y-3 text-sm font-medium text-on-surface-variant">
 <li><a class="hover:text-primary" href="dashboard.html">Sentinel Scanner</a></li>
 <li><a class="hover:text-primary" href="security vault.html">Vault Secure</a></li>
-<li><a class="hover:text-primary" href="threat feed.html">Threat Feed</a></li>
+<li><a class="hover:text-primary" href="threat feed.html"  ><span data-i18n="nav_threat_feed"><span data-i18n="nav_threat_feed">Threat Feed</span></span></a></li>
 </ul>
 </div>
 <div class="space-y-4">
 <h5 class="text-[11px] font-black uppercase tracking-widest text-outline">Resource</h5>
 <ul class="space-y-3 text-sm font-medium text-on-surface-variant">
-<li><a class="hover:text-primary" href="documentation.html">Documentation</a></li>
+<li><a class="hover:text-primary" href="documentation.html"  ><span data-i18n="nav_documentation">Documentation</span></a></li>
 <li><a class="hover:text-primary" href="#">Compliance API</a></li>
 <li><a class="hover:text-primary" href="#">Status Page</a></li>
 </ul>
@@ -437,7 +465,7 @@
 
         // Unified Auth Logic
         const isLoggedIn = localStorage.getItem('cs_logged_in');
-        const loggedInHTML = `<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold shadow-sm shadow-primary/30">U</div>`;
+        const loggedInHTML = `<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold shadow-md shadow-primary/30">U</div>`;
         const loggedOutHTML = `<a href="login.html" class="text-[10px] font-bold bg-primary text-white px-3 py-1.5 rounded-full uppercase tracking-widest">Log In</a>`;
 
         const sidebarAuth = document.getElementById('nav-auth-area');
@@ -447,5 +475,12 @@
         if (mobileAuth) mobileAuth.innerHTML = isLoggedIn ? loggedInHTML : loggedOutHTML;
     });
 </script>
+
+<script src="i18n.js"></script>
+
+<div class="hidden lg:flex fixed top-6 right-8 z-[100] items-center p-1 bg-slate-50/80 backdrop-blur-md rounded-full border border-slate-300 shadow-xl">
+    <button onclick="updateLanguage('en')" data-lang="en" class="lang-toggle-btn px-4 py-1.5 rounded-full text-[11px] font-black tracking-widest transition-all">EN</button>
+    <button onclick="updateLanguage('es')" data-lang="es" class="lang-toggle-btn px-4 py-1.5 rounded-full text-[11px] font-black tracking-widest transition-all">ES</button>
+</div>
 
 </body></html>

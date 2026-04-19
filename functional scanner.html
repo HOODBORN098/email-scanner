@@ -91,27 +91,29 @@
         .glass-panel { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
     </style>
 </head>
-<body class="bg-background text-on-surface flex min-h-screen">
+<body class="bg-slate-100 text-on-surface flex min-h-screen">
 
 <!-- ===== MOBILE TOP HEADER ===== -->
-<header class="lg:hidden fixed top-0 left-0 right-0 z-50 h-16 bg-white/95 backdrop-blur-xl border-b border-slate-100 flex items-center justify-between px-6 shadow-sm">
+<header class="lg:hidden fixed top-0 left-0 right-0 z-50 h-16 bg-slate-50/95 backdrop-blur-xl border-b border-slate-300 flex items-center justify-between px-6 shadow-md">
     <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm">
-            <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+        <div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-white shadow-md">
+            <span class="material-symbols-outlined"><span class="material-symbols-outlined">shield_with_heart</span></span>
         </div>
-        <span class="text-sm font-black tracking-tighter text-primary uppercase">Clinical Sentinel</span>
+        Clinical Sentinel
     </div>
-    <div id="mobile-auth-area" class="flex items-center gap-2">
-        <div class="h-8 w-8 rounded-full bg-slate-100 animate-pulse"></div>
+    <div class="flex items-center p-0.5 bg-slate-200/50 dark:bg-slate-800 rounded-full border border-slate-300 ml-auto">
+        <button onclick="updateLanguage('en')" data-lang="en" class="lang-toggle-btn px-3 py-1 rounded-full text-[10px] font-black tracking-widest transition-all">EN</button>
+        <button onclick="updateLanguage('es')" data-lang="es" class="lang-toggle-btn px-3 py-1 rounded-full text-[10px] font-black tracking-widest transition-all">ES</button>
     </div>
+    <div id="mobile-auth-area" class="flex items-center gap-2"></div>
 </header>
 
 <!-- ===== DESKTOP SIDEBAR ===== -->
-<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-64 bg-slate-50 dark:bg-slate-950 border-r border-slate-200/50 dark:border-slate-800/50 z-40 py-8 transition-colors">
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-64 bg-slate-50 dark:bg-slate-950 border-r border-slate-300 dark:border-slate-800/50 z-40 py-8 transition-colors">
     <div class="px-6 mb-8">
         <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm shadow-primary/20">
-                <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+            <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-md shadow-primary/20">
+                <span class="material-symbols-outlined"><span class="material-symbols-outlined">shield_with_heart</span></span>
             </div>
             <div>
                 <h1 class="text-[11px] font-black uppercase tracking-[0.2em] text-primary leading-tight">Clinical Sentinel</h1>
@@ -121,38 +123,48 @@
     </div>
     <div class="px-4 mb-6">
         <button onclick="window.location.href='functional scanner.html'" class="w-full bg-primary text-white py-3 px-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all active:scale-95">
-            <span class="material-symbols-outlined text-[18px]">add</span> New Scan
+            <span class="material-symbols-outlined text-[20px]">add</span>
+            <span data-i18n="nav_new_scan">New Scan</span>
         </button>
     </div>
     <nav class="flex-1 px-3 space-y-1" id="desktop-nav">
         <a href="dashboard.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">shield_with_heart</span> Security Scan
+            <span class="material-symbols-outlined"><span class="material-symbols-outlined">shield_with_heart</span></span>
+            <span data-i18n="nav_security_scan">Security Scan</span>
         </a>
         <a href="functional scanner.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">manage_search</span> Full Scanner
+            <span class="material-symbols-outlined">manage_search</span>
+            <span data-i18n="nav_full_scanner">Full Scanner</span>
         </a>
         <a href="threat feed.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">radar</span> Threat Feed
+            <span class="material-symbols-outlined">radar</span>
+            <span data-i18n="nav_threat_feed">Threat Feed</span>
         </a>
         <a href="scan history.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">history</span> Scan History
+            <span class="material-symbols-outlined">history</span>
+            <span data-i18n="nav_scan_history">Scan History</span>
         </a>
         <a href="security vault.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">lock</span> Security Vault
+            <span class="material-symbols-outlined"><span class="material-symbols-outlined">lock</span></span>
+            <span data-i18n="nav_security_vault">Security Vault</span>
         </a>
         <a href="data reports.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">analytics</span> Data Reports
+            <span class="material-symbols-outlined">analytics</span>
+            <span data-i18n="nav_data_reports">Data Reports</span>
         </a>
         <a href="settings account.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">manage_accounts</span> Account
+            <span class="material-symbols-outlined">manage_accounts</span>
+            <span data-i18n="nav_account">Account</span>
         </a>
     </nav>
-    <div class="px-3 border-t border-slate-200/50 dark:border-slate-800/50 pt-4 space-y-1">
+    <div class="px-3 border-t border-slate-300 dark:border-slate-800/50 pt-4 space-y-1">
         <a href="documentation.html" class="nav-link flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-base">menu_book</span> Documentation
+            <span class="material-symbols-outlined text-[18px]">menu_book</span>
+            <span data-i18n="nav_documentation">Documentation</span>
         </a>
         <a href="support.html" class="nav-link flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-base">contact_support</span> Support
+            <span class="material-symbols-outlined text-[18px]">contact_support</span>
+            <span data-i18n="nav_support">Support</span>
         </a>
         <div id="nav-auth-area" class="px-4 pt-3 flex items-center gap-3">
             <div class="h-8 w-8 rounded-full bg-slate-200 animate-pulse"></div>
@@ -161,27 +173,25 @@
 </aside>
 
 <!-- ===== MOBILE BOTTOM NAV ===== -->
-<nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-slate-100 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] pb-safe">
+<nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-50/95 backdrop-blur-xl border-t border-slate-300 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] pb-safe">
     <div class="flex items-stretch h-16" id="mobile-bottom-nav">
         <a href="dashboard.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-[22px]">shield_with_heart</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Scan</span>
+            <span class="material-symbols-outlined text-[22px]"><span class="material-symbols-outlined">shield_with_heart</span></span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_security_scan">Scan</span>
         </a>
         <a href="threat feed.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
             <span class="material-symbols-outlined text-[22px]">radar</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Feed</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_threat_feed">Feed</span>
         </a>
-        <a href="scan history.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-[22px]">history</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">History</span>
-        </a>
-        <a href="security vault.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-[22px]">lock</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Vault</span>
+        <a href="security vault.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors relative">
+            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white shadow-lg shadow-primary/20 border-4 border-slate-100">
+                <span class="material-symbols-outlined"><span class="material-symbols-outlined">lock</span></span>
+            </div>
+            <span class="text-[9px] font-bold uppercase tracking-wider mt-5" data-i18n="nav_security_vault">Vault</span>
         </a>
         <a href="settings account.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
             <span class="material-symbols-outlined text-[22px]">manage_accounts</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Account</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_account">Account</span>
         </a>
     </div>
 </nav>
@@ -195,14 +205,14 @@
 <!-- Header -->
 <header class="flex justify-between items-end mb-12">
 <div>
-<span class="text-[11px] font-bold tracking-[0.2em] text-primary uppercase">Automated Intelligence</span>
-<h2 class="text-5xl font-extrabold tracking-tight text-on-surface mt-2">Scanner</h2>
+<span class="text-[11px] font-bold tracking-[0.2em] text-primary uppercase"><span data-i18n="scan_intel">Automated Intelligence</span></span>
+<h2 class="text-5xl font-extrabold tracking-tight text-on-surface mt-2"><span data-i18n="scan_title">Scanner</span></h2>
 </div>
 <div class="flex space-x-4" id="header-auth-area">
 <div class="h-10 w-10 rounded-full bg-surface-container animate-pulse"></div>
 <button class="flex items-center space-x-2 bg-primary-container text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-primary-container/20 active:scale-95 transition-transform" id="btn-new-scan">
-<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
-<span>New Scan</span>
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span><span data-i18n="nav_new_scan">New Scan</span></span>
 </button>
 </div>
 </header>
@@ -211,38 +221,37 @@
 <!-- Left Panel: Scanner Interface -->
 <section class="col-span-12 lg:col-span-8 space-y-6">
 <!-- Main Scan Interface Card -->
-<div class="bg-white border border-slate-200/60 rounded-2xl overflow-hidden shadow-sm" id="scan-interface">
+<div class="bg-slate-50 border border-slate-300 rounded-2xl overflow-hidden shadow-md" id="scan-interface">
 <div class="flex border-b border-surface-container-low">
-<button class="flex-1 py-5 text-sm font-bold text-primary border-b-2 border-primary transition-colors" id="tab-direct">Direct Input</button>
-<button class="flex-1 py-5 text-sm font-bold text-slate-400 hover:text-primary transition-colors" id="tab-file">File Upload</button>
+<button class="flex-1 py-5 text-sm font-bold text-primary border-b-2 border-primary transition-colors" id="tab-direct"><span data-i18n="tab_direct">Direct Input</span></button>
+<button class="flex-1 py-5 text-sm font-bold text-slate-400 hover:text-primary transition-colors" id="tab-file"><span data-i18n="tab_file">File Upload</span></button>
 </div>
 <div class="p-8">
 <!-- Direct Input Area -->
 <div class="space-y-6" id="panel-direct">
 <div class="space-y-2">
-<label class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Header Analysis</label>
-<textarea class="w-full h-48 bg-surface-container-low rounded-lg p-6 border-none focus:ring-2 focus:ring-primary text-on-surface font-mono text-sm placeholder:text-slate-400" id="input-headers" placeholder="Paste full email headers here for forensic analysis..."></textarea>
+<label class="text-[11px] font-bold uppercase tracking-wider text-slate-400"><span data-i18n="label_header_analysis">Header Analysis</span></label>
+<textarea class="w-full h-48 bg-surface-container-low rounded-lg p-6 border-none focus:ring-2 focus:ring-primary text-on-surface font-mono text-sm placeholder:text-slate-400" id="input-headers" placeholder="Paste full email headers here for forensic analysis..." data-i18n-placeholder="placeholder_headers"></textarea>
 </div>
 <div class="flex justify-between items-center pt-4">
 <div class="flex space-x-2">
 <div class="flex items-center space-x-1 px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold text-slate-600">
-<span class="material-symbols-outlined text-sm" data-icon="info">info</span>
+<span class="material-symbols-outlined text-sm"><span class="material-symbols-outlined">info</span></span>
 <span>DMARC CHECK ENABLED</span>
 </div>
 <div class="flex items-center space-x-1 px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold text-slate-600">
-<span class="material-symbols-outlined text-sm" data-icon="verified">verified</span>
+<span class="material-symbols-outlined text-sm"><span class="material-symbols-outlined">verified</span></span>
 <span>SPF VERIFICATION</span>
 </div>
 </div>
-<button class="bg-primary text-white px-10 py-4 rounded-full font-bold text-sm tracking-tight hover:shadow-xl hover:shadow-primary/20 active:scale-95 transition-all" id="btn-execute-direct">
-                                    Execute Forensic Scan
-                                </button>
+<button class="bg-primary text-white px-10 py-4 rounded-full font-bold text-sm tracking-tight hover:shadow-xl hover:shadow-primary/20 active:scale-95 transition-all" id="btn-execute-direct"><span data-i18n="btn_execute_forensic">Execute Forensic Scan</span></button>
 </div>
 </div>
+
 <!-- File Upload Area (Hidden by default) -->
 <div class="hidden space-y-6" id="panel-file">
 <div class="w-full h-48 border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center space-y-3 cursor-pointer hover:bg-surface-container-low transition-colors group" id="drop-zone">
-<span class="material-symbols-outlined text-4xl text-slate-300 group-hover:text-primary transition-colors" data-icon="upload_file">upload_file</span>
+<span class="material-symbols-outlined">upload_file</span>
 <div class="text-center">
 <p class="font-bold text-on-surface">Drop .eml or .msg files here</p>
 <p class="text-xs text-slate-400 mt-1">Maximum file size: 25MB</p>
@@ -251,14 +260,14 @@
 </div>
 <div class="hidden flex items-center justify-between p-4 bg-surface-container-high rounded-lg" id="selected-file">
 <div class="flex items-center space-x-3">
-<span class="material-symbols-outlined text-primary" data-icon="description">description</span>
+<span class="material-symbols-outlined">description</span>
 <div>
 <p class="text-sm font-bold truncate max-w-[200px]" id="file-name">document.eml</p>
 <p class="text-[10px] text-slate-500 uppercase" id="file-size">1.2 MB</p>
 </div>
 </div>
 <button class="text-slate-400 hover:text-error transition-colors" id="btn-remove-file">
-<span class="material-symbols-outlined" data-icon="close">close</span>
+<span class="material-symbols-outlined">close</span>
 </button>
 </div>
 <div class="flex justify-end pt-4">
@@ -273,31 +282,34 @@
 <div class="bg-surface-container-low rounded-xl p-8">
 <div class="flex justify-between items-center mb-6">
 <h3 class="font-bold text-sm text-slate-500 uppercase tracking-[0.1em]">Recent Activity</h3>
-<span class="text-[10px] font-black text-blue-500 bg-blue-100 px-2 py-0.5 rounded">SYSTEM LIVE</span>
+<span data-i18n="status_live">SYSTEM LIVE</span>
 </div>
 <div class="flex flex-col items-center justify-center py-12 text-slate-400" id="activity-empty-state">
-<span class="material-symbols-outlined text-4xl mb-4">monitoring</span>
+<span class="material-symbols-outlined">monitoring</span>
 <p class="text-sm">No recent activity detected. Initiate a scan to begin monitoring.</p>
 </div>
 <div id="activity-list" class="space-y-4 hidden"></div>
 </div>
 </section>
 <aside class="col-span-12 lg:col-span-4 space-y-6">
-<div class="bg-white border border-slate-200/60 rounded-xl p-8 relative overflow-hidden shadow-sm">
+
+
+
+<div class="bg-slate-50 border border-slate-300 rounded-xl p-8 relative overflow-hidden shadow-md">
 <div class="relative z-10">
 <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-8">Structural Blueprint</h4>
 <div class="space-y-6">
-<div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-100">
-<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Payload Entropy</span>
-<span class="text-xs font-bold text-on-surface" id="blueprint-entropy">--</span>
+<div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-300">
+Payload Entropy
+--
 </div>
-<div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-100">
-<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Header Chain</span>
-<span class="text-xs font-bold text-on-surface" id="blueprint-chain">--</span>
+<div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-300">
+Header Chain
+--
 </div>
-<div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-100">
-<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">MIME Structural Check</span>
-<span class="text-xs font-bold text-primary animate-pulse">PENDING...</span>
+<div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-300">
+MIME Structural Check
+PENDING...
 </div>
 </div>
 </div>
@@ -312,13 +324,13 @@
 <p class="text-xs font-bold opacity-70 mt-2 uppercase tracking-wide">Threat Accuracy</p>
 </div>
 <div class="grid grid-cols-2 gap-4">
-<div class="bg-white/10 p-4 rounded-lg border border-white/5">
+<div class="bg-slate-50/10 p-4 rounded-lg border border-white/5">
 <div class="text-2xl font-bold" id="stat-scanned">0</div>
 <p class="text-[10px] font-bold opacity-60 uppercase">Scanned Today</p>
 </div>
-<div class="bg-white/10 p-4 rounded-lg border border-white/5">
+<div class="bg-slate-50/10 p-4 rounded-lg border border-white/5">
 <div class="text-2xl font-bold" id="stat-blocked">0</div>
-<p class="text-[10px] font-bold opacity-60 uppercase">Threats Blocked</p>
+<p class="text-[10px] font-bold opacity-60 uppercase"  ><span data-i18n="status_blocked">Threats Blocked</span></p>
 </div>
 </div>
 </div>
@@ -327,7 +339,7 @@
 </div>
 <!-- Decorative pattern -->
 <div class="absolute -bottom-10 -right-10 opacity-10 pointer-events-none">
-<span class="material-symbols-outlined text-[200px]" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="material-symbols-outlined">security</span>
 </div>
 </div>
 </aside>
@@ -339,7 +351,7 @@
 <div class="absolute inset-0 border-4 border-surface-container rounded-full"></div>
 <div class="absolute inset-0 border-4 border-t-primary border-transparent rounded-full animate-spin" id="scan-spinner"></div>
 <div class="absolute inset-0 flex items-center justify-center">
-<span class="material-symbols-outlined text-4xl text-primary" data-icon="biotech" id="scan-icon">biotech</span>
+biotech
 </div>
 </div>
 <h3 class="text-2xl font-black text-on-surface mb-2" id="modal-title">Analyzing Payload</h3>
@@ -348,7 +360,7 @@
 <div class="hidden mt-8 p-6 bg-surface-container rounded-xl text-left" id="result-area">
 <div class="flex items-start space-x-4">
 <div class="w-12 h-12 rounded-full flex items-center justify-center shrink-0" id="result-badge">
-<span class="material-symbols-outlined text-white" data-icon="check_circle" id="result-icon">check_circle</span>
+<span class="material-symbols-outlined">check_circle</span>
 </div>
 <div>
 <p class="font-bold text-lg leading-tight mb-1" id="result-status">Clean: No Threats Detected</p>
@@ -550,14 +562,14 @@
                     el.innerHTML = `
                         <div class="flex items-center space-x-4">
                             <div class="w-10 h-10 rounded-full flex items-center justify-center \${scan.isMalicious ? 'bg-error-container text-error' : 'bg-emerald-100 text-emerald-600'}">
-                                <span class="material-symbols-outlined">\${scan.isMalicious ? 'security_update_warning' : 'verified_user'}</span>
+                                \${scan.isMalicious ? 'security_update_warning' : 'verified_user'}
                             </div>
                             <div>
                                 <p class="text-sm font-bold text-on-surface">\${scan.isMalicious ? 'Threat Neutralized' : 'Scan Complete'}</p>
                                 <p class="text-xs text-slate-500">ID: \${scan.id} • \${scan.method}</p>
                             </div>
                         </div>
-                        <span class="text-xs font-bold text-slate-400">\${timeStr}</span>
+                        \${timeStr}
                     `;
                     activityList.appendChild(el);
                 });
@@ -613,7 +625,7 @@
 
         // Unified Auth Logic
         const isLoggedIn = localStorage.getItem('cs_logged_in');
-        const loggedInHTML = `<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold shadow-sm shadow-primary/30">U</div>`;
+        const loggedInHTML = `<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold shadow-md shadow-primary/30">U</div>`;
         const loggedOutHTML = `<a href="login.html" class="text-[10px] font-bold bg-primary text-white px-3 py-1.5 rounded-full uppercase tracking-widest">Log In</a>`;
 
         const sidebarAuth = document.getElementById('nav-auth-area');
@@ -623,6 +635,13 @@
         if (mobileAuth) mobileAuth.innerHTML = isLoggedIn ? loggedInHTML : loggedOutHTML;
     });
 </script>
+
+<script src="i18n.js"></script>
+
+<div class="hidden lg:flex fixed top-6 right-8 z-[100] items-center p-1 bg-slate-50/80 backdrop-blur-md rounded-full border border-slate-300 shadow-xl">
+    <button onclick="updateLanguage('en')" data-lang="en" class="lang-toggle-btn px-4 py-1.5 rounded-full text-[11px] font-black tracking-widest transition-all">EN</button>
+    <button onclick="updateLanguage('es')" data-lang="es" class="lang-toggle-btn px-4 py-1.5 rounded-full text-[11px] font-black tracking-widest transition-all">ES</button>
+</div>
 
 </body>
 </html>

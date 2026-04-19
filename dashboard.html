@@ -18,9 +18,9 @@
 
     const defaultStatus = `
         <div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center mb-4 text-outline">
-<span class="material-symbols-outlined text-3xl">policy</span>
+<span class="material-symbols-outlined">policy</span>
 </div>
-<h3 class="text-lg font-semibold text-on-surface mb-2">Awaiting Input</h3>
+<h3 class="text-lg font-semibold text-on-surface mb-2"  >Awaiting Input</h3>
 <p class="text-sm text-on-surface-variant">System ready for raw payload analysis. Paste email source to begin diagnostic evaluation.</p>
     `;
 
@@ -32,13 +32,13 @@
     `;
 
     const getResultStatus = (isMalicious, matches) => `
-        <div class="bg-white border boundary-slate-200/60 p-8 rounded-[24px] shadow-lg flex flex-col items-center text-center animate-in fade-in zoom-in duration-300">
+        <div class="bg-slate-50 border boundary-slate-200/60 p-8 rounded-[24px] shadow-lg flex flex-col items-center text-center animate-in fade-in zoom-in duration-300">
             <div class="w-20 h-20 ${isMalicious ? 'bg-error-container text-error shadow-error/20' : 'bg-emerald-50 text-emerald-600 shadow-emerald/20'} rounded-full flex items-center justify-center mb-6 shadow-xl active:scale-95 transition-transform">
-                <span class="material-symbols-outlined text-4xl font-bold">${isMalicious ? 'gpp_maybe' : 'gpp_good'}</span>
+                ${isMalicious ? 'gpp_maybe' : 'gpp_good'}
             </div>
             <h3 class="text-2xl font-black text-on-surface mb-3 tracking-tighter">${isMalicious ? 'Heuristic Match Found' : 'Clean Signature'}</h3>
             <p class="text-on-surface-variant text-base leading-relaxed max-w-sm mb-6 font-medium">
-                ${isMalicious ? `<span class="text-error font-bold text-lg block mb-2 underline decoration-error/30 underline-offset-4">Critical Vectors: ${matches.join(', ')}</span> The payload contains specific structural markers matching known attack patterns.` : 'Structural evaluation complete. No malicious payloads or structural anomalies identified in the provided headers.'}
+                ${isMalicious ? `Critical Vectors: ${matches.join(', ')} The payload contains specific structural markers matching known attack patterns.` : 'Structural evaluation complete. No malicious payloads or structural anomalies identified in the provided headers.'}
             </p>
             ${isMalicious ? `
                 <div class="flex gap-4">
@@ -180,27 +180,44 @@
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-background text-on-surface min-h-screen flex flex-col antialiased">
+<body class="bg-slate-100 text-on-surface min-h-screen flex flex-col antialiased">
 
 <!-- ===== MOBILE TOP HEADER ===== -->
-<header class="lg:hidden fixed top-0 left-0 right-0 z-50 h-16 bg-white/95 backdrop-blur-xl border-b border-slate-100 flex items-center justify-between px-6 shadow-sm">
+<header class="lg:hidden fixed top-0 left-0 right-0 z-50 h-16 bg-slate-50/95 backdrop-blur-xl border-b border-slate-300 flex items-center justify-between px-6 shadow-md">
     <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm">
-            <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+        <div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-white shadow-md">
+            <span class="material-symbols-outlined"><span class="material-symbols-outlined">shield_with_heart</span></span>
         </div>
-        <span class="text-sm font-black tracking-tighter text-primary uppercase">Clinical Sentinel</span>
+        Clinical Sentinel
     </div>
-    <div id="mobile-auth-area" class="flex items-center gap-2">
-        <div class="h-8 w-8 rounded-full bg-slate-100 animate-pulse"></div>
-    </div>
+    
+
+<div class="flex items-center p-0.5 bg-slate-200/50 dark:bg-slate-800 rounded-full border border-slate-300 ml-auto">
+    <button onclick="updateLanguage('en')" data-lang="en" class="lang-toggle-btn px-3 py-1 rounded-full text-[10px] font-black tracking-widest transition-all">EN</button>
+    <button onclick="updateLanguage('es')" data-lang="es" class="lang-toggle-btn px-3 py-1 rounded-full text-[10px] font-black tracking-widest transition-all">ES</button>
+</div>
+
+    <div id="mobile-auth-area" class="flex items-center gap-2"></div>
 </header>
 
 <!-- ===== DESKTOP SIDEBAR ===== -->
-<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-64 bg-slate-50 dark:bg-slate-950 border-r border-slate-200/50 dark:border-slate-800/50 z-40 py-8 transition-colors">
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-64 bg-slate-50 dark:bg-slate-950 border-r border-slate-300 dark:border-slate-800/50 z-40 py-8 transition-colors">
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="px-6 mb-8">
         <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm shadow-primary/20">
-                <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+            <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-md shadow-primary/20">
+                <span class="material-symbols-outlined"><span class="material-symbols-outlined">shield_with_heart</span></span>
             </div>
             <div>
                 <h1 class="text-[11px] font-black uppercase tracking-[0.2em] text-primary leading-tight">Clinical Sentinel</h1>
@@ -210,72 +227,78 @@
     </div>
     <div class="px-4 mb-6">
         <button onclick="window.location.href='functional scanner.html'" class="w-full bg-primary text-white py-3 px-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all active:scale-95">
-            <span class="material-symbols-outlined text-[18px]">add</span> New Scan
+            <span class="material-symbols-outlined text-[20px]">add</span>
+            <span data-i18n="nav_new_scan">New Scan</span>
         </button>
     </div>
     <nav class="flex-1 px-3 space-y-1" id="desktop-nav">
         <a href="dashboard.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">shield_with_heart</span> Security Scan
+            <span class="material-symbols-outlined"><span class="material-symbols-outlined">shield_with_heart</span></span>
+            <span data-i18n="nav_security_scan">Security Scan</span>
         </a>
         <a href="functional scanner.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">manage_search</span> Full Scanner
+            <span class="material-symbols-outlined">manage_search</span>
+            <span data-i18n="nav_full_scanner">Full Scanner</span>
         </a>
         <a href="threat feed.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">radar</span> Threat Feed
+            <span class="material-symbols-outlined">radar</span>
+            <span data-i18n="nav_threat_feed">Threat Feed</span>
         </a>
         <a href="scan history.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">history</span> Scan History
+            <span class="material-symbols-outlined">history</span>
+            <span data-i18n="nav_scan_history">Scan History</span>
         </a>
         <a href="security vault.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">lock</span> Security Vault
+            <span class="material-symbols-outlined"><span class="material-symbols-outlined">lock</span></span>
+            <span data-i18n="nav_security_vault">Security Vault</span>
         </a>
         <a href="data reports.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">analytics</span> Data Reports
+            <span class="material-symbols-outlined">analytics</span>
+            <span data-i18n="nav_data_reports">Data Reports</span>
         </a>
         <a href="settings account.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">manage_accounts</span> Account
+            <span class="material-symbols-outlined">manage_accounts</span>
+            <span data-i18n="nav_account">Account</span>
         </a>
     </nav>
-    <div class="px-3 border-t border-slate-200/50 dark:border-slate-800/50 pt-4 space-y-1">
+    <div class="px-3 border-t border-slate-300 dark:border-slate-800/50 pt-4 space-y-1">
         <a href="documentation.html" class="nav-link flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-base">menu_book</span> Documentation
+            <span class="material-symbols-outlined text-[18px]">menu_book</span>
+            <span data-i18n="nav_documentation">Documentation</span>
         </a>
         <a href="support.html" class="nav-link flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-base">contact_support</span> Support
+            <span class="material-symbols-outlined text-[18px]">contact_support</span>
+            <span data-i18n="nav_support">Support</span>
         </a>
         <div id="nav-auth-area" class="px-4 pt-3 flex items-center gap-3">
-            <div class="h-8 w-8 rounded-full bg-slate-200 animate-pulse"></div>
+        <div class="h-8 w-8 rounded-full bg-slate-200 animate-pulse"></div>
         </div>
     </div>
 </aside>
 
 <!-- ===== MOBILE BOTTOM NAV ===== -->
-<nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-slate-100 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] pb-safe">
+<nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-50/95 backdrop-blur-xl border-t border-slate-300 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] pb-safe">
     <div class="flex items-stretch h-16" id="mobile-bottom-nav">
         <a href="dashboard.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-[22px]">shield_with_heart</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Scan</span>
+            <span class="material-symbols-outlined text-[22px]"><span class="material-symbols-outlined">shield_with_heart</span></span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_security_scan">Scan</span>
         </a>
         <a href="threat feed.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
             <span class="material-symbols-outlined text-[22px]">radar</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Feed</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_threat_feed">Feed</span>
         </a>
-        <a href="scan history.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-[22px]">history</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">History</span>
-        </a>
-        <a href="security vault.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-[22px]">lock</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Vault</span>
+        <a href="security vault.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors relative">
+            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white shadow-lg shadow-primary/20 border-4 border-slate-100">
+                <span class="material-symbols-outlined"><span class="material-symbols-outlined">lock</span></span>
+            </div>
+            <span class="text-[9px] font-bold uppercase tracking-wider mt-5" data-i18n="nav_security_vault">Vault</span>
         </a>
         <a href="settings account.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
             <span class="material-symbols-outlined text-[22px]">manage_accounts</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Account</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_account">Account</span>
         </a>
     </div>
 </nav>
-
-
 
 <!-- Main Content Area with SideNav and Canvas -->
 <div class="flex flex-1 max-w-[1440px] mx-auto w-full">
@@ -286,17 +309,17 @@
 <main class="flex-1 p-6 md:p-12 lg:p-16 relative w-full">
 <header class="mb-12 flex flex-col md:flex-row justify-between items-end gap-6">
 <div>
-<h1 class="text-[3.5rem] font-black text-on-surface leading-tight tracking-tighter mb-2">Deep Inspection</h1>
-<p class="text-on-surface-variant text-lg max-w-2xl font-medium">Advanced heuristic analysis for mission-critical mail protection.</p>
+<h1 class="text-[3.5rem] font-black text-on-surface leading-tight tracking-tighter mb-2"><span data-i18n="dash_title">Deep Inspection</span></h1>
+<p class="text-on-surface-variant text-lg max-w-2xl font-medium"><span data-i18n="dash_subtitle">Advanced heuristic analysis for mission-critical mail protection.</span></p>
 </div>
 <div class="flex gap-4">
-<div class="bg-white border border-slate-200/60 p-4 rounded-2xl flex items-center gap-4 shadow-sm min-w-[200px]">
+<div class="bg-slate-50 border border-slate-300 p-4 rounded-2xl flex items-center gap-4 shadow-md min-w-[200px]">
 <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
-<span class="material-symbols-outlined font-bold">verified</span>
+<span class="material-symbols-outlined font-bold"><span class="material-symbols-outlined">verified</span></span>
 </div>
 <div>
-<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Engine Status</p>
-<p class="text-sm font-black text-on-surface">Optimal Security</p>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest"><span data-i18n="dash_engine_status">Engine Status</span></p>
+<p class="text-sm font-black text-on-surface"><span data-i18n="dash_optimal_security">Optimal Security</span></p>
 </div>
 </div>
 </div>
@@ -304,8 +327,8 @@
 
 <!-- Diagnostic Cards Row -->
 <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-<div class="bg-white border border-slate-200/50 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-<span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em] mb-4 block">Heuristic Health</span>
+<div class="bg-slate-50 border border-slate-300 p-6 rounded-2xl shadow-md hover:shadow-md transition-shadow">
+<span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em] mb-4 block"><span data-i18n="dash_heuristic_health">Heuristic Health</span></span>
 <div class="flex items-end justify-between">
 <h3 class="text-3xl font-black text-on-surface">99.8%</h3>
 <div class="text-[10px] font-bold text-emerald-600 flex items-center bg-emerald-50 px-2 py-1 rounded-full">+0.2%</div>
@@ -315,21 +338,22 @@
 </div>
 </div>
 
-<div class="bg-white border border-slate-200/50 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-<span class="text-[10px] font-bold text-orange-600 uppercase tracking-[0.2em] mb-4 block">Active Threats</span>
+<div class="bg-slate-50 border border-slate-300 p-6 rounded-2xl shadow-md hover:shadow-md transition-shadow">
+<span class="text-[10px] font-bold text-orange-600 uppercase tracking-[0.2em] mb-4 block"><span data-i18n="dash_active_threats">Active Threats</span></span>
 <div class="flex items-end justify-between">
 <h3 class="text-3xl font-black text-on-surface">0</h3>
-<span class="material-symbols-outlined text-slate-200 text-3xl">verified_user</span>
+<span class="material-symbols-outlined text-slate-200 text-3xl"><span class="material-symbols-outlined">verified_user</span></span>
 </div>
-<p class="text-[10px] font-medium text-slate-400 mt-4 italic">No anomalies detected in last 24h</p>
+<p class="text-[10px] font-medium text-slate-400 mt-4 italic"><span data-i18n="dash_no_anomalies">No anomalies detected in last 24h</span></p>
 </div>
 
-<div class="bg-white border border-slate-200/50 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-<span class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-4 block">Sensor Load</span>
+<div class="bg-slate-50 border border-slate-300 p-6 rounded-2xl shadow-md hover:shadow-md transition-shadow">
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-4 block"><span data-i18n="dash_sensor_load">Sensor Load</span></span>
 <div class="flex items-end justify-between">
 <h3 class="text-3xl font-black text-on-surface">12%</h3>
-<div class="text-[10px] font-bold text-slate-400">NORMAL</div>
+<div class="text-[10px] font-bold text-slate-400"><span data-i18n="dash_normal">NORMAL</span></div>
 </div>
+
 <div class="flex gap-1 mt-4 items-end h-6">
 <div class="bg-slate-200 w-full h-1/3 rounded-t-sm"></div>
 <div class="bg-slate-200 w-full h-1/2 rounded-t-sm"></div>
@@ -338,26 +362,24 @@
 </div>
 </div>
 
-<div class="bg-white border border-slate-200/50 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-<span class="text-[10px] font-bold text-indigo-600 uppercase tracking-[0.2em] mb-4 block">Honeypot Nodes</span>
-<div class="flex items-center gap-4">
-<h3 class="text-3xl font-black text-on-surface">ACTIVE</h3>
+<div class="bg-slate-50 border border-slate-300 p-6 rounded-2xl shadow-md hover:shadow-md transition-shadow"><span data-i18n="dash_honeypot_nodes">Honeypot Nodes</span><div class="flex items-center gap-4">
+<h3 class="text-3xl font-black text-on-surface"><span data-i18n="dash_active">ACTIVE</span></h3>
 <div class="relative flex h-3 w-3">
-<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-<span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+
+
 </div>
 </div>
-<p class="text-[10px] font-medium text-slate-400 mt-4">12 nodes synchronized globally</p>
+<p class="text-[10px] font-medium text-slate-400 mt-4"><span data-i18n="dash_nodes_sync">12 nodes synchronized globally</span></p>
 </div>
 </div>
 
 <!-- Scanner Card -->
-<div class="bg-white border border-slate-200/60 rounded-[32px] p-8 md:p-10 relative overflow-hidden shadow-sm shadow-blue-900/5">
+<div class="bg-slate-50 border border-slate-300 rounded-[32px] p-8 md:p-10 relative overflow-hidden shadow-md shadow-blue-900/5">
 <div class="absolute inset-0 bg-blue-50/10 pointer-events-none"></div>
 <!-- Tabs -->
 <div class="flex space-x-6 border-b border-surface-container-highest mb-8 pb-4 relative z-10">
-<button class="text-primary font-semibold text-sm tracking-wide uppercase border-b-2 border-primary pb-4 -mb-[18px]" id="tab-raw-input">Raw Input</button>
-<button class="text-on-surface-variant font-medium text-sm tracking-wide uppercase pb-4 -mb-[18px] hover:text-primary transition-colors" id="tab-file-upload">File Upload</button>
+<button class="text-primary font-semibold text-sm tracking-wide uppercase border-b-2 border-primary pb-4 -mb-[18px]" id="tab-raw-input"  >Raw Input</button>
+<button class="text-on-surface-variant font-medium text-sm tracking-wide uppercase pb-4 -mb-[18px] hover:text-primary transition-colors" id="tab-file-upload"  ><span data-i18n="tab_file">File Upload</span></button>
 </div>
 <div class="relative z-10 grid grid-cols-1 xl:grid-cols-3 gap-12">
 <!-- Input Area -->
@@ -374,30 +396,26 @@
 <div class="relative">
 <label class="block text-[0.6875rem] font-semibold text-on-surface-variant uppercase tracking-widest mb-3">Upload Email File (.eml, .msg)</label>
 <div class="bg-surface-container-high rounded-xl p-12 border-2 border-dashed border-outline-variant/30 flex flex-col items-center justify-center hover:bg-surface-bright transition-all cursor-pointer group">
-<span class="material-symbols-outlined text-4xl text-outline mb-4 group-hover:text-primary transition-colors">upload_file</span>
-<p class="text-sm text-on-surface-variant font-medium">Drag and drop files here or <span class="text-primary">browse</span></p>
+<span class="material-symbols-outlined">upload_file</span>
+<p class="text-sm text-on-surface-variant font-medium">Drag and drop files here or browse</p>
 <input accept=".eml,.msg,.txt" class="hidden" id="file-input" type="file"/>
 </div>
 </div>
 </div>
 <div class="flex flex-wrap items-center gap-4">
 <button class="bg-primary text-on-primary px-8 py-3 rounded-full font-medium hover:bg-primary-container hover:-translate-y-0.5 transition-all shadow-[0_4px_14px_0_rgba(0,61,155,0.2)] flex items-center gap-2" id="btn-execute-scan">
-<span class="material-symbols-outlined text-[20px]" data-icon="search">search</span>
-                                Execute Scan
-                            </button>
+<span class="material-symbols-outlined">search</span><span data-i18n="btn_execute"><span data-i18n="btn_execute_scan">Execute Scan</span></span></button>
 
 <button class="text-error px-4 py-3 rounded-full font-medium hover:bg-error-container/50 transition-all flex items-center gap-2 ml-auto" id="btn-clear">
-<span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
-                                Clear
-                            </button>
+<span class="material-symbols-outlined">delete</span><span data-i18n="btn_clear">Clear</span></button>
 </div>
 </div>
 <!-- Status Area (Awaiting Scan) -->
 <div class="bg-surface-bright rounded-2xl p-6 flex flex-col items-center justify-center text-center border border-outline-variant/15 min-h-[300px]" id="status-container">
 <div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center mb-4 text-outline">
-<span class="material-symbols-outlined text-3xl" data-icon="policy">policy</span>
+<span class="material-symbols-outlined">policy</span>
 </div>
-<h3 class="text-lg font-semibold text-on-surface mb-2">Awaiting Input</h3>
+<h3 class="text-lg font-semibold text-on-surface mb-2"  >Awaiting Input</h3>
 <p class="text-sm text-on-surface-variant">System ready for raw payload analysis. Paste email source to begin diagnostic evaluation.</p>
 </div>
 </div>
@@ -405,24 +423,24 @@
 <!-- Contextual Information -->
 <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
 <div class="bg-surface-container-low rounded-2xl p-6">
-<span class="material-symbols-outlined text-secondary mb-3" data-icon="hub">hub</span>
+<span class="material-symbols-outlined">hub</span>
 <h4 class="font-semibold text-on-surface mb-2">Heuristic Engine</h4>
 <p class="text-sm text-on-surface-variant">Analyzes structural anomalies and header routing discrepancies.</p>
 </div>
 <div class="bg-surface-container-low rounded-2xl p-6">
-<span class="material-symbols-outlined text-secondary mb-3" data-icon="link_off">link_off</span>
+link_off
 <h4 class="font-semibold text-on-surface mb-2">URL Detonation</h4>
 <p class="text-sm text-on-surface-variant">Safely evaluates embedded links against known threat feeds.</p>
 </div>
 <div class="bg-surface-container-low rounded-2xl p-6">
-<span class="material-symbols-outlined text-secondary mb-3" data-icon="attach_file">attach_file</span>
+<span class="material-symbols-outlined">attach_file</span>
 <h4 class="font-semibold text-on-surface mb-2">Attachment Sandboxing</h4>
 <p class="text-sm text-on-surface-variant">Executes payloads in an isolated environment to monitor behavior.</p>
 </div>
 </div>
 </main>
 <!-- Footer -->
-<footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 mt-20 border-t border-slate-200/50 dark:border-slate-800/50">
+<footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 mt-20 border-t border-slate-300 dark:border-slate-800/50">
 <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center text-[11px] font-medium uppercase tracking-[0.1em] Inter">
 <div class="text-slate-400 dark:text-slate-600 mb-6 md:mb-0">
                 © 2024 Clinical Sentinel Security. Editorial Authority in Mail Protection.
@@ -449,9 +467,9 @@
 
     const defaultStatus = `
         <div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center mb-4 text-outline">
-<span class="material-symbols-outlined text-3xl">policy</span>
+<span class="material-symbols-outlined">policy</span>
 </div>
-<h3 class="text-lg font-semibold text-on-surface mb-2">Awaiting Input</h3>
+<h3 class="text-lg font-semibold text-on-surface mb-2"  >Awaiting Input</h3>
 <p class="text-sm text-on-surface-variant">System ready for raw payload analysis. Paste email source to begin diagnostic evaluation.</p>
     `;
 
@@ -464,7 +482,7 @@
 
     const getResultStatus = (isMalicious, matches) => `
         <div class="w-16 h-16 ${isMalicious ? 'bg-error-container text-error' : 'bg-green-100 text-green-700'} rounded-full flex items-center justify-center mb-4">
-<span class="material-symbols-outlined text-3xl">${isMalicious ? 'warning' : 'check_circle'}</span>
+${isMalicious ? 'warning' : 'check_circle'}
 </div>
 <h3 class="text-lg font-semibold text-on-surface mb-2">Scan Result: ${isMalicious ? 'Threat Detected' : 'Clean'}</h3>
 <p class="text-sm text-on-surface-variant">${isMalicious ? `Found suspicious patterns: ${matches.join(', ')}` : 'No malicious payloads or structural anomalies identified in the provided headers.'}</p>
@@ -546,14 +564,14 @@
                 <span class="material-symbols-outlined">notifications</span>
             </button>
             <button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-full transition-all active:scale-95 duration-200">
-                <span class="material-symbols-outlined">help_outline</span>
+                help_outline
             </button>
             <img alt="User profile" class="w-8 h-8 rounded-full border border-outline-variant/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn-6WvG-aA3xR6RkUjMvM9yJ6D_7T3fIqZ7H3C-oZ1_1LhV39P0-Sg-vA"/>
         `;
     } else {
         authArea.innerHTML = `
             <a href="login.html" class="text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors uppercase tracking-widest px-2">Log In</a>
-            <a href="signup.html" class="bg-primary text-on-primary px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-primary-container transition-all shadow-md">Get Started</a>
+            <a href="signup.html" class="bg-primary text-on-primary px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-primary-container transition-all shadow-md"><span data-i18n="doc_get_started">Get Started</span></a>
         `;
     }
 });</script>
@@ -586,7 +604,7 @@
 
         // Unified Auth Logic
         const isLoggedIn = localStorage.getItem('cs_logged_in');
-        const loggedInHTML = `<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold shadow-sm shadow-primary/30">U</div>`;
+        const loggedInHTML = `<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold shadow-md shadow-primary/30">U</div>`;
         const loggedOutHTML = `<a href="login.html" class="text-[10px] font-bold bg-primary text-white px-3 py-1.5 rounded-full uppercase tracking-widest">Log In</a>`;
 
         const sidebarAuth = document.getElementById('nav-auth-area');
@@ -596,5 +614,12 @@
         if (mobileAuth) mobileAuth.innerHTML = isLoggedIn ? loggedInHTML : loggedOutHTML;
     });
 </script>
+
+<script src="i18n.js"></script>
+
+<div class="hidden lg:flex fixed top-6 right-8 z-[100] items-center p-1 bg-slate-50/80 backdrop-blur-md rounded-full border border-slate-300 shadow-xl">
+    <button onclick="updateLanguage('en')" data-lang="en" class="lang-toggle-btn px-4 py-1.5 rounded-full text-[11px] font-black tracking-widest transition-all">EN</button>
+    <button onclick="updateLanguage('es')" data-lang="es" class="lang-toggle-btn px-4 py-1.5 rounded-full text-[11px] font-black tracking-widest transition-all">ES</button>
+</div>
 
 </body></html>

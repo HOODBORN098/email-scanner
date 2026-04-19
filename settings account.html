@@ -88,28 +88,48 @@
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-background text-on-background antialiased overflow-x-hidden">
+<body class="bg-slate-100 text-on-background antialiased overflow-x-hidden">
 
 <!-- ===== MOBILE TOP HEADER ===== -->
-<header class="lg:hidden fixed top-0 left-0 right-0 z-50 h-16 bg-white/95 backdrop-blur-xl border-b border-slate-100 flex items-center justify-between px-6 shadow-sm">
+<header class="lg:hidden fixed top-0 left-0 right-0 z-50 h-16 bg-slate-50/95 backdrop-blur-xl border-b border-slate-300 flex items-center justify-between px-6 shadow-md">
     <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm">
-            <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+        <div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-white shadow-md">
+            <span class="material-symbols-outlined"><span class="material-symbols-outlined">shield_with_heart</span></span>
         </div>
-        <span class="text-sm font-black tracking-tighter text-primary uppercase">Clinical Sentinel</span>
+        Clinical Sentinel
     </div>
-    <div id="mobile-auth-area" class="flex items-center gap-2">
-        <div class="h-8 w-8 rounded-full bg-slate-100 animate-pulse"></div>
-    </div>
+    
+
+<div class="flex items-center p-0.5 bg-slate-200/50 dark:bg-slate-800 rounded-full border border-slate-300 ml-auto">
+    <button onclick="updateLanguage('en')" data-lang="en" class="lang-toggle-btn px-3 py-1 rounded-full text-[10px] font-black tracking-widest transition-all">EN</button>
+    <button onclick="updateLanguage('es')" data-lang="es" class="lang-toggle-btn px-3 py-1 rounded-full text-[10px] font-black tracking-widest transition-all">ES</button>
+</div>
+
+    <div id="mobile-auth-area" class="flex items-center gap-2"></div>
 </header>
 
 <!-- ===== DESKTOP SIDEBAR ===== -->
-<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-64 bg-slate-50 dark:bg-slate-950 border-r border-slate-200/50 dark:border-slate-800/50 z-40 py-8 transition-colors">
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-64 bg-slate-50 dark:bg-slate-950 border-r border-slate-300 dark:border-slate-800/50 z-40 py-8 transition-colors">
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="px-6 mb-8">
         <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm shadow-primary/20">
-                <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+            <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-md shadow-primary/20">
+                <span class="material-symbols-outlined"><span class="material-symbols-outlined">shield_with_heart</span></span>
             </div>
+
+
+
             <div>
                 <h1 class="text-[11px] font-black uppercase tracking-[0.2em] text-primary leading-tight">Clinical Sentinel</h1>
                 <p class="text-[9px] font-bold uppercase tracking-widest text-slate-400 leading-tight">Enterprise Security</p>
@@ -118,38 +138,48 @@
     </div>
     <div class="px-4 mb-6">
         <button onclick="window.location.href='functional scanner.html'" class="w-full bg-primary text-white py-3 px-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all active:scale-95">
-            <span class="material-symbols-outlined text-[18px]">add</span> New Scan
+            <span class="material-symbols-outlined text-[20px]">add</span>
+            <span data-i18n="nav_new_scan">New Scan</span>
         </button>
     </div>
     <nav class="flex-1 px-3 space-y-1" id="desktop-nav">
         <a href="dashboard.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">shield_with_heart</span> Security Scan
+            <span class="material-symbols-outlined"><span class="material-symbols-outlined">shield_with_heart</span></span>
+            <span data-i18n="nav_security_scan">Security Scan</span>
         </a>
         <a href="functional scanner.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">manage_search</span> Full Scanner
+            <span class="material-symbols-outlined">manage_search</span>
+            <span data-i18n="nav_full_scanner">Full Scanner</span>
         </a>
         <a href="threat feed.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">radar</span> Threat Feed
+            <span class="material-symbols-outlined">radar</span>
+            <span data-i18n="nav_threat_feed">Threat Feed</span>
         </a>
         <a href="scan history.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">history</span> Scan History
+            <span class="material-symbols-outlined">history</span>
+            <span data-i18n="nav_scan_history">Scan History</span>
         </a>
         <a href="security vault.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">lock</span> Security Vault
+            <span class="material-symbols-outlined"><span class="material-symbols-outlined">lock</span></span>
+            <span data-i18n="nav_security_vault">Security Vault</span>
         </a>
         <a href="data reports.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">analytics</span> Data Reports
+            <span class="material-symbols-outlined">analytics</span>
+            <span data-i18n="nav_data_reports">Data Reports</span>
         </a>
         <a href="settings account.html" class="nav-link flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-slate-500 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-xl">manage_accounts</span> Account
+            <span class="material-symbols-outlined">manage_accounts</span>
+            <span data-i18n="nav_account">Account</span>
         </a>
     </nav>
-    <div class="px-3 border-t border-slate-200/50 dark:border-slate-800/50 pt-4 space-y-1">
+    <div class="px-3 border-t border-slate-300 dark:border-slate-800/50 pt-4 space-y-1">
         <a href="documentation.html" class="nav-link flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-base">menu_book</span> Documentation
+            <span class="material-symbols-outlined text-[18px]">menu_book</span>
+            <span data-i18n="nav_documentation">Documentation</span>
         </a>
         <a href="support.html" class="nav-link flex items-center gap-3 px-4 py-2.5 rounded-2xl text-xs text-slate-400 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-900 transition-all">
-            <span class="material-symbols-outlined text-base">contact_support</span> Support
+            <span class="material-symbols-outlined text-[18px]">contact_support</span>
+            <span data-i18n="nav_support">Support</span>
         </a>
         <div id="nav-auth-area" class="px-4 pt-3 flex items-center gap-3">
             <div class="h-8 w-8 rounded-full bg-slate-200 animate-pulse"></div>
@@ -158,27 +188,27 @@
 </aside>
 
 <!-- ===== MOBILE BOTTOM NAV ===== -->
-<nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-slate-100 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] pb-safe">
+<nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-50/95 backdrop-blur-xl border-t border-slate-300 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] pb-safe">
     <div class="flex items-stretch h-16" id="mobile-bottom-nav">
         <a href="dashboard.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-[22px]">shield_with_heart</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Scan</span>
+            <span class="material-symbols-outlined text-[22px]"><span class="material-symbols-outlined">shield_with_heart</span></span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_security_scan">Scan</span>
         </a>
         <a href="threat feed.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
             <span class="material-symbols-outlined text-[22px]">radar</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Feed</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_threat_feed">Feed</span>
         </a>
         <a href="scan history.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
             <span class="material-symbols-outlined text-[22px]">history</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">History</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_scan_history">History</span>
         </a>
         <a href="security vault.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-[22px]">lock</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Vault</span>
+            <span class="material-symbols-outlined text-[22px]"><span class="material-symbols-outlined">lock</span></span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_security_vault">Vault</span>
         </a>
         <a href="settings account.html" class="nav-link flex-1 flex flex-col items-center justify-center gap-0.5 text-slate-400 hover:text-primary transition-colors">
             <span class="material-symbols-outlined text-[22px]">manage_accounts</span>
-            <span class="text-[9px] font-bold uppercase tracking-wider">Account</span>
+            <span class="text-[9px] font-bold uppercase tracking-wider" data-i18n="nav_account">Account</span>
         </a>
     </div>
 </nav>
@@ -192,7 +222,7 @@
 <div class="lg:pl-64 pt-24 lg:pt-12 pb-24 lg:pb-8 flex flex-col min-h-screen max-w-[100vw] overflow-x-hidden">
 <main class="lg: px-8 max-w-7xl mx-auto relative">
 <header class="mb-12">
-<span class="label-sm text-[0.6875rem] font-bold tracking-[0.1em] text-primary uppercase">Workspace Configuration</span>
+Workspace Configuration
 <h1 class="text-5xl font-black tracking-tight text-on-surface mt-2">Account Settings</h1>
 <p class="text-on-surface-variant mt-4 text-lg max-w-2xl leading-relaxed">Manage your profile, adjust security protocols, and review your Sentinel subscription status from a centralized command center.</p>
 </header>
@@ -203,14 +233,14 @@
 <div class="flex items-center justify-between mb-8">
 <h2 class="text-2xl font-bold tracking-tight text-on-surface">Profile Information</h2>
 <button class="flex items-center gap-2 text-primary font-semibold text-sm hover:opacity-80 transition-opacity">
-<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+edit
                         Edit Details
                     </button>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <img id="profile-img" alt="User Profile" class="w-full h-full rounded-full object-cover border-4 border-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn-6WvG-aA3xR6RkUjMvM9yJ6D_7T3fIqZ7H3C-oZ1_1LhV39P0-Sg-vA"/>
 <button class="absolute bottom-0 right-0 bg-surface-container-lowest p-2 rounded-full shadow-md text-primary">
-<span class="material-symbols-outlined text-xl" data-icon="photo_camera">photo_camera</span>
+photo_camera
 </button>
 </div>
 <div class="space-y-6">
@@ -226,7 +256,7 @@
 </div>
 <div class="mt-8 space-y-4">
 <div class="flex items-center gap-4 p-4 bg-surface-container-high rounded-DEFAULT border-l-4 border-primary">
-<span class="material-symbols-outlined text-primary" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="material-symbols-outlined">verified_user</span>
 <div>
 <p class="text-sm font-bold text-on-surface">Identity Verified</p>
 <p class="text-xs text-on-surface-variant">Validated via Sentinel Enterprise Protocol</p>
@@ -238,7 +268,7 @@
 <section class="md:col-span-4 space-y-6">
 <div class="bg-surface-container-lowest rounded-lg p-6 shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-outline-variant/10">
 <div class="flex items-center gap-3 mb-6">
-<span class="material-symbols-outlined text-primary" data-icon="lock_reset">lock_reset</span>
+lock_reset
 <h2 class="text-xl font-bold tracking-tight text-on-surface">Security</h2>
 </div>
 <div class="space-y-6">
@@ -260,32 +290,32 @@
 <!-- Section: Subscription Plan (Vertical Focus) -->
 <div class="bg-primary p-6 rounded-lg text-on-primary shadow-xl overflow-hidden relative">
 <!-- Subtle micro-tonal transition layer -->
-<div class="absolute inset-0 bg-gradient-to-br from-primary-container/20 to-transparent"></div>
+<div class="absolute inset-0   "></div>
 <div class="relative z-10">
 <div class="flex justify-between items-start mb-6">
 <div>
-<span class="text-[10px] font-bold tracking-widest uppercase opacity-80">Current Plan</span>
+Current Plan
 <h3 class="text-2xl font-black mt-1">Sentinel Pro</h3>
 </div>
 <div class="bg-on-primary/10 px-3 py-1 rounded-full backdrop-blur-sm">
-<span class="text-[10px] font-bold">ANNUAL</span>
+ANNUAL
 </div>
 </div>
 <ul class="space-y-3 mb-8">
 <li class="flex items-center gap-2 text-sm opacity-90">
-<span class="material-symbols-outlined text-lg" data-icon="check_circle">check_circle</span> 
+check_circle 
                                 Real-time Malware Neutralization
                             </li>
 <li class="flex items-center gap-2 text-sm opacity-90">
-<span class="material-symbols-outlined text-lg" data-icon="check_circle">check_circle</span> 
+check_circle 
                                 Unlimited API Endpoints
                             </li>
 <li class="flex items-center gap-2 text-sm opacity-90">
-<span class="material-symbols-outlined text-lg" data-icon="check_circle">check_circle</span> 
+check_circle 
                                 Priority 24/7 Diagnostics
                             </li>
 </ul>
-<button class="w-full py-4 bg-white text-primary font-bold rounded-full hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
+<button class="w-full py-4 bg-slate-50 text-primary font-bold rounded-full hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
                             Upgrade to Enterprise
                         </button>
 <p class="text-center text-[10px] mt-4 opacity-60 uppercase tracking-widest font-medium">Next billing: Dec 12, 2024</p>
@@ -300,7 +330,7 @@
 <label class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-DEFAULT cursor-pointer hover:bg-surface-bright transition-colors group">
 <div class="flex items-center gap-4">
 <div class="w-10 h-10 bg-error-container rounded-full flex items-center justify-center text-on-error-container">
-<span class="material-symbols-outlined" data-icon="emergency_home">emergency_home</span>
+emergency_home
 </div>
 <div>
 <p class="text-sm font-bold text-on-surface">Critical Breach Alerts</p>
@@ -312,7 +342,7 @@
 <label class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-DEFAULT cursor-pointer hover:bg-surface-bright transition-colors group">
 <div class="flex items-center gap-4">
 <div class="w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center text-on-secondary-container">
-<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+analytics
 </div>
 <div>
 <p class="text-sm font-bold text-on-surface">Weekly Hygiene Reports</p>
@@ -326,12 +356,12 @@
 <div class="bg-surface-container-lowest rounded-lg p-8 shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-outline-variant/10">
 <div class="flex justify-between items-center mb-6">
 <h2 class="text-xl font-bold tracking-tight text-on-surface">Recent Sessions</h2>
-<span id="link-logout-all" class="text-xs font-bold text-primary cursor-pointer hover:underline">Sign Out of All Sessions</span>
+Sign Out of All Sessions
 </div>
 <div id="session-list" class="space-y-4">
 <div class="flex items-center justify-between py-2 border-b border-surface-container">
 <div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-outline">laptop_mac</span>
+laptop_mac
 <div>
 <p class="text-sm font-medium text-on-surface">Current Browser</p>
 <p class="text-[10px] text-on-surface-variant">Active Session</p>
@@ -345,7 +375,7 @@
 </div>
 <footer class="mt-20 pt-12 border-t border-surface-container flex flex-col md:flex-row justify-between items-center gap-8">
 <div class="flex items-center gap-4">
-<span class="text-xl font-black tracking-tighter text-blue-800 opacity-30 uppercase">Clinical Sentinel</span>
+Clinical Sentinel
 <p class="text-xs text-outline font-medium tracking-wide">V.2.4.0 (STABLE)</p>
 </div>
 <div class="flex gap-8">
@@ -375,10 +405,10 @@
     if (isLoggedIn) {
         authArea.innerHTML = `
             <button class="p-2 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-all duration-300 rounded-full">
-                <span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+                <span class="material-symbols-outlined">notifications</span>
             </button>
             <button class="p-2 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-all duration-300 rounded-full">
-                <span class="material-symbols-outlined text-on-surface-variant">account_circle</span>
+                account_circle
             </button>
         `;
         document.getElementById('profile-name').textContent = "Sentinel Member";
@@ -386,7 +416,7 @@
     } else {
         authArea.innerHTML = `
             <a href="login.html" class="text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors uppercase tracking-widest px-2">Log In</a>
-            <a href="signup.html" class="bg-primary text-on-primary px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-primary-container transition-all shadow-md">Get Started</a>
+            <a href="signup.html" class="bg-primary text-on-primary px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-primary-container transition-all shadow-md"><span data-i18n="doc_get_started">Get Started</span></a>
         `;
         document.getElementById('profile-name').textContent = "Guest User";
         document.getElementById('profile-email').textContent = "Sign in to view email";
@@ -424,7 +454,7 @@
 
         // Unified Auth Logic
         const isLoggedIn = localStorage.getItem('cs_logged_in');
-        const loggedInHTML = `<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold shadow-sm shadow-primary/30">U</div>`;
+        const loggedInHTML = `<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold shadow-md shadow-primary/30">U</div>`;
         const loggedOutHTML = `<a href="login.html" class="text-[10px] font-bold bg-primary text-white px-3 py-1.5 rounded-full uppercase tracking-widest">Log In</a>`;
 
         const sidebarAuth = document.getElementById('nav-auth-area');
@@ -434,5 +464,12 @@
         if (mobileAuth) mobileAuth.innerHTML = isLoggedIn ? loggedInHTML : loggedOutHTML;
     });
 </script>
+
+<script src="i18n.js"></script>
+
+<div class="hidden lg:flex fixed top-6 right-8 z-[100] items-center p-1 bg-slate-50/80 backdrop-blur-md rounded-full border border-slate-300 shadow-xl">
+    <button onclick="updateLanguage('en')" data-lang="en" class="lang-toggle-btn px-4 py-1.5 rounded-full text-[11px] font-black tracking-widest transition-all">EN</button>
+    <button onclick="updateLanguage('es')" data-lang="es" class="lang-toggle-btn px-4 py-1.5 rounded-full text-[11px] font-black tracking-widest transition-all">ES</button>
+</div>
 
 </body></html>
